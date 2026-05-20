@@ -1,0 +1,291 @@
+
+// Connectivity of the 2D OB network
+
+objref outfile, outfile2
+outfile  = new File()
+outfile2 = new File()
+
+strdef outfilepath, filename
+outfilepath = "connection/"
+
+for k = 0, ngranx-1 {
+	    for l = 0, ngrany-1 {
+		sprint(filename, "%sGC%d%d",outfilepath, k,l)
+		outfile2.wopen(filename)
+		outfile2.printf("This GC connects to the following MCs\n")
+		outfile2.close()
+	}
+	 }
+
+objref ru, rn
+ru = new Random(seedU)
+rn = new Random(seedN)
+
+null = ru.uniform(0, 1)
+
+if (NICOTIN == 0) { 
+    gnic_MC = 0.0e-3  // mS/cm2
+    gnic_PG = 0.0e-3  
+   } else {
+    gnic_MC = 1.0e-3  // mS/cm2
+    gnic_PG = 8.0e-3  //  
+   }
+   
+
+//=========================================================================  
+//                           Create cells 
+//=========================================================================
+
+objref mit[nmitx][nmity], pg[npgx][npgy], gran[ngranx][ngrany]
+// MC
+for i = 0, nmitx-1 {
+    for j = 0, nmity-1 {
+	  seed = i*nmity+j
+      mit[i][j] = new Mitral(gnic_MC)
+    }
+}
+
+// PG
+for i = 0, npgx-1 {
+    for j = 0, npgy-1 {
+      pg[i][j] = new PGcell(gnic_PG)
+    }
+}
+
+// GC
+for i = 0, ngranx-1 {
+    for j = 0, ngrany-1 {
+      gran[i][j] = new Granule(MUSCARIN)
+    }
+}
+
+//=========================================================================
+//                    Connection between MCs and PGs
+//=========================================================================
+
+objref m2pAMPA[nmitx][nmity], m2pNMDA[nmitx][nmity], p2m[nmitx][nmity]
+
+for i=0, nmitx-1 {
+  for j = 0, nmity-1 {
+    // AMPA synapses
+    AMPAgmax = Wm2p*AMPAgmaxPG
+    pg[i][j].gemmbody m2pAMPA[i][j] = new gradAMPA(0.5)	
+    setpointer    m2pAMPA[i][j].vpre, mit[i][j].tuft.v(0.5) 
+    m2pAMPA[i][j].gmax  = AMPAgmax  
+    m2pAMPA[i][j].alpha = AMPAalpha 
+    m2pAMPA[i][j].beta  = AMPAbeta  	
+    m2pAMPA[i][j].thetasyn = AMPAact
+    m2pAMPA[i][j].sigma = AMPAsigma
+    m2pAMPA[i][j].e = AMPArev 
+    
+    // NMDA synapses
+    NMDAgmax = Wm2p*NMDAgmaxPG 
+    pg[i][j].gemmbody m2pNMDA[i][j] = new gradNMDA(0.5)	
+    setpointer    m2pNMDA[i][j].vpre, mit[i][j].tuft.v(0.5) 
+    m2pNMDA[i][j].gmax  = NMDAgmax  
+    m2pNMDA[i][j].alpha = NMDAalpha 
+    m2pNMDA[i][j].beta  = NMDAbeta  	
+    m2pNMDA[i][j].thetasyn = NMDAact
+    m2pNMDA[i][j].sigma = NMDAsigma
+    m2pNMDA[i][j].e = NMDArev 	
+	
+   // GABAA synapses
+    GABAAgmax = Wp2m*GABAAgmaxPG
+    mit[i][j].tuft p2m[i][j] = new gradGABA(0.5)	
+    setpointer     p2m[i][j].vpre, pg[i][j].gemmbody.v(0.5) 
+    p2m[i][j].gmax  = GABAAgmax  
+    p2m[i][j].alpha = GABAAalpha_PG 
+    p2m[i][j].beta  = GABAAbeta_PG  	
+    p2m[i][j].thetasyn = GABAAact
+    p2m[i][j].sigma = GABAAsigma
+    p2m[i][j].e = GABAArev 
+    
+   }
+  }
+
+
+
+//====================================================================================
+//                 Connection between MCs and GCs  
+//====================================================================================
+
+
+objref NC
+NC = new Vector()
+
+objref m2gAMPA[nGran][nMit], m2gNMDA[nGran][nMit], g2m[nMit][nGran]
+
+double MGS[ngranx][ngrany]   // record the number of synapses from MCs to each GC
+double GMS[nMit]
+
+for i = 0, ngranx-1 { 
+   for j = 0, ngrany-1 {
+   MGS[i][j] = 0
+   }
+}
+
+null = ru.uniform(0, 1)
+
+
+outfile.wopen("connection/MC2GC")
+outfile.printf("Connections from MC cells to GC cells:\n")
+outfile.close
+
+
+for i=0, nmitx-1 {
+   for j = 0, nmity-1 {
+    
+	count = 0
+	M = i*nmity+j  // for the pointer
+	Z = 0          // for the pointer 
+
+	outfile.aopen("connection/MC2GC")
+	outfile.printf("From the %d MC cell(%d,%d):\n", M+1,i,j)
+	outfile.close
+	
+	x0 = dm*i  // coordinate x for MC
+	y0 = dm*j  // coordinate y for MC
+	
+    for k = 0, ngranx-1 {
+	for l = 0, ngrany-1 {
+	         
+        N = k*ngrany+l   		
+		
+        x1 = dg*k  // real coordinate x in the 2D space
+        y1 = dg*l  // real coordinate y	in the 2D space	
+			 
+        dx = x0-x1
+        dy = y0-y1
+
+        nx = abs(dx)/dg 
+        ny = abs(dy)/dg		
+	        
+  	if (nx > Hgc) {
+	    if (dx>0) {
+	      kk = ngranx + k
+            } else {
+              kk = k - ngranx  
+            }			
+		
+	} else {
+	     kk = k
+	}
+	
+	
+	if (ny > Hgc) {
+            if (dy>0) {
+	      ll = ngrany + l
+            } else {
+              ll = l - ngrany  
+            }			
+	} else {
+	      ll = l
+	}		
+		
+	x2 = dg*kk       // mapped coordinate x  in the torus
+	y2 = dg*ll	 // mapped coordinate y  in the torus
+	   
+	d = sqrt((x2-x0)^2+(y2-y0)^2)
+	  if (d>R) {
+	    d = R
+ 	}
+
+	Pr = ru.repick()
+
+	if (Pr<= Pc) {
+				
+	  sprint(filename, "%sGC%d%d",outfilepath, k,l)
+	  outfile2.aopen(filename)
+	  outfile2.printf("(%d,%d) %3.2f \n", i,j,d)
+	  outfile2.close()
+	
+	  H = MGS[k][l]	
+		
+	// AMPA synapses
+	// AMPAgmax  = (We*Gampa)/Ng    // ~2 nS
+	AMPAgmax = Wm2g*AMPAgmaxGC
+        gran[k][l].gemmbody m2gAMPA[N][H] = new gradAMPA(0.5)	
+	setpointer          m2gAMPA[N][H].vpre, mit[i][j].dend.v(d/R) 
+	m2gAMPA[N][H].gmax  = AMPAgmax  
+        m2gAMPA[N][H].alpha = AMPAalpha 
+        m2gAMPA[N][H].beta  = AMPAbeta  	
+        m2gAMPA[N][H].thetasyn = AMPAact
+	m2gAMPA[N][H].sigma = AMPAsigma
+        m2gAMPA[N][H].e = AMPArev
+	
+        // NMDA synapses
+	// NMDAgmax  = (We*Gnmda)/Ng    // ~1 nS
+ 	NMDAgmax = Wm2g*NMDAgmaxGC       
+	gran[k][l].gemmbody m2gNMDA[N][H] = new gradNMDA(0.5)	
+	setpointer          m2gNMDA[N][H].vpre, mit[i][j].dend.v(d/R) 
+        m2gNMDA[N][H].gmax  = NMDAgmax   
+        m2gNMDA[N][H].alpha = NMDAalpha
+        m2gNMDA[N][H].beta  = NMDAbeta	
+        m2gNMDA[N][H].thetasyn = NMDAact
+	m2gNMDA[N][H].sigma = NMDAsigma
+        m2gNMDA[N][H].e = NMDArev	
+		
+	// Graded inhibtion
+	// GABAAgmax = (Wi*Ggaba)/Nm    // ~2 nS
+        GABAAgmax = Wg2m*GABAAgmaxGC
+	mit[i][j].dend g2m[M][Z] = new gradGABA(d/R)	
+	setpointer     g2m[M][Z].vpre, gran[k][l].gemmbody.v(0.5)
+        g2m[M][Z].gmax  = GABAAgmax   
+        g2m[M][Z].alpha = GABAAalpha_GC
+        g2m[M][Z].beta  = GABAAbeta_GC
+        g2m[M][Z].thetasyn = GABAAact
+	g2m[M][Z].sigma = GABAAsigma
+        g2m[M][Z].e = GABAArev
+		
+	Z = Z + 1
+	MGS[k][l] = MGS[k][l]+1
+		
+        count = count + 1	
+	if ( count/6-int(count/5) == 0){
+	   outfile.printf("\n")
+	}
+
+	outfile.aopen("connection/MC2GC")
+        outfile.printf("(%d,%d)(%d, %d) %3.2f; ", k, l, kk, ll,d/R)
+      }
+
+    }
+   }
+	GMS[M]=Z
+        
+        NC.append(count)
+	outfile.printf("\n%d\n\n", count)
+	outfile.close()	 
+ }
+}	
+
+
+
+outfile.wopen("connection/MGS")
+for i = 0, ngranx-1 { 
+   for j = 0, ngrany-1 {
+   index = i*ngranx+j
+   if ( (index%10) == 0){
+      outfile.printf("\n")
+   }
+   outfile.printf("%d  ", MGS[i][j])
+   }
+}
+
+outfile.close()
+
+
+Ntotal = NC.sum()
+print "\nTotal number of MC-GC projection is\n"
+print Ntotal	 
+
+print "\nThe average number of GC inputs per MC is\n"
+print Ntotal/nMit
+print "\nThe average number of MC inputs per GC is\n"
+print Ntotal/nGran
+print "\n"	 
+
+
+
+
+

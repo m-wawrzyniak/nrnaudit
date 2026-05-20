@@ -1,0 +1,268 @@
+
+// Calculate firing rate
+objref mitrate, granrate, spk, hist
+spk      = new Vector()
+mitrate  = new Vector()
+granrate = new Vector()
+
+T = (tstop-ttrans)/1000
+
+proc firing_rate() { local i, n
+
+ for i = 0, nMit-1 {
+    n = 0
+	if (mit[i].spiketimes.size() > 0) {
+      spk = mit[i].spiketimes
+	  ind = spk.indwhere(">", ttrans)
+	  if (ind != -1) {
+	   //print ind
+	   n = spk.size()-ind
+	 }
+    }
+	mitrate.append(n/T)
+  }
+  
+ for i = 0, nGran-1 {
+    n = 0
+	if (gran[i].spiketimes.size() > 0) {
+      spk = gran[i].spiketimes
+	  ind = spk.indwhere(">", ttrans)
+	  if (ind != -1) {
+	   //print ind
+	   n = spk.size()-ind
+	 }
+    }
+	granrate.append(n/T)
+  }  
+      
+   print "\n Individual MC somatic firing rate:"
+   mitrate.printf()
+   print "\n The average MC somatic rate is:"
+   print mitrate.mean()
+   
+   print "\n Individual GC dendritic firing rate:"
+   granrate.printf()
+   print "\n The average GC dendritic rate is:"
+   print granrate.mean()  
+   
+// Create histogram
+ minrate = mitrate.min()
+ maxrate = mitrate.max()
+ 
+ //hist = mitrate.histogram(minrate, maxrate, 10) 
+   
+   
+// Save results to file   
+  outfile.wopen("data/Fmit")
+  mitrate.printf(outfile)
+  outfile.close()
+
+  outfile.wopen("data/Fgran")
+  granrate.printf(outfile)
+  outfile.close()  
+  
+  outfile.aopen(filename)
+
+  outfile.printf("\nMitral average rate: %10.3f\n", mitrate.mean())  
+  outfile.printf("Std: %10.3f\n", mitrate.stdev())
+  outfile.printf("Granule average rate: %10.3f\n", granrate.mean())  
+  outfile.printf("Std: %10.3f\n", granrate.stdev())  
+  
+  outfile.printf("\nIndividual mitral firing rate:\n")
+  mitrate.printf(outfile)
+  outfile.printf("Individual granule firing rate:\n")
+  granrate.printf(outfile)
+
+  outfile.close()   
+}
+   
+  
+// Calculate synchronization index    
+  objref outfile, lags, work
+  outfile = new File()
+  lags 	  = new Vector()
+  work 	  = new Vector()
+  
+  proc print_si() { // 1 arg - fileroot
+  print "MC Soma synchronization index"
+  print phaselock_index_Mit()
+  print "MC Dend synchronization index"
+  print phaselock_index_Mit_dend()  
+  print "GC Dend synchronization index"  
+  print phaselock_index_Gran()  
+  
+  sprint(filename,"%s",$s1)
+  outfile.wopen(filename)
+  outfile.printf("MC Soma Phase-locking index:   %10.3f\n",phaselock_index_Mit())
+  outfile.printf("MC Dend Phase-locking index:   %10.3f\n",phaselock_index_Mit_dend())  
+  outfile.printf("GC Dend Phase-locking index:   %10.3f\n",phaselock_index_Gran())  
+  outfile.close()
+
+  }
+
+func phaselock_index_Mit() { local n,i1,j1,i2,j2
+  synchindex = 0
+  n = 0
+  for i1 = 0, nMit-1 {
+     if (mit[i1].spiketimes.size() > 0) {
+        for i2 = 0, nMit-1 {
+            if (i1 != i2) {
+              calc_phase_lags_Mit(i1,i2,ttrans)
+              if (lags.size() > 1) {
+                synchindex += lags.var()
+                n += 1
+              }
+            }
+          }        
+      }
+  }
+  if (n > 0) {
+    synchindex = sqrt(synchindex/n)
+    return synchindex
+  } else {
+    return 1e6
+  }
+}
+
+
+func phaselock_index_Mit_dend() { local n,i1,j1,i2,j2
+  synchindex = 0
+  n = 0
+  for i1 = 0, nMit-1 {
+     if (mit[i1].dendspike.size() > 0) {
+        for i2 = 0, nMit-1 {
+            if (i1 != i2) {
+              calc_phase_lags_Mit_dend(i1,i2,ttrans)
+              if (lags.size() > 1) {
+                synchindex += lags.var()
+                n += 1
+              }
+            }
+          }        
+      }
+  }
+  if (n > 0) {
+    synchindex = sqrt(synchindex/n)
+    return synchindex
+  } else {
+    return 1e6
+  }
+}
+
+
+func phaselock_index_Gran() { local n,i1,j1,i2,j2
+  synchindex = 0
+  n = 0
+  for i1 = 0, nGran-1 {
+     if (gran[i1].spiketimes.size() > 0) {
+        for i2 = 0, nGran-1 {
+            if (i1 != i2) {
+              calc_phase_lags_Gran(i1,i2,ttrans)
+              if (lags.size() > 1) {
+                synchindex += lags.var()
+                n += 1
+              }
+            }
+          }        
+      }
+  }
+  if (n > 0) {
+    synchindex = sqrt(synchindex/n)
+    return synchindex
+  } else {
+    return 1e6
+  }
+}
+
+
+//=====================================================================================================
+
+proc calc_phase_lags_Mit() { local i1,j1,i2,j2,k,minidx,min // 5 args - indices of mitral cells, transient time
+    if ($1 > nMit || $2 > nMit) {
+    print "Sorry - index out of range. Please try again."
+    return
+  }
+  i1 = int($1)
+  i2 = int($2)
+  lags.resize(0)
+  // for each spiketime in cell 1, find closest spike in cell 2
+  // Note: first and last spikes ignored since can't calculate previous ISI
+  if (mit[i2].spiketimes.size > 0) {
+    for k = 1,mit[i1].spiketimes.size()-2 {
+      if (mit[i1].spiketimes.x[k] > $3) {
+        work = mit[i2].spiketimes.c.add(-mit[i1].spiketimes.x[k])
+        minidx = work.c.abs.min_ind()
+        min = work.x[minidx]
+        isiprev = mit[i1].spiketimes.x[k-1]-mit[i1].spiketimes.x[k]
+        isinext = mit[i1].spiketimes.x[k+1]-mit[i1].spiketimes.x[k]
+        if (min > isiprev/2 && min < isinext/2) {
+          if (min < 0) {
+            lags.append(min/isiprev)
+          } else {
+            lags.append(min/isinext)
+          }
+        }
+      }
+    }
+  }
+}
+
+proc calc_phase_lags_Mit_dend() { local i1,j1,i2,j2,k,minidx,min // 5 args - indices of mitral cells, transient time
+    if ($1 > nMit || $2 > nMit) {
+    print "Sorry - index out of range. Please try again."
+    return
+  }
+  i1 = int($1)
+  i2 = int($2)
+  lags.resize(0)
+  // for each spiketime in cell 1, find closest spike in cell 2
+  // Note: first and last spikes ignored since can't calculate previous ISI
+  if (mit[i2].dendspike.size > 0) {
+    for k = 1,mit[i1].dendspike.size()-2 {
+      if (mit[i1].dendspike.x[k] > $3) {
+        work = mit[i2].dendspike.c.add(-mit[i1].dendspike.x[k])
+        minidx = work.c.abs.min_ind()
+        min = work.x[minidx]
+        isiprev = mit[i1].dendspike.x[k-1]-mit[i1].dendspike.x[k]
+        isinext = mit[i1].dendspike.x[k+1]-mit[i1].dendspike.x[k]
+        if (min > isiprev/2 && min < isinext/2) {
+          if (min < 0) {
+            lags.append(min/isiprev)
+          } else {
+            lags.append(min/isinext)
+          }
+        }
+      }
+    }
+  }
+}
+
+proc calc_phase_lags_Gran() { local i1,j1,i2,j2,k,minidx,min // 5 args - indices of mitral cells, transient time
+    if ($1 > nGran || $2 > nGran) {
+    print "Sorry - index out of range. Please try again."
+    return
+  }
+  i1 = int($1)
+  i2 = int($2)
+  lags.resize(0)
+  // for each spiketime in cell 1, find closest spike in cell 2
+  // Note: first and last spikes ignored since can't calculate previous ISI
+  if (gran[i2].spiketimes.size > 0) {
+    for k = 1,gran[i1].spiketimes.size()-2 {
+      if (gran[i1].spiketimes.x[k] > $3) {
+        work = gran[i2].spiketimes.c.add(-gran[i1].spiketimes.x[k])
+        minidx = work.c.abs.min_ind()
+        min = work.x[minidx]
+        isiprev = gran[i1].spiketimes.x[k-1]-gran[i1].spiketimes.x[k]
+        isinext = gran[i1].spiketimes.x[k+1]-gran[i1].spiketimes.x[k]
+        if (min > isiprev/2 && min < isinext/2) {
+          if (min < 0) {
+            lags.append(min/isiprev)
+          } else {
+            lags.append(min/isinext)
+          }
+        }
+      }
+    }
+  }
+}

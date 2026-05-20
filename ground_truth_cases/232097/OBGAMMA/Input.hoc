@@ -1,0 +1,57 @@
+
+// Odor inputs to the 2D OB network
+
+objref MCinput[nmitx][nmity],  PGinput[npgx][npgy] 
+
+double pre_odor[nmitx][nmity], odor[nmitx][nmity]
+double IM[nmitx][nmity] 
+
+
+//===============================================================================
+//             Odor Inputs to MCs and PGCs 
+//===============================================================================
+
+outfile.wopen("input/OdorValue")  // Save odor input values to the file OdorValue
+
+for i = 0, nmitx-1 { 
+   for j = 0, nmity-1 {  
+    n = i*nmity+j+1
+   
+    // MC inputs
+        mit[i][j].tuft MCinput[i][j] = new OdorInput(0.0)
+	MCinput[i][j].torn = Todor
+	MCinput[i][j].r    = RiseRate
+        MCinput[i][j].del  = 0
+        MCinput[i][j].dur  = tstop 
+ 	
+	u0 = ru.uniform(Pre_Odor_L, Pre_Odor_U)
+	u1 = ru.uniform(Odor_L, Odor_U)
+
+	MCinput[i][j].f0 = u0
+	MCinput[i][j].f1 = u1	
+	
+	pre_odor[i][j] = u0
+	odor[i][j]     = u1
+	
+	outfile.printf("Glom%d(%d,%d)  ",n,i,j)
+        outfile.printf("%5.4f ", u0)
+	outfile.printf(" %5.4f ",u1)
+        outfile.printf("\n")
+	
+    // PG inputs 
+	pg[i][j].gemmbody  PGinput[i][j] = new OdorInput(0.0)
+	PGinput[i][j].torn = Todor
+	PGinput[i][j].r    = RiseRate
+        PGinput[i][j].del  = 0
+        PGinput[i][j].dur  = tstop 
+  
+        PGinput[i][j].f0   = Km2p*u0 	
+	PGinput[i][j].f1   = Km2p*u1
+	
+  }
+}
+
+outfile.close()
+
+
+

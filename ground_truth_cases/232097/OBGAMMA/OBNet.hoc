@@ -1,0 +1,85 @@
+
+// ****************************************************************************************************
+// 2D OB network model to study the mechanisms of gamma oscillations in the olfacotry bulb
+// Developed by Guoshi Li, University of North Carolina at Chapel Hill (guoshi_li@med.unc.edu) 
+
+// Simulation results are presented in the associated paper:
+// Li and Cleland (2017) A coupled-oscilaltor model of olfacotry bulb gamma oscillations.  
+// PLOS Computational Biology (In Press).
+// ****************************************************************************************************
+
+
+xopen("$(NEURONHOME)/lib/hoc/noload.hoc") // standard run tools
+xopen("tabchannels.hoc")
+nrncontrolmenu()
+
+v_init  = -70    // to match pas 
+tstop   = 3000   // simulation time
+celsius = 35
+
+dt = 0.002       // simulation step
+
+steps_per_ms = 5  // For graphic display: 5 data points per ms
+secondorder  = 2  // Crank-Nicholson integration method
+
+
+xpanel("Auto launch menu")
+  xbutton("Default run 3000ms ", "default_run()")
+  xbutton("Short demo 30 ms","demo_run()")
+xpanel()
+
+
+
+load_file("Parameter.hoc")
+load_file("mathslib.hoc")
+load_file("MC_def.hoc") 
+load_file("PG_def.hoc")
+load_file("GC_def.hoc")             
+load_file("Connect.hoc")
+load_file("Background.hoc")
+load_file("Input.hoc")
+load_file("Figure.hoc")
+load_file("SaveData.hoc")
+
+
+
+
+proc advance() {
+fadvance()
+}
+
+proc run() {
+  running_ = 1
+  stdinit()
+  continuerun(tstop)
+}
+
+
+
+
+
+
+proc default_run() {
+  
+  tstop   = 3000    // Total simulation time: 3 sec
+  Fig_MC() 
+  NetStim[0].seed(NSSEED)
+  run()
+  save_data(0)
+}
+
+
+proc demo_run() {
+  tstop   = 30    // Total simulation time: 0.03 sec
+  Fig_MC()  
+  NetStim[0].seed(NSSEED)
+  run()
+  save_data(0)
+}
+
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+
+// Parameters of the 2D OB network model
+
+// Random seeds
+seedU  = 88    // For uniform distribution   
+seedN  = 100   // For normal (Gaussian) distribution  
+NSSEED = 2     // Random seed for the background inputs
+
+// Number of neurons
+nmitx  = 5   // MC array
+nmity  = 5   // MC array
+nMit   = nmitx*nmity   // 25
+
+npgx   = 5   // PG array
+npgy   = 5   // PG array
+nPG    = npgx*npgy     // 25
+
+ngranx = 10  // GC array
+ngrany = 10  // GC array
+nGran  = ngranx*ngrany // default: 100 
+Hgc = (ngranx)/2  // Middle point of GC
+
+RATIO = nGran/100
+
+
+// Odor inputs
+Todor    = 2000   // Start time of odor
+RiseRate =  100   // Rise rate of the odor
+
+Pre_Odor_L = 0.1  // Pre_odor lower limit
+Pre_Odor_U = 0.2  // Pre_odor upper limit
+
+Odor_L = 0.2      // Steady odor lower limit
+Odor_U = 1.0      // Steady odor upper limit  
+
+
+// Connectivity
+Pc = 0.3     // Connectivity probability between MCs and GCs
+
+// Spatial distance
+LEN = 1000    // Length of the OB in um
+R   =  500    // Length of the MC lateral dendrite
+dm = LEN/(nmitx-1)   // Distance between two neighboring MCs
+dg = LEN/(ngranx-1)  // Distance between two neighboring GCs 
+
+// Specific inputs
+Km2p = 0.4    // Scaling factor of PG to MC input intensity 
+  
+// Synaptic weights
+Wm2p = 1   // MC to PG   
+Wm2g = 1   // MC to GC   
+
+Wp2m = 4         // PG to MC      
+Wg2m = 2/RATIO   // GC to MC  
+
+// Peak conductance
+AMPAgmaxPG  =  2e-3    //  Peak conductance for MC-PG 
+NMDAgmaxPG  =  1e-3    //  Peak conductance for MC-PG
+GABAAgmaxPG =  2e-3    //  Peak  conductance for PG-MC
+
+AMPAgmaxGC  =  2e-3    //  Peak conductance for MC-GC
+NMDAgmaxGC  =  1e-3    //  Peak conductance for MC-GC
+GABAAgmaxGC =  2e-3    //  Peak  conductance for GC-MC
+
+Gampa =  30e-3  // 30 nS, summed peak conductance for MC-GC
+Gnmda =  15e-3  // 15 nS, summed peak conductance for MC-GC 
+Ggaba =  60e-3  // 60 nS, summed peak conductance for GC-MC
+
+// Synaptic time constants
+tau1_AMPA  = 1       // AMPA rise time constant
+tau2_AMPA  = 5.5     // AMPA decay time constant
+
+tau1_NMDA  = 52      // NMDA rise time constant
+tau2_NMDA  = 343     // NMDA decay time constant
+
+tau1_GABA_PG = 1.25    // GABA rise time constant (PG-MC) 
+tau2_GABA_PG = 18      // GABA decay time constant (PG-MC)  
+
+tau1_GABA_GC = 1.25      // GABA rise time constant (GC-MC) 
+tau2_GABA_GC = 18        // GABA decay time constant (GC-MC) 
+
+AMPAalpha  = 1/tau1_AMPA      
+AMPAbeta   = 1/tau2_AMPA
+NMDAalpha  = 1/tau1_NMDA
+NMDAbeta   = 1/tau2_NMDA
+
+GABAAalpha_PG = 1/tau1_GABA_PG
+GABAAbeta_PG  = 1/tau2_GABA_PG
+
+GABAAalpha_GC = 1/tau1_GABA_GC
+GABAAbeta_GC  = 1/tau2_GABA_GC
+
+// Reserval potentials
+AMPArev = 0
+NMDArev = 0
+GABAArev = -80
+
+// Synapitc activation threshold
+AMPAact  = 0     
+NMDAact  = 0     
+GABAAact = -40   
+
+// Synaptic gradeness
+AMPAsigma  = 0.2     
+NMDAsigma  = 0.2     
+GABAAsigma = 2
+
+
+//Simulation of ACh effect (Not used in the current model)
+NICOTIN  = 0  // 0: No effect
+MUSCARIN = 0  // 0: No effect
+
+

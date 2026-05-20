@@ -1,0 +1,226 @@
+
+begintemplate PGcell
+public soma, dend, gemmshaft, gemmbody
+public AMPAr, spiketimes, dendspike, spikecount
+
+create soma, dend, gemmshaft, gemmbody		
+objref AMPAr, spiketimes, dendspike, spikecount, dendcount
+
+proc parameter() { 
+
+    AMPAtau		= 5.5		// ms
+    Erev		= 0		    // mV
+	shell_depth = 0.2       // 
+		
+		RM	= 20e3  	// ohm.cm2; 20!!!   
+        EL 	= -65		// -65 mV !!!
+	    
+		ENA =  45       // 50
+        EK  = -80	    // -75/-80 !!!
+	    ECA = 100
+		
+	    gNa_Soma = 50e-3  // 40  !!!
+	    gNa_Dend = 20e-3  // 20
+	       Sh_Na =   5    // 20  !!!    
+		   
+	    gKdr_Soma = 20e-3  // 20
+	    gKdr_Dend = 5e-3   //  5 !!!	
+	
+	    gA_Soma = 10e-3    //  10 !!!
+	    gA_Dend = 30e-3    //  30
+	       Sha_A =     0   //  9.9 / 0  !!!
+	       Shi_A =   -20   //  5.7 / 0  !!!
+		   k_tauH  = 2.5   // 1/2.5
+           sh_tauH =   0   // 0/-20
+
+	    gH_Dend = 0.2e-3   // 0.2 !!!
+		    
+	    gM_Soma = 1.0e-3   // 1 !!!
+	    gM_Dend = 0.0e-3   // 0		   
+	   
+	    gKCa_Soma  = 0.0e-3   // 
+	    gKCa_Dend  = 2.0e-3   // 2.0!!! Change this will change the number of bursts!!!
+	   
+	    gCapn_Soma = 0.0e-3		   
+	    gCapn_Dend = 1.0e-3	 //  1.0 !!!
+	    
+		gCaT_Soma = 0.0e-3
+	    gCaT_Dend = 3.0e-3   //   5 |5 |5 |    5 / 3 /5
+	       Sha_T  =  -15     //  -13|-8|-13|  -10/-13/0
+		   Shi_T  =    0     //    3|0 |0     8/ 5 /5  % Posive shift makes burst firing !!!
+	       K_tauH =  1.0
+		   
+		gcan_Dend = 0.0e-3   // 1.5 !!!	
+	   
+}
+
+
+proc celldef() {
+topol()
+subsets()
+segments()
+geometry()
+biophysics($1)
+}
+
+proc topol() {											
+	connect dend(0), soma(1)
+	connect gemmshaft(0), dend(1)
+	connect gemmbody(0), gemmshaft(1)
+}
+
+// create subsets	
+objref pg_all, pgdendgemm, spine
+proc subsets() {
+	// gemmules (body & shaft)
+    spine = new SectionList()	 
+	forsec "gemm" spine.append()
+	
+	// dendrites & gemmules (body & shaft)
+	pgdendgemm = new SectionList()
+	forsec "dend" pgdendgemm.append()
+	forsec "gemm" pgdendgemm.append()	
+
+	// all pg sections
+	pg_all = new SectionList()
+	forsec pgdendgemm pg_all.append()
+	soma pg_all.append()
+} 
+proc segments() {
+	soma.nseg = 1
+	dend.nseg = 1
+	gemmshaft.nseg = 1
+	gemmbody.nseg = 1
+}
+proc geometry() {				
+	soma { L=8  diam=8 }			
+	dend { L=100 diam=1 }     // L = 50/100 !!!
+	gemmshaft { L=1 diam=1 }
+	gemmbody  { L=1 diam=1 }
+	define_shape()					// Fill in empty pt3d info with est's using 'L' and 'diam' info
+}
+
+proc biophysics() {
+    
+    parameter()
+	spiketimes = new Vector()
+	dendspike  = new Vector()
+	
+	spike_threshold = -10  // !!!
+	
+	forsec pg_all { 				// insert passive current everywhere
+		Ra = 80         // OLD: 173
+		cm = 1.2        // 2 !!!
+		
+		insert pas
+		  g_pas = 1/RM 	// OLD: 2.3e-4 (4.3 K ohm*cm^2)
+		  e_pas = EL		
+	}
+	
+	soma {	
+	
+	insert nax
+        gbar_nax  = gNa_Soma
+        sh_nax  = Sh_Na	
+	insert kdrmt
+	    gbar_kdrmt = gKdr_Soma  
+        q10_kdrmt  = 3		
+	insert kamt
+        gbar_kamt = gA_Soma    // 
+		sha_kamt  = Sha_A 
+		shi_kamt  = Shi_A
+		k_tauH_kamt = k_tauH
+		sh_tauH_kamt = sh_tauH
+    insert kM
+        gkbar_kM  = gM_Soma    // 	
+   	
+	insert Icapn
+        gbar_Icapn = gCapn_Soma		
+	insert Ikca
+        gkbar_Ikca = gKCa_Soma
+		
+	insert Icat
+	    gbar_Icat = gCaT_Soma 
+		sha_Icat  = Sha_T
+		shi_Icat  = Shi_T
+	insert cad2     
+        depth_cad2  = shell_depth
+			
+	ena = ENA
+	ek  = EK
+    eca = ECA
+	
+	spikecount  = new APCount(0.5)
+    spikecount.thresh = spike_threshold
+    spikecount.record(spiketimes)
+	}
+	
+	forsec pgdendgemm {		
+	insert nax
+        gbar_nax = gNa_Dend	
+		sh_nax  = Sh_Na
+    insert kdrmt
+	    gbar_kdrmt = gKdr_Dend   
+        q10_kdrmt  = 3		
+	insert kamt
+        gbar_kamt  = gA_Dend    // 
+		sha_kamt = Sha_A 
+		shi_kamt = Shi_A
+		k_tauH_kamt = k_tauH
+		sh_tauH_kamt = sh_tauH		
+	insert kM
+        gkbar_kM  = gM_Dend  // 
+	
+	insert hpg 			// PG cell h current from Cadetti and Belluzzi
+	  eh_hpg = 0 
+	  ghbar_hpg = gH_Dend
+	  
+	insert Ican
+	    gbar_Ican = gcan_Dend 
+	insert Ikca
+        gkbar_Ikca = gKCa_Dend 
+	insert Icapn
+        gbar_Icapn = gCapn_Dend	
+ 	    
+	insert Icat
+	    gbar_Icat = gCaT_Dend 
+		sha_Icat  = Sha_T
+		shi_Icat  = Shi_T
+		k_tauH_Icat = K_tauH
+	insert cad2    
+        depth_cad2 = shell_depth		
+	
+	ena = ENA
+	ek  = EK
+	eca = ECA
+	}
+	
+	forsec spine {	
+	
+	insert Inic
+	enic_Inic = 3.2
+	gbar_Inic = $1   // S/cm2   
+	
+	}
+	
+		
+   gemmbody{
+   
+	AMPAr = new ExpSyn(0.5)
+    AMPAr.tau = AMPAtau
+    AMPAr.e 	= Erev
+	  
+	dendcount = new APCount(0.5)
+    dendcount.thresh = spike_threshold
+    dendcount.record(dendspike)
+    }
+	
+
+}
+
+
+proc init() {
+  celldef($1)
+}
+
+endtemplate PGcell

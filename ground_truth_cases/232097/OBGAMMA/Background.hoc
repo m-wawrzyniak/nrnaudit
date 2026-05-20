@@ -1,0 +1,79 @@
+
+// Background inputs to the 2D OB network
+
+Tb_Start = 0     // Start time of background inputs
+
+Tb_ISI  = 10     // spike interval in background input
+N_SPIKE = 1000   // number of spike in background input
+
+Thresh = 0
+Wb_MC  = 1.0e-3  // Synaptic weight of background inputs to MCs
+Wb_PG  = 0.5e-3  // Synaptic weight of background inputs to PGs
+Wb_GC  = 0.3e-3  // Synaptic weight of background inputs to GCs 
+
+objref MCbinput[nmitx][nmity], PGbinput[npgx][npgy], GCbinput[ngranx][ngrany]  
+objref MCb[nmitx][nmity], PGb[npgx][npgy], GCb[ngranx][ngrany]
+objref RSP[nmitx][nmity]
+
+//==============================================================================  
+//                    Spike-trigered random background inputs
+//==============================================================================  
+   
+  // For MCs
+   for i = 0, nmitx-1 {
+     for j = 0, nmity-1 {
+        RSP[i][j] =  new Vector()
+	 
+        MCb[i][j] = new NetStim(.5)
+        MCb[i][j].number   = N_SPIKE
+        MCb[i][j].start    = Tb_Start
+        MCb[i][j].interval = Tb_ISI
+        MCb[i][j].noise    = 1
+        MCb[i][j].seed(NSSEED)
+	
+        MCbinput[i][j] = new NetCon(MCb[i][j], mit[i][j].AMPA)
+        MCbinput[i][j].threshold = Thresh
+        MCbinput[i][j].delay     = 0
+        MCbinput[i][j].weight    = Wb_MC  	
+	   
+        MCbinput[i][j].record(RSP[i][j])
+     }
+    }
+
+  // For PGs
+   for i = 0, npgx-1 {
+     for j = 0, npgy-1 {
+        PGb[i][j] = new NetStim(.5)
+        PGb[i][j].number   = N_SPIKE
+        PGb[i][j].start    = Tb_Start
+        PGb[i][j].interval = Tb_ISI
+        PGb[i][j].noise    = 1
+        PGb[i][j].seed(NSSEED)
+	
+        PGbinput[i][j] = new NetCon(PGb[i][j], pg[i][j].AMPAr)
+        PGbinput[i][j].threshold = Thresh
+        PGbinput[i][j].delay     = 0
+        PGbinput[i][j].weight    = Wb_PG  	
+     }
+    }	
+	
+	
+  // For GCs
+   for i = 0, ngranx-1 {
+     for j = 0, ngrany-1 {
+        GCb[i][j] = new NetStim(.5)
+        GCb[i][j].number   = N_SPIKE
+        GCb[i][j].start    = Tb_Start
+        GCb[i][j].interval = Tb_ISI
+        GCb[i][j].noise    = 1
+        GCb[i][j].seed(NSSEED)
+	
+        GCbinput[i][j] = new NetCon(GCb[i][j], gran[i][j].AMPAr)
+        GCbinput[i][j].threshold = Thresh
+        GCbinput[i][j].delay     = 0
+        GCbinput[i][j].weight    = Wb_GC    	
+     }
+    }	
+	
+
+

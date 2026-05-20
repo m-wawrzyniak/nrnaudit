@@ -1,0 +1,425 @@
+
+// Save simulation data to a folder (data0)
+
+DT  = 0.2       // Record data with a resolution of 0.2 ms
+DTT = 0.02      // Record data with a resolution of 0.02 ms
+
+sum = 0
+
+objref f1
+f1 = new File()
+
+strdef filepath, filepath1, string, filename, WD
+
+objref time, input, Vmean, Vmean2 
+objref Gpm[nmitx][nmity]
+objref Ggm[nMit][nGran], Ggm_Total[nMit]
+objref Vms[nmitx][nmity], Vmd[nmitx][nmity], Vmt[nmitx][nmity]
+objref Vgs[ngranx][ngrany], Vgb[ngranx][ngrany]
+objref Vps[npgx][npgy], Vpb[npgx][npgy] 
+
+objref Tt
+objref Vmc22[5]
+
+
+filepath1 = "RSP2/"  // used to store random background inputs; not used currently
+
+Tt = new Vector()
+time   = new Vector()
+input  = new Vector()
+
+
+// Record time	
+Tt.record(&t, DTT)  
+time.record(&t, DT)
+
+// Record input timecourse
+input.record(&MCinput[0][0].i, DT)
+
+
+//====================================================
+//                  Record Voltage
+//====================================================	
+ for i = 0, 4 {
+     Vmc22[i] = new Vector()
+ }
+   
+  Vmc22[0].record(&mit[2][2].soma.v(0.5),  DTT)
+  Vmc22[1].record(&mit[2][2].dend.v(0.16), DTT)
+  Vmc22[2].record(&mit[2][2].dend.v(0.35), DTT)
+  Vmc22[3].record(&mit[2][2].dend.v(0.47), DTT) 
+  Vmc22[4].record(&mit[2][2].dend.v(0.99),  DTT) 
+  
+
+// Record Mit Soma Voltage
+ for i=0, nmitx-1 {
+    for j=0, nmity-1 {
+     Vms[i][j] = new Vector()
+     Vms[i][j].record(&mit[i][j].soma.v(0.5), DT)
+  }
+ }
+
+
+// Record Mit Dend Voltage
+ for i=0, nmitx-1 {
+   for j=0, nmity-1 {
+    Vmd[i][j] = new Vector()
+    Vmd[i][j].record(&mit[i][j].dend.v(1.0), DT)
+  }
+ }
+ 
+ // Record Mit tuft Voltage
+ for i=0, nmitx-1 {
+   for j=0, nmity-1 {
+    Vmt[i][j] = new Vector()
+    Vmt[i][j].record(&mit[i][j].tuft.v(0.5), DT)
+  }
+ }
+ 
+ 
+// Record PG Soma Voltage
+ for i=0, npgx-1 {
+  for j=0, npgy-1 {  
+    Vps[i][j] = new Vector()
+    Vps[i][j].record(&pg[i][j].soma.v(0.5), DT)
+  }
+ }
+  
+// Record PG Spine Voltage
+ for i=0, npgx-1 {
+  for j=0, npgy-1 {  
+    Vpb[i][j] = new Vector()
+    Vpb[i][j].record(&pg[i][j].gemmbody.v(0.5), DT)
+  }
+ }  
+ 
+ 
+// Record GC Soma Voltage
+ for i=0, nmitx-1 {
+  for j=0, nmity-1 {  
+    Vgs[i][j] = new Vector()
+    Vgs[i][j].record(&gran[i][j].soma.v(0.5), DT)
+  }
+ }
+ 
+// Record Gran Spine Voltage
+ for i=0, ngranx-1 {
+  for j=0, ngrany-1 {  
+    Vgb[i][j] = new Vector()
+    Vgb[i][j].record(&gran[i][j].gemmbody.v(0.5), DT)
+  }
+ }
+ 
+ 
+//====================================================
+//                Record Conductance
+//====================================================
+
+// Record PG->MC conductance
+ for i=0, nmitx-1 {
+    for j=0, nmity-1 {
+       Gpm[i][j] = new Vector()
+       Gpm[i][j].record(&p2m[i][j].g, DT)
+	  }
+ }
+ 
+// Record GC->MC conductance
+   for i=0, nMit-1 {
+    for j=0, GMS[i]-1 {
+        Ggm[i][j] = new Vector()
+        Ggm[i][j].record(&g2m[i][j].g, DT)  
+    }
+  }
+
+
+ 
+//====================================================
+//                 Save Data
+//====================================================
+
+proc save_data() {
+   WD = getcwd()
+   
+   sprint(filepath, "data%d",$1)
+   print filepath
+   print "\n"
+   
+   FL=chdir(filepath)
+   
+   if (FL==-1) {
+    sprint(string, "system(\"mkdir %s\")", filepath)
+    //chdir("getcwd()")
+    chdir(WD)
+	execute(string)
+    } else {
+    chdir(WD)
+   }
+   
+   
+
+ //====================================================
+ 
+    size1  = Vms[0][0].size()
+    Vmean  = new Vector(size1, 0)
+	
+  // Calculate mean voltage   
+    for i=0, nmitx-1 {
+       for j=0, nmity-1 {
+	    Vmean = Vmean.c.add(Vms[i][j]) 
+     } 
+    }
+	
+    size2  = Vgb[0][0].size()
+    Vmean2 = new Vector(size2, 0)
+  
+    for i=0, ngranx-1 {
+       for j=0, ngrany-1 {
+	    Vmean2 = Vmean2.c.add(Vgb[i][j]) 
+      } 
+	}
+
+ // Calculate the total GC GABAa conductance to each MC   
+    size = Ggm[0][0].size()
+	
+    for i=0, nMit-1 {
+        Ggm_Total[i] = new Vector(size, 0)
+       for j=0, GMS[i]-1 {  
+        Ggm_Total[i] = Ggm_Total[i].c.add(Ggm[i][j])
+      }
+    } 
+
+  
+// ====================================================
+//              Save Input
+// ====================================================  
+    sprint(filename, "%s/OSN", filepath)
+	f1.wopen(filename)
+	input.printf(f1)
+	f1.close()
+
+	
+    sprint(filename, "%s/Odor", filepath)
+    f1.wopen(filename)
+    for i = 0, nmitx-1 { 
+       for j = 0, nmity-1 {    
+          f1.printf("%5.4f ", odor[i][j])
+          f1.printf("\n")
+       } 
+     }
+ 
+    f1.close()  
+// ====================================================
+//             Save Simulation Time
+// ====================================================
+    sprint(filename, "%s/tt", filepath)
+    f1.wopen(filename)
+    time.printf(f1)
+    f1.close()
+
+    sprint(filename, "%s/Tt", filepath)
+    f1.wopen(filename)
+    Tt.printf(f1)
+    f1.close()
+
+//====================================================
+//               Save Conductance
+//====================================================		
+   
+// Save PG-->MC conductance
+
+  for i=0, nmitx-1 {
+    for j=0, nmity-1 {
+     sprint(filename, "%s/Gpm%d%d",filepath, i,j)
+     f1.wopen(filename)
+     Gpm[i][j].printf(f1)
+     f1.close()	
+    } 
+  }	
+	
+	
+ // Save GC-->MC conductance
+
+    for i=0, nMit-1 {
+     sprint(filename, "%s/Ggm%d",filepath, i)
+     f1.wopen(filename)
+     Ggm_Total[i].printf(f1)
+     f1.close()	
+    } 
+	
+   
+//====================================================
+//                 Save Voltage
+//====================================================		
+ // Save voltage of lateral DEND of MC22 at various points
+  for i = 0, 4 {
+    sprint(filename, "%s/Vmc22_%d",filepath, i)
+    f1.wopen(filename)
+    Vmc22[i].printf(f1)
+    f1.close()	
+   }  
+
+
+ // Save mean MC voltage	
+    Vmean = Vmean.div(nMit)
+	sprint(filename, "%s/Vam", filepath)
+    f1.wopen(filename)
+    Vmean.printf(f1)
+    f1.close()	
+	
+	Vmean2 = Vmean2.div(nGran)
+	sprint(filename, "%s/Vag", filepath)
+    f1.wopen(filename)
+    Vmean2.printf(f1)
+    f1.close()	
+		
+  // Save voltage of mitral cells
+  // Soma 
+  for i=0, nmitx-1 {
+    for j=0, nmity-1 {
+     sprint(filename, "%s/Vms_%d_%d",filepath, i,j)
+     f1.wopen(filename)
+     Vms[i][j].printf(f1)
+     f1.close()	
+    } 
+  }
+ 
+
+  // Dendrite
+  for i=0, nmitx-1 {
+    for j=0, nmity-1 {
+    sprint(filename, "%s/Vmd_%d_%d",filepath, i,j)
+    f1.wopen(filename)
+    Vmd[i][j].printf(f1)
+    f1.close()	
+   }  
+  }   
+
+  
+// Save PG voltages
+  // Soma
+  /*
+  for i=0, npgx-1 {
+    for j=0, npgy-1 {
+    sprint(filename, "%s/Vps%d%d",filepath, i,j)
+    f1.wopen(filename)
+    Vps[i][j].printf(f1)
+    f1.close()	
+   } 
+  }   
+  */
+  
+  // Spine
+  for i=0, npgx-1 {
+    for j=0, npgy-1 {
+    sprint(filename, "%s/Vpb_%d_%d",filepath, i,j)
+    f1.wopen(filename)
+    Vpb[i][j].printf(f1)
+    f1.close()	
+   } 
+  }     
+  
+  
+// Save GC voltages
+// Soma
+  /*
+  for i=0, nmitx-1 {
+    for j=0, nmity-1 {
+    sprint(filename, "%s/Vgs%d%d",filepath, i,j)
+    f1.wopen(filename)
+    Vgs[i][j].printf(f1)
+    f1.close()	
+   } 
+  } 
+  */
+  
+ // Spine
+  for i=0, ngranx-1 {
+    for j=0, ngrany-1 {
+    sprint(filename, "%s/Vgb_%d_%d",filepath, i,j)
+    f1.wopen(filename)
+    Vgb[i][j].printf(f1)
+    f1.close()	
+   } 
+  }  
+  
+  
+//====================================================
+//               Save Spike Time
+//====================================================	
+ // Save MC somatic spike time	
+  for i=0, nmitx-1 {
+    for j=0, nmity-1 {
+    sprint(filename, "%s/Ms_%d_%d",filepath, i,j)
+	f1.wopen(filename)
+	mit[i][j].spiketimes.printf(f1)
+	f1.close()
+    }		  
+  }
+  
+ // Save MC dendritic spike time	
+  for i=0, nmitx-1 {
+    for j=0, nmity-1 {	
+    sprint(filename, "%s/Md_%d_%d",filepath, i,j)
+	f1.wopen(filename)
+	mit[i][j].dendspike.printf(f1)
+	f1.close()
+   }
+  }   
+ 
+ 
+  // Save GC somatic spike time	
+  for i=0, ngranx-1 {
+     for j=0, ngrany-1 {
+      sprint(filename, "%s/Gs_%d_%d",filepath, i,j)
+	  f1.wopen(filename)
+	  gran[i][j].spiketimes.printf(f1)
+	  f1.close()
+   }
+  }
+  
+  // Save GC dendritic spike time	
+  for i=0, ngranx-1 {
+     for j=0, ngrany-1 {
+      sprint(filename, "%s/Gd_%d_%d",filepath, i,j)
+	  f1.wopen(filename)
+	  gran[i][j].dendspike.printf(f1)
+	  f1.close()
+   }
+  }  
+
+  // Save PG somatic spike time	
+  for i=0, npgx-1 {
+     for j=0, npgy-1 {
+      sprint(filename, "%s/Ps_%d_%d",filepath, i,j)
+	  f1.wopen(filename)
+	  pg[i][j].spiketimes.printf(f1)
+	  f1.close()
+   }
+  }
+  
+ // Save PG dendritic spike time	
+  for i=0, npgx-1 {
+     for j=0, npgy-1 {
+      sprint(filename, "%s/Pd_%d_%d",filepath, i,j)
+	  f1.wopen(filename)
+	  pg[i][j].dendspike.printf(f1)
+	  f1.close()
+   }
+  } 
+  
+//===============================================
+// Save random spontaneous spikes
+/*
+   for i = 0, nmitx-1 {
+     for j = 0, nmity-1 {
+       sprint(filename, "%ssp%d%d",filepath1, i, j)
+	   f1.wopen(filename)
+	   RSP[i][j].printf(f1)
+	   f1.close()
+    }		
+   } 
+ */ 
+  
+}
+
+
