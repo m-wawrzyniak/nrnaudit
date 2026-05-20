@@ -1,0 +1,26 @@
+{
+  "declarations": {
+    "file_1.hoc": {
+      "g_na": {
+        "value": 10.0,
+        "unit": "S/cm2"
+      }
+    },
+    "cell_template.hoc": {
+      "g_na_soma": {
+        "value": null,
+        "unit": "S/cm2"
+      }
+    }
+  },
+
+  "bindings": [
+    {
+      "target_file": "cell_template.hoc",
+      "target_var": "g_na_soma",
+      "source_file": "file_1.hoc",
+      "source_var": "g_na",
+      "resolved_value": 10.0
+    }
+  ]
+}

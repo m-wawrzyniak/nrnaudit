@@ -1,0 +1,26 @@
+## structure_map.json:
+
+For *.hoc:
+load_file(
+xopen(
+ropen(
+
+For *.mod:
+INCLUDE {
+
+Im excluding imports from base NEURON.
+============
+
+## parameters_assignment.json:
+
+declarations:
+    file_name:
+        variable_name:
+            value
+            unit
+bindings:
+    target_file
+    target_var
+    source_file
+    source_var
+    resolved_value

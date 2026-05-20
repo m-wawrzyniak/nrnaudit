@@ -1,0 +1,1941 @@
+{
+  "declarations": {
+    "Background.hoc": {
+      "Tb_Start": {
+        "value": 0.0,
+        "unit": "ms"
+      },
+      "Tb_ISI": {
+        "value": 10.0,
+        "unit": "ms"
+      },
+      "N_SPIKE": {
+        "value": 1000.0,
+        "unit": null
+      },
+      "Thresh": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "Wb_MC": {
+        "value": 1.0e3,
+        "unit": "???"
+      },
+      "Wb_PG": {
+        "value": 0.5e-3,
+        "unit": "???"
+      },
+      "Wb_GC": {
+        "value": 0.3e-3,
+        "unit": "???"
+      }
+          },
+    "cadecay.mod": {
+      "depth": {
+        "value": 1.0,
+        "unit": "um"
+      },
+      "tau": {
+        "value": 10.0,
+        "unit": "ms"
+      },
+      "cainf": {
+        "value": 1e-5,
+        "unit": "mM"
+      },
+      "f": {
+        "value": 1.0,
+        "unit": "???"
+      }
+    },
+    "cadecay2.mod": {
+      "depth": {
+        "value": 1.0,
+        "unit": "um"
+      },
+      "tau": {
+        "value": 800.0,
+        "unit": "ms"
+      },
+      "cainf": {
+        "value": 1e-5,
+        "unit": "mM"
+      },
+      "f": {
+        "value": 1.0,
+        "unit": "???"
+      }
+    },
+    "Caint.mod": {
+      "tauca": {
+        "value": 800,
+        "unit": "ms"
+      },
+      "A": {
+        "value": 0.2,
+        "unit": "???"
+      },
+      "camin": {
+        "value": 1e-8,
+        "unit": "mM"
+      }
+    },
+    "Cal_Synch.hoc": {
+    },
+    "Can.mod": {
+      "gbar": {
+        "value": 3e-3,
+        "unit": "mho/cm2"
+      },
+      "e": {
+        "value": 10.0,
+        "unit": "mV"
+      },
+      "tauca": {
+        "value": 800.0,
+        "unit": "ms"
+      },
+      "kdcan": {
+        "value": 0.2,
+        "unit": "mM"
+      },
+      "Shm": {
+        "value": -2,
+        "unit": "???"
+      }
+    },
+    "CaPN.mod": {
+      "gbar": {
+        "value": 0.1,
+        "unit": "mho/cm2"
+      },
+      "e": {
+        "value": 100.0,
+        "unit": "mV"
+      }
+    },
+    "CaT.mod": {
+      "gbar": {
+        "value": 3.6e-2,
+        "unit": "mho/cm2"
+      },
+      "e": {
+        "value": 100.0,
+        "unit": "mV"
+      },
+      "sha": {
+        "value": 0,
+        "unit": "???"
+      },
+      "shi": {
+        "value": 0,
+        "unit": "???"
+      },
+      "k_tauH": {
+        "value": 0,
+        "unit": "???"
+      }
+    },
+    "Connect.hoc": {
+    },
+    "Figure.hoc": {
+    },
+    "GC_def.hoc": {
+      "soma.L": {
+        "value": 8.0,
+        "unit": "um"
+      },
+      "soma.diam": {
+        "value": 8.0,
+        "unit": "um"
+      },
+      "soma.nseg": {
+        "value": 1.0,
+        "unit": null
+      },
+      "dend.L": {
+        "value": 150.0,
+        "unit": "um"
+      },
+      "dend.diam": {
+        "value": 1.0,
+        "unit": "um"
+      },
+      "dend.nseg": {
+        "value": 1.0,
+        "unit": null
+      },
+      "gemmshaft.L": {
+        "value": 1.0,
+        "unit": "um"
+      },
+      "gemmshaft.diam": {
+        "value": 1.0,
+        "unit": "um"
+      },
+      "gemmshaft.nseg": {
+        "value": 1.0,
+        "unit": null
+      },
+      "gemmbody.L": {
+        "value": 1.0,
+        "unit": "um"
+      },
+      "gemmbody.diam": {
+        "value": 1.0,
+        "unit": "um"
+      },
+      "gemmbody.nseg": {
+        "value": 1.0,
+        "unit": null
+      },
+      "RM": {
+        "value": 30e3,
+        "unit": "ohm*cm2"
+      },
+      "EL": {
+        "value": -60.0,
+        "unit": "mV"
+      },
+      "ENA": {
+        "value": 45.0,
+        "unit": "???"
+      },
+      "EK": {
+        "value": -80.0,
+        "unit": "???"
+      },
+      "ECA": {
+        "value": 100.0,
+        "unit": "???"
+      },
+      "NMDAalpha": {
+        "value": 1.63e-2,
+        "unit": "ms-1"
+      },
+      "NMDAbeta": {
+        "value": 2.92e-3,
+        "unit": "ms-1"
+      },
+      "AMPAtau": {
+        "value": 5.5,
+        "unit": "ms"
+      },
+      "Erev": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "GABAAtau": {
+        "value": 8.3,
+        "unit": "ms"
+      },
+      "GABAArev": {
+        "value": -7.0e1,
+        "unit": "mV"
+      },
+      "spike_threshold": {
+        "value": -10.0,
+        "unit": "mV"
+      },
+      "gNa_Soma": {
+        "value": 5.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gNa_Dend": {
+        "value": 2.0e-2,
+        "unit": "mho/cm2"
+      },
+      "Sh_Na": {
+        "value": 5.0,
+        "unit": "mV"
+      },
+      "gKdr_Soma": {
+        "value": 2.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gKdr_Dend": {
+        "value": 5.0e-3,
+        "unit": "mho/cm2"
+      },
+      "gA_Soma": {
+        "value": 2.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gA_Dend": {
+        "value": 6.0e-2,
+        "unit": "mho/cm2"
+      },
+      "Sha_A": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "Shi_A": {
+        "value": -20.0,
+        "unit": "mV"
+      },
+      "k_tauH": {
+        "value": 2.5,
+        "unit": null
+      },
+      "sh_tauH": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "gM_Soma": {
+        "value": 5.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gM_Dend": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "gKCa_Soma": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "gKCa_Dend": {
+        "value": 5.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gCaT_Dend": {
+        "value": 1.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gCapn_Dend": {
+        "value": 2.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gcan_Dend": {
+        "value": 1.0e-3,
+        "unit": "mho/cm2"
+      },
+      "shell_depth": {
+        "value": 0.2,
+        "unit": "um"
+      },
+      "soma.Ra": {
+        "value": 80.0,
+        "unit": "ohm*cm"
+      },
+      "soma.cm": {
+        "value": 2.0,
+        "unit": "uF/cm2"
+      },
+      "dend.Ra": {
+        "value": 80.0,
+        "unit": "ohm*cm"
+      },
+      "dend.cm": {
+        "value": 2.0,
+        "unit": "uF/cm2"
+      },
+      "gemmshaft.Ra": {
+        "value": 80.0,
+        "unit": "ohm*cm"
+      },
+      "gemmshaft.cm": {
+        "value": 2.0,
+        "unit": "uF/cm2"
+      },
+      "gemmbody.Ra": {
+        "value": 80.0,
+        "unit": "ohm*cm"
+      },
+      "gemmbody.cm": {
+        "value": 2.0,
+        "unit": "uF/cm2"
+      }
+  },
+    "GC_save.hoc": {
+      "Nd": {
+        "value": 10.0,
+        "unit": null
+      }
+    },
+    "GC_Stim.hoc": {
+      "v_init": {
+        "value": -70.0,
+        "unit": "mV"
+      },
+      "tstop": {
+        "value": 2500.0,
+        "unit": "ms"
+      },
+      "celsius": {
+        "value": 35.0,
+        "unit": "celsius"
+      },
+      "MUSCAR": {
+        "value": 1.0,
+        "unit": null
+      },
+      "stim1.del": {
+        "value": 0.0,
+        "unit": "ms"
+      },
+      "stim1.dur": {
+        "value": 2.5e3,
+        "unit": "ms"
+      },
+      "stim1.amp": {
+        "value": 0.0,
+        "unit": "nA"
+      },
+      "stim2.del": {
+        "value": 5.0e2,
+        "unit": "ms"
+      },
+      "stim2.dur": {
+        "value": 50.0,
+        "unit": "ms"
+      },
+      "stim2.amp": {
+        "value": 0.0,
+        "unit": "nA"
+      },
+      "stim3.del": {
+        "value": 1.0e3,
+        "unit": "ms"
+      },
+      "stim3.dur": {
+        "value": 6.0e2,
+        "unit": "ms"
+      },
+      "stim3.amp": {
+        "value": 3.0e-2,
+        "unit": "nA"
+      },
+      "stim4.del": {
+        "value": 1.8e3,
+        "unit": "ms"
+      },
+      "stim4.dur": {
+        "value": 50.0,
+        "unit": "ms"
+      },
+      "stim4.amp": {
+        "value": -0.0,
+        "unit": "nA"
+      }
+    },
+    "GradeAMPA.mod": {
+      "gmax": {
+        "value": 1e-3,
+        "unit": "uS"
+      },
+      "alpha": {
+        "value": 1.0,
+        "unit": "ms-1"
+      },
+      "beta": {
+        "value": 0.1818,
+        "unit": "ms-1"
+      },
+      "e": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "thetasyn": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "sigma": {
+        "value": 2.0,
+        "unit": null
+      }
+    },
+    "GradeGABA.mod": {
+      "gmax": {
+        "value": 1e-3,
+        "unit": "uS"
+      },
+      "alpha": {
+        "value": 0.8,
+        "unit": "ms-1"
+      },
+      "beta": {
+        "value": 5.56e-2,
+        "unit": "ms-1"
+      },
+      "e": {
+        "value": -80.0,
+        "unit": "mV"
+      },
+      "thetasyn": {
+        "value": -40.0,
+        "unit": "mV"
+      },
+      "sigma": {
+        "value": 2.0,
+        "unit": null
+      }
+    },
+    "GradeNMDA.mod": {
+      "gmax": {
+        "value": 1e-3,
+        "unit": "uS"
+      },
+      "alpha": {
+        "value": 1.63e-2,
+        "unit": "ms-1"
+      },
+      "beta": {
+        "value": 2.92e-3,
+        "unit": "ms-1"
+      },
+      "e": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "thetasyn": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "mg": {
+        "value": 1.0,
+        "unit": "mM"
+      },
+      "sigma": {
+        "value": 2.0,
+        "unit": null
+      }
+    },
+    "hpg.mod": {
+      "ghbar": {
+        "value": 5e-5,
+        "unit": "mho/cm2"
+      },
+      "vhalft": {
+        "value": -65,
+        "unit": "mV"
+      },
+      "a0t": {
+        "value": 8.5e-4,
+        "unit": "ms-1"
+      },
+      "zetat": {
+        "value": 8.5e-2,
+        "unit": null
+      },
+      "gmt": {
+        "value": 0.5,
+        "unit": null
+      },
+      "q10": {
+        "value": 4.5,
+        "unit": null
+      }
+    },
+    "kAmt.mod": {
+      "gbar": {
+        "value": 2.0e-4,
+        "unit": "mho/cm2"
+      },
+      "ek": {
+        "value": -70.0,
+        "unit": "mV"
+      },
+      "a0m": {
+        "value": 4.0e-2,
+        "unit": "ms-1"
+      },
+      "vhalfm": {
+        "value": -45.0,
+        "unit": "mV"
+      },
+      "zetam": {
+        "value": 0.1,
+        "unit": "mV-1"
+      },
+      "gmm": {
+        "value": 0.75,
+        "unit": null
+      },
+      "a0h": {
+        "value": 1.8e-2,
+        "unit": "ms-1"
+      },
+      "vhalfh": {
+        "value": -70,
+        "unit": "mV"
+      },
+      "zetah": {
+        "value": 0.2,
+        "unit": "mV-1"
+      },
+      "gmh": {
+        "value": 0.99,
+        "unit": null
+      },
+      "sha": {
+        "value": 9.9,
+        "unit": "mV"
+      },
+      "shi": {
+        "value": 5.7,
+        "unit": "mV"
+      },
+      "q10": {
+        "value": 3.0,
+        "unit": null
+      },
+      "k_tauH": {
+        "value": 1.0,
+        "unit": null
+      },
+      "sh_tauH": {
+        "value": -0.0,
+        "unit": "mV"
+      }
+    },
+    "kCa.mod": {
+      "gkbar": {
+        "value": 0.12,
+        "unit": "mho/cm2"
+      },
+      "ek": {
+        "value": -80.0,
+        "unit": "mV"
+      },
+      "Ybeta": {
+        "value": 0.05,
+        "unit": "ms-1"
+      },
+      "cai": {
+        "value": 1e-5,
+        "unit": "mM"
+      }
+    },
+    "KDRmt.mod": {
+      "gbar": {
+        "value": 2e-3,
+        "unit": "mho/cm"
+      },
+      "a0m": {
+        "value": 3.5e-3,
+        "unit": "ms-1"
+      },
+      "vhalfm": {
+        "value": -50.0,
+        "unit": "mV"
+      },
+      "zetam": {
+        "value": 5.5e-2,
+        "unit": "mV-1"
+      },
+      "gmm": {
+        "value": 0.5,
+        "unit": null
+      },
+      "q10": {
+        "value": 3.0,
+        "unit": null
+      }
+    },
+    "kfasttab.mod": {
+      "gkbar": {
+        "value": 0.12,
+        "unit": "mho/cm2"
+      },
+      "ek": {
+        "value": -70.0,
+        "unit": "mV"
+      }
+    },
+    "kM.mod": {
+      "gkbar": {
+        "value": 3.6e-2,
+        "unit": "mho/cm2"
+      },
+      "ek": {
+        "value": -70.0,
+        "unit": "mV"
+      }
+    },
+    "KS.mod": {
+      "gbar": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "ek": {
+        "value": -70.0,
+        "unit": "mV"
+      },
+      "kh": {
+        "value": 1.5,
+        "unit": null
+      },
+      "sha": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "shi": {
+        "value": -3.0,
+        "unit": "mV"
+      },
+      "tauM": {
+        "value": 10,
+        "unit": "ms"
+      }
+    },
+    "kslowtab.mod": {
+      "gkbar": {
+        "value": 0.12,
+        "unit": "mho/cm2"
+      },
+      "ek": {
+        "value": -70.0,
+        "unit": "mV"
+      }
+    },
+    "LCa.mod": {
+      "eca": {
+        "value": 70.0,
+        "unit": "mV"
+      },
+      "gcabar": {
+        "value": 0.12,
+        "unit": "mho/cm2"
+      }
+    },
+    "mathslib.hoc": {
+
+    },
+    "MC_def.hoc": {
+      "soma.L": {
+        "value": 25.0,
+        "unit": "um"
+      },
+      "soma.diam": {
+        "value": 20.0,
+        "unit": "um"
+      },
+      "soma.nseg": {
+        "value": 1.0,
+        "unit": null
+      },
+      "prim.L": {
+        "value": 370.0,
+        "unit": "um"
+      },
+      "prim.diam": {
+        "value": 3.5,
+        "unit": "um"
+      },
+      "prim.nseg": {
+        "value": 5.0,
+        "unit": null
+      },
+      "dend.L": {
+        "value": 500,
+        "unit": "um"
+      },
+      "dend.diam": {
+        "value": 3.4,
+        "unit": "um"
+      },
+      "dend.nseg": {
+        "value": 7.0,
+        "unit": null
+      },
+      "tuft.L": {
+        "value": 20,
+        "unit": "um"
+      },
+      "tuft.diam": {
+        "value": 0.5,
+        "unit": "um"
+      },
+      "tuft.nseg": {
+        "value": 1.0,
+        "unit": null
+      },
+      "RM": {
+        "value": 3.0e4,
+        "unit": "ohm*cm2"
+      },
+      "El": {
+        "value": -60.0,
+        "unit": "mV"
+      },
+      "ENa": {
+        "value": 45.0,
+        "unit": "mV"
+      },
+      "Ek": {
+        "value": -80.0,
+        "unit": "mV"
+      },
+      "AMPAtau": {
+        "value": 10,
+        "unit": "ms"
+      },
+      "AMPArev": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "GABAAtau": {
+        "value": 18.0,
+        "unit": "ms"
+      },
+      "GABAArev": {
+        "value": -70.0,
+        "unit": "mV"
+      },
+      "shell_depth": {
+        "value": 1.0,
+        "unit": "um"
+      },
+      "spike_threshold": {
+        "value": -10.0,
+        "unit": "mV"
+      },
+      "gNa_soma": {
+        "value": 5.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gNa_dend": {
+        "value": 3.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gNa_prim": {
+        "value": 2.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gNa_tuft": {
+        "value": 2.0e-2,
+        "unit": "mho/cm2"
+      },
+      "sh_Na": {
+        "value": -3.0,
+        "unit": "mV"
+      },
+      "gKdr_soma": {
+        "value": 3.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gKdr_dend": {
+        "value": 2.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gKdr_prim": {
+        "value": 1.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gKdr_tuft": {
+        "value": 1.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gA_soma": {
+        "value": 1.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gA_dend": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "gA_prim": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "gA_tuft": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "Sha_A": {
+        "value": 9.9,
+        "unit": "mV"
+      },
+      "Shi_A": {
+        "value": 5.7,
+        "unit": "mV"
+      },
+      "ScaleNP": {
+        "value": 1.0e0,
+        "unit": null
+      },
+      "ScaleKS": {
+        "value": 1.0e0,
+        "unit": null
+      },
+      "gNaP_soma": {
+        "value": 2.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gNaP_dend": {
+        "value": 2.0e-5,
+        "unit": "mho/cm2"
+      },
+      "gNaP_prim": {
+        "value": 1.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gNaP_tuft": {
+        "value": 1.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gKs_soma": {
+        "value": 4.2e-2,
+        "unit": "mho/cm2"
+      },
+      "gKs_dend": {
+        "value": 8.0e-3,
+        "unit": "mho/cm2"
+      },
+      "gKs_prim": {
+        "value": 1.8e-2,
+        "unit": "mho/cm2"
+      },
+      "gKs_tuft": {
+        "value": 1.8e-2,
+        "unit": "mho/cm2"
+      },
+      "tau_KS": {
+        "value": 10.0,
+        "unit": "ms"
+      },
+      "kh_KS": {
+        "value": 1.5,
+        "unit": null
+      },
+      "gCa_soma": {
+        "value": 4.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gCa_dend": {
+        "value": 5.0e-5,
+        "unit": "mho/cm2"
+      },
+      "gCa_prim": {
+        "value": 2.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gCa_tuft": {
+        "value": 2.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gKCa_soma": {
+        "value": 5.0e-3,
+        "unit": "mho/cm2"
+      },
+      "soma.Ra": {
+        "value": 70.0,
+        "unit": "ohm*cm"
+      },
+      "soma.cm": {
+        "value": 1.2,
+        "unit": "uF/cm2"
+      },
+      "prim.Ra": {
+        "value": 70.0,
+        "unit": "ohm*cm"
+      },
+      "prim.cm": {
+        "value": 1.2,
+        "unit": "uF/cm2"
+      },
+      "dend.Ra": {
+        "value": 70.0,
+        "unit": "ohm*cm"
+      },
+      "dend.cm": {
+        "value": 1.2,
+        "unit": "uF/cm2"
+      },
+      "tuft.Ra": {
+        "value": 70.0,
+        "unit": "ohm*cm"
+      },
+      "tuft.cm": {
+        "value": 1.2,
+        "unit": "uF/cm2"
+      }
+    },
+    "MC_save.hoc": {
+
+    },
+    "MC_Stim.hoc": {
+      "tstop": {
+        "value": 6.0e3,
+        "unit": "ms"
+      },
+      "celsius": {
+        "value": 35.0,
+        "unit": "celsius"
+      },
+      "dt": {
+        "value": 1.0e-2,
+        "unit": "ms"
+      },
+      "steps_per_ms": {
+        "value": 5.0,
+        "unit": "ms-1"
+      },
+      "secondorder": {
+        "value": 2.0,
+        "unit": null
+      },
+      "gnic_tuft": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "T1": {
+        "value": 1.5e3,
+        "unit": "ms"
+      },
+      "Dur": {
+        "value": 4.0e3,
+        "unit": "ms"
+      },
+      "Ic1": {
+        "value": 0.2,
+        "unit": "nA"
+      },
+      "F0": {
+        "value": 0.0,
+        "unit": "Hz"
+      },
+      "F1": {
+        "value": 0.0,
+        "unit": "Hz"
+      },
+      "Stim1.del": {
+        "value": 1.5e3,
+        "unit": "ms"
+      },
+      "Stim1.dur": {
+        "value": 4.0e3,
+        "unit": "ms"
+      },
+      "Stim1.amp": {
+        "value": 0.2,
+        "unit": "nA"
+      },
+      "Stim2.del": {
+        "value": 1.0e3,
+        "unit": "ms"
+      },
+      "Stim2.dur": {
+        "value": 4.0e3,
+        "unit": "ms"
+      },
+      "Stim2.torn": {
+        "value": 3.0e3,
+        "unit": "ms"
+      },
+      "Stim2.r": {
+        "value": 1.0e2,
+        "unit": "Hz"
+      },
+      "Stim2.f0": {
+        "value": 0.0,
+        "unit": "Hz"
+      },
+      "Stim2.f1": {
+        "value": 0.0,
+        "unit": "Hz"
+      },
+      "syn1.tau": {
+        "value": 10.0,
+        "unit": "ms"
+      },
+      "syn1.e": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "syn2.onset": {
+        "value": 3.362e3,
+        "unit": "ms"
+      },
+      "syn2.tau": {
+        "value": 3.0,
+        "unit": "ms"
+      },
+      "syn2.gmax": {
+        "value": 0.0,
+        "unit": "uS"
+      },
+      "syn2.e": {
+        "value": -80.0,
+        "unit": "mV"
+      },
+      "nc.number": {
+        "value": 1.0e2,
+        "unit": null
+      },
+      "nc.start": {
+        "value": 1.0e3,
+        "unit": "ms"
+      },
+      "nc.interval": {
+        "value": 1.0e2,
+        "unit": "ms"
+      },
+      "nc.noise": {
+        "value": 0.0,
+        "unit": null
+      },
+      "ns.threshold": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "ns.delay": {
+        "value": 0.0,
+        "unit": "ms"
+      },
+      "ns.weight": {
+        "value": 0.0,
+        "unit": "uS"
+      }
+    },
+    "mosinit.hoc": {
+
+    },
+    "nafast.mod": {
+      "gnabar": {
+        "value": 0.12,
+        "unit": "mho/cm2"
+      },
+      "ena": {
+        "value": 45.0,
+        "unit": "mV"
+      },
+      "sh": {
+        "value": -3.0,
+        "unit": "mV"
+      }
+    },
+    "NaP.mod": {
+      "gbar": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "ena": {
+        "value": 45.0,
+        "unit": "mV"
+      },
+      "sh": {
+        "value": -1.0,
+        "unit": "mV"
+      }
+    },
+    "Naxn.mod": {
+      "sh": {
+        "value": 5.0,
+        "unit": "mV"
+      },
+      "gbar": {
+        "value": 1.0e-2,
+        "unit": "mho/cm2"
+      },
+      "tha": {
+        "value": -30.0,
+        "unit": "mV"
+      },
+      "qa": {
+        "value": 7.2,
+        "unit": "mV"
+      },
+      "Ra": {
+        "value": 0.4,
+        "unit": "ms-1"
+      },
+      "Rb": {
+        "value": 1.24e-1,
+        "unit": "ms-1"
+      },
+      "thi1": {
+        "value": -45.0,
+        "unit": "mV"
+      },
+      "thi2": {
+        "value": -45.0,
+        "unit": "mV"
+      },
+      "qd": {
+        "value": 1.5,
+        "unit": "mV"
+      },
+      "qg": {
+        "value": 1.5,
+        "unit": "mV"
+      },
+      "mmin": {
+        "value": 2.0e-2,
+        "unit": null
+      },
+      "hmin": {
+        "value": 0.5,
+        "unit": null
+      },
+      "q10": {
+        "value": 2.0,
+        "unit": null
+      },
+      "Rg": {
+        "value": 1.0e-2,
+        "unit": "ms-1"
+      },
+      "Rd": {
+        "value": 3.0e-2,
+        "unit": "ms-1"
+      },
+      "thinf": {
+        "value": -50.0,
+        "unit": "mV"
+      },
+      "qinf": {
+        "value": 4.0,
+        "unit": "mV"
+      }
+    },
+    "Nicotin.mod": {
+      "gbar": {
+        "value": 1e-3,
+        "unit": "siemens/cm2"
+      },
+      "enic": {
+        "value": 3.2,
+        "unit": "mV"
+      }
+    },
+    "nmdanet.mod": {
+      "Cmax": {
+        "value": 1.0,
+        "unit": "mM"
+      },
+      "Cdur": {
+        "value": 30.0,
+        "unit": "ms"
+      },
+      "Alpha": {
+        "value": 7.2e-2,
+        "unit": "???"
+      },
+      "Beta": {
+        "value": 6.6e-3,
+        "unit": "ms-1"
+      },
+      "e": {
+        "value": 45.0,
+        "unit": "mV"
+      },
+      "mg": {
+        "value": 1.0,
+        "unit": "mM"
+      }
+    },
+    "OBNet.hoc": {
+      "v_init": {
+        "value": -70.0,
+        "unit": "mV"
+      },
+      "tstop": {
+        "value": 3e3,
+        "unit": "ms"
+      },
+      "celsius": {
+        "value": 35,
+        "unit": "celsius"
+      },
+      "dt": {
+        "value": 2e-3,
+        "unit": "ms"
+      },
+      "steps_per_ms": {
+        "value": 5.0,
+        "unit": "ms-1"
+      },
+      "secondorder": {
+        "value": 2.0,
+        "unit": null
+      }
+    },
+    "OdorInput.mod":{
+      "del": {
+        "value": 50.5,
+        "unit": "ms"
+      },
+      "dur": {
+        "value": 2.0e2,
+        "unit": "ms"
+      },
+      "torn": {
+        "value": 5.0e2,
+        "unit": "ms"
+      },
+      "f0": {
+        "value": 0.2,
+        "unit": "nA"
+      },
+      "f1": {
+        "value": 0.8,
+        "unit": "nA"
+      },
+      "r": {
+        "value": 60.0,
+        "unit": null
+      },
+      "bias": {
+        "value": 0.0,
+        "unit": "nA"
+      },
+      "pi": {
+        "value": 3.1415926,
+        "unit": null
+      }
+    },
+    "Parameter.hoc": {
+      "seedU": {
+        "value": 88.0,
+        "unit": null
+      },
+      "seedN": {
+        "value": 100,
+        "unit": null
+      },
+      "NSSEED": {
+        "value": 2.0,
+        "unit": null
+      },
+      "nmitx": {
+        "value": 5.0,
+        "unit": null
+      },
+      "nmity": {
+        "value": 5.0,
+        "unit": null
+      },
+      "nMit": {
+        "value": 25,
+        "unit": null
+      },
+      "npgx": {
+        "value": 5.0,
+        "unit": null
+      },
+      "npgy": {
+        "value": 5.0,
+        "unit": null
+      },
+      "nPG": {
+        "value": 25,
+        "unit": null
+      },
+      "ngranx": {
+        "value": 10.0,
+        "unit": null
+      },
+      "ngrany": {
+        "value": 10.0,
+        "unit": null
+      },
+      "nGran": {
+        "value": 100.0,
+        "unit": null
+      },
+      "Hgc": {
+        "value": 5.0,
+        "unit": null
+      },
+      "RATIO": {
+        "value": 1.0,
+        "unit": null
+      },
+      "Todor": {
+        "value": 2.0e3,
+        "unit": "ms"
+      },
+      "RiseRate": {
+        "value": 1.0e2,
+        "unit": "ms"
+      },
+      "Pre_Odor_L": {
+        "value": 0.1,
+        "unit": null
+      },
+      "Pre_Odor_U": {
+        "value": 0.2,
+        "unit": null
+      },
+      "Odor_L": {
+        "value": 0.2,
+        "unit": null
+      },
+      "Odor_U": {
+        "value": 1.0,
+        "unit": null
+      },
+      "Pc": {
+        "value": 0.3,
+        "unit": null
+      },
+      "LEN": {
+        "value": 1.0e3,
+        "unit": "um"
+      },
+      "R": {
+        "value": 5.0e2,
+        "unit": "um"
+      },
+      "dm": {
+        "value": 2.5e2,
+        "unit": "um"
+      },
+      "dg": {
+        "value": 1.111111111111111e2,
+        "unit": "um"
+      },
+      "Km2p": {
+        "value": 0.4,
+        "unit": null
+      },
+      "Wm2p": {
+        "value": 1.0,
+        "unit": null
+      },
+      "Wm2g": {
+        "value": 1.0,
+        "unit": null
+      },
+      "Wp2m": {
+        "value": 4.0,
+        "unit": null
+      },
+      "Wg2m": {
+        "value": 2.0,
+        "unit": null
+      },
+      "AMPAgmaxPG": {
+        "value": 2.0e-3,
+        "unit": "uS"
+      },
+      "NMDAgmaxPG": {
+        "value": 1.0e-3,
+        "unit": "uS"
+      },
+      "GABAAgmaxPG": {
+        "value": 2.0e-3,
+        "unit": "uS"
+      },
+      "AMPAgmaxGC": {
+        "value": 2.0e-3,
+        "unit": "uS"
+      },
+      "NMDAgmaxGC": {
+        "value": 1.0e-3,
+        "unit": "uS"
+      },
+      "GABAAgmaxGC": {
+        "value": 2.0e-3,
+        "unit": "uS"
+      },
+      "Gampa": {
+        "value": 3.0e-2,
+        "unit": "uS"
+      },
+      "Gnmda": {
+        "value": 1.5e-2,
+        "unit": "uS"
+      },
+      "Ggaba": {
+        "value": 6.0e-2,
+        "unit": "uS"
+      },
+      "tau1_AMPA": {
+        "value": 1.0,
+        "unit": "ms"
+      },
+      "tau2_AMPA": {
+        "value": 5.5,
+        "unit": "ms"
+      },
+      "tau1_NMDA": {
+        "value": 52.0,
+        "unit": "ms"
+      },
+      "tau2_NMDA": {
+        "value": 3.43e2,
+        "unit": "ms"
+      },
+      "tau1_GABA_PG": {
+        "value": 1.25,
+        "unit": "ms"
+      },
+      "tau2_GABA_PG": {
+        "value": 18.0,
+        "unit": "ms"
+      },
+      "tau1_GABA_GC": {
+        "value": 1.25,
+        "unit": "ms"
+      },
+      "tau2_GABA_GC": {
+        "value": 18,
+        "unit": "ms"
+      },
+      "AMPAalpha": {
+        "value": 1.0,
+        "unit": "ms-1"
+      },
+      "AMPAbeta": {
+        "value": 1.8181818181818182e-1,
+        "unit": "ms-1"
+      },
+      "NMDAalpha": {
+        "value": 1.9230769230769232e-2,
+        "unit": "ms-1"
+      },
+      "NMDAbeta": {
+        "value": 2.9154518950437317e-3,
+        "unit": "ms-1"
+      },
+      "GABAAalpha_PG": {
+        "value": 0.8,
+        "unit": "ms-1"
+      },
+      "GABAAbeta_PG": {
+        "value": 5.555555555555556e-2,
+        "unit": "ms-1"
+      },
+      "GABAAalpha_GC": {
+        "value": 0.8,
+        "unit": "ms-1"
+      },
+      "GABAAbeta_GC": {
+        "value": 5.555555555555556e-2,
+        "unit": "ms-1"
+      },
+      "AMPArev": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "NMDArev": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "GABAArev": {
+        "value": -80.0,
+        "unit": "mV"
+      },
+      "AMPAact": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "NMDAact": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "GABAAact": {
+        "value": -40.0,
+        "unit": "mV"
+      },
+      "AMPAsigma": {
+        "value": 0.2,
+        "unit": "mV"
+      },
+      "NMDAsigma": {
+        "value": 0.2,
+        "unit": "mV"
+      },
+      "GABAAsigma": {
+        "value": 2.0,
+        "unit": "mV"
+      },
+      "NICOTIN": {
+        "value": 0.0,
+        "unit": null
+      },
+      "MUSCARIN": {
+        "value": 0.0,
+        "unit": null
+      }
+    },
+    "PG_def.hoc": {
+      "AMPAtau": {
+        "value": 5.5,
+        "unit": "ms"
+      },
+      "Erev": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "shell_depth": {
+        "value": 0.2,
+        "unit": "um"
+      },
+      "RM": {
+        "value": 2.0e4,
+        "unit": "ohm*cm2"
+      },
+      "EL": {
+        "value": -6.5e1,
+        "unit": "mV"
+      },
+      "ENA": {
+        "value": 4.5e1,
+        "unit": "mV"
+      },
+      "EK": {
+        "value": -8.0e1,
+        "unit": "mV"
+      },
+      "ECA": {
+        "value": 1.0e2,
+        "unit": "mV"
+      },
+      "gNa_Soma": {
+        "value": 5.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gNa_Dend": {
+        "value": 2.0e-2,
+        "unit": "mho/cm2"
+      },
+      "Sh_Na": {
+        "value": 5.0,
+        "unit": "mV"
+      },
+      "gKdr_Soma": {
+        "value": 2.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gKdr_Dend": {
+        "value": 5.0e-3,
+        "unit": "mho/cm2"
+      },
+      "gA_Soma": {
+        "value": 1.0e-2,
+        "unit": "mho/cm2"
+      },
+      "gA_Dend": {
+        "value": 3.0e-2,
+        "unit": "mho/cm2"
+      },
+      "Sha_A": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "Shi_A": {
+        "value": -2.0e1,
+        "unit": "mV"
+      },
+      "k_tauH": {
+        "value": 2.5,
+        "unit": null
+      },
+      "sh_tauH": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "gH_Dend": {
+        "value": 2.0e-4,
+        "unit": "mho/cm2"
+      },
+      "gM_Soma": {
+        "value": 1.0e-3,
+        "unit": "mho/cm2"
+      },
+      "gM_Dend": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "gKCa_Soma": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "gKCa_Dend": {
+        "value": 2.0e-3,
+        "unit": "mho/cm2"
+      },
+      "gCapn_Soma": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "gCapn_Dend": {
+        "value": 1.0e-3,
+        "unit": "mho/cm2"
+      },
+      "gCaT_Soma": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "gCaT_Dend": {
+        "value": 3.0e-3,
+        "unit": "mho/cm2"
+      },
+      "Sha_T": {
+        "value": -1.5e1,
+        "unit": "mV"
+      },
+      "Shi_T": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "K_tauH": {
+        "value": 1.0,
+        "unit": null
+      },
+      "gcan_Dend": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "soma.nseg": {
+        "value": 1.0,
+        "unit": null
+      },
+      "dend.nseg": {
+        "value": 1.0e0,
+        "unit": null
+      },
+      "gemmshaft.nseg": {
+        "value": 1.0e0,
+        "unit": null
+      },
+      "gemmbody.nseg": {
+        "value": 1.0e0,
+        "unit": null
+      },
+      "soma.L": {
+        "value": 8.0e0,
+        "unit": "um"
+      },
+      "soma.diam": {
+        "value": 8.0e0,
+        "unit": "um"
+      },
+      "dend.L": {
+        "value": 1.0e2,
+        "unit": "um"
+      },
+      "dend.diam": {
+        "value": 1.0e0,
+        "unit": "um"
+      },
+      "gemmshaft.L": {
+        "value": 1.0e0,
+        "unit": "um"
+      },
+      "gemmshaft.diam": {
+        "value": 1.0e0,
+        "unit": "um"
+      },
+      "gemmbody.L": {
+        "value": 1.0e0,
+        "unit": "um"
+      },
+      "gemmbody.diam": {
+        "value": 1.0e0,
+        "unit": "um"
+      },
+      "spike_threshold": {
+        "value": -1.0e1,
+        "unit": "mV"
+      },
+      "soma.Ra": {
+        "value": 8.0e1,
+        "unit": "ohm*cm"
+      },
+      "soma.cm": {
+        "value": 1.2e0,
+        "unit": "uF/cm2"
+      },
+      "dend.Ra": {
+        "value": 8.0e1,
+        "unit": "ohm*cm"
+      },
+      "dend.cm": {
+        "value": 1.2e0,
+        "unit": "uF/cm2"
+      },
+      "gemmshaft.Ra": {
+        "value": 8.0e1,
+        "unit": "ohm*cm"
+      },
+      "gemmshaft.cm": {
+        "value": 1.2e0,
+        "unit": "uF/cm2"
+      },
+      "gemmbody.Ra": {
+        "value": 8.0e1,
+        "unit": "ohm*cm"
+      },
+      "gemmbody.cm": {
+        "value": 1.2e0,
+        "unit": "uF/cm2"
+      }
+    },
+    "PG_save.hoc": {
+
+    },
+    "PG_Stim.hoc":{
+      "tstop": {
+        "value": 1.5e3,
+        "unit": "ms"
+      },
+      "celsius": {
+        "value": 3.5e1,
+        "unit": "celsius"
+      },
+      "gnic_spine": {
+        "value": 0.0,
+        "unit": "mho/cm2"
+      },
+      "T1": {
+        "value": 5.0e2,
+        "unit": "ms"
+      },
+      "Dur": {
+        "value": 6.0e2,
+        "unit": "ms"
+      },
+      "BI": {
+        "value": 0.0,
+        "unit": null
+      },
+      "Ic1": {
+        "value": 1.0e-1,
+        "unit": "nA"
+      },
+      "u0": {
+        "value": 0.0,
+        "unit": "nA"
+      },
+      "u1": {
+        "value": 0.0,
+        "unit": "nA"
+      },
+      "Wb_PG": {
+        "value": 0.0,
+        "unit": "uS"
+      },
+      "Stim1.del": {
+        "value": 5.0e2,
+        "unit": "ms"
+      },
+      "Stim1.dur": {
+        "value": 6.0e2,
+        "unit": "ms"
+      },
+      "Stim1.amp": {
+        "value": 1.0e-1,
+        "unit": "nA"
+      },
+      "Stim2.torn": {
+        "value": 1.0e3,
+        "unit": "ms"
+      },
+      "Stim2.r": {
+        "value": 1.0e2,
+        "unit": "Hz"
+      },
+      "Stim2.del": {
+        "value": 0.0,
+        "unit": "ms"
+      },
+      "Stim2.dur": {
+        "value": 1.5e3,
+        "unit": "ms"
+      },
+      "Stim2.f0": {
+        "value": 0.0,
+        "unit": "nA"
+      },
+      "Stim2.f1": {
+        "value": 0.0,
+        "unit": "nA"
+      },
+      "Tb_ISI": {
+        "value": 1.0e1,
+        "unit": "ms"
+      },
+      "N_SPIKE": {
+        "value": 1.0e3,
+        "unit": null
+      },
+      "PGb.number": {
+        "value": 1.0e3,
+        "unit": null
+      },
+      "PGb.start": {
+        "value": 0.0,
+        "unit": "ms"
+      },
+      "PGb.interval": {
+        "value": 1.0e1,
+        "unit": "ms"
+      },
+      "PGb.noise": {
+        "value": 1.0,
+        "unit": null
+      },
+      "PGbinput.threshold": {
+        "value": 0.0,
+        "unit": "mV"
+      },
+      "PGbinput.delay": {
+        "value": 0.0,
+        "unit": "ms"
+      },
+      "PGbinput.weight": {
+        "value": 0.0,
+        "unit": "uS"
+      }
+    },
+    "SaveData.hoc": {
+      "DT": {
+        "value": 0.2,
+        "unit": "ms"
+      },
+      "DTT": {
+        "value": 0.02,
+        "unit": "ms"
+      },
+      "sum": {
+        "value": 0.0,
+        "unit": null
+      }
+    },
+    "SineInput.mod": {
+      "del": {
+        "value": 1.0e2,
+        "unit": "ms"
+      },
+      "dur": {
+        "value": 2.0e2,
+        "unit": "ms"
+      },
+      "bias": {
+        "value": 0.0,
+        "unit": "nA"
+      },
+      "pi": {
+        "value": 3.1415926,
+        "unit": null
+      },
+      "A": {
+        "value": 1.0,
+        "unit": "nA"
+      },
+      "f": {
+        "value": 2.5,
+        "unit": "Hz"
+      }
+    },
+    "tabchannels.hoc": {
+      "npoints": {
+        "value": 1001.0,
+        "unit": null
+      }
+    }
+  },
+  "bindings": [
+    {
+      "target_file": null,
+      "target_var": null,
+      "source_file": null,
+      "source_var": null,
+      "resolved_value": null
+    }
+  ]
+}
