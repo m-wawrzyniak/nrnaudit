@@ -1,0 +1,29 @@
+{
+  "mechanisms": {
+    "cad" : "cadecay.mod",
+    "cad2": "cadecay2.mod",
+    "Cacon": "Caint.mod",
+    "Ican": "Can.mod",
+    "Icapn": "CaPN.mod",
+    "Icat": "CaT.mod",
+    "gradAMPA": "GradeAMPA.mod",
+    "gradGABA": "GradeGABA.mod",
+    "gradNMDA": "GradeNMDA.mod",
+    "hpg": "hpg.mod",
+    "kamt": "kAmt.mod",
+    "Ikca": "KCa.mod",
+    "kdrmt": "KDRmt.mod",
+    "kfasttab": "kfasttab.mod",
+    "kM": "kM.mod",
+    "IKs": "KS.mod",
+    "kslowtab": "kslowtab.mod",
+    "ICa": "LCa.mod",
+    "nafast": "nafast.mod",
+    "INaP": "NaP.mod",
+    "nax": "Naxn.mod",
+    "Inic": "Nicotin.mod",
+    "NMDA": "nmdanet.mod",
+    "OdorInput": "OdorInput.mod",
+    "IClampSine": "SineInput.mod"
+  }
+}

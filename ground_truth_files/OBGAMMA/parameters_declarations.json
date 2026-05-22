@@ -1928,14 +1928,5 @@
         "unit": null
       }
     }
-  },
-  "bindings": [
-    {
-      "target_file": null,
-      "target_var": null,
-      "source_file": null,
-      "source_var": null,
-      "resolved_value": null
-    }
-  ]
+  }
 }

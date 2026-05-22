@@ -1,0 +1,2451 @@
+{
+  "bindings": {
+    "Background.hoc": [
+      {
+        "target_file": "Background.hoc",
+        "target_var": "MCbinput[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "MCbinput[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "PGbinput[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "PGbinput[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgy",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "GCbinput[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngranx",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "GCbinput[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngrany",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "MCb[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "MCb[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "PGb[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "PGb[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgy",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "GCb[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngranx",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "GCb[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngrany",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "RSP[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Background.hoc",
+        "target_var": "RSP[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "MCb[i][j].number",
+        "source_file": "Background.hoc",
+        "source_var": "N_SPIKE",
+        "resolved_value": 1.0e3
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "MCb[i][j].start",
+        "source_file": "Background.hoc",
+        "source_var": "Tb_Start",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "MCb[i][j].interval",
+        "source_file": "Background.hoc",
+        "source_var": "Tb_ISI",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "MCb[i][j].seed",
+        "source_file": "Parameter.hoc",
+        "source_var": "NSSEED",
+        "resolved_value": 2.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "MCbinput[i][j].threshold",
+        "source_file": "Background.hoc",
+        "source_var": "Thresh",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "MCbinput[i][j].weight",
+        "source_file": "Background.hoc",
+        "source_var": "Wb_MC",
+        "resolved_value": 1.0e-3
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "PGb[i][j].number",
+        "source_file": "Background.hoc",
+        "source_var": "N_SPIKE",
+        "resolved_value": 1.0e3
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "PGb[i][j].start",
+        "source_file": "Background.hoc",
+        "source_var": "Tb_start",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "PGb[i][j].interval",
+        "source_file": "Background.hoc",
+        "source_var": "Tb_ISI",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "PGb[i][j].seed",
+        "source_file": "Parameter.hoc",
+        "source_var": "NSSEED",
+        "resolved_value": 2.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "PGbinput[i][j].threshold",
+        "source_file": "Background.hoc",
+        "source_var": "Thresh",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "PGbinput[i][j].weight",
+        "source_file": "Background.hoc",
+        "source_var": "Wb_PG",
+        "resolved_value": 5.0e-4
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "GCb[i][j].number",
+        "source_file": "Background.hoc",
+        "source_var": "N_SPIKE",
+        "resolved_value": 1.0e3
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "GCb[i][j].start",
+        "source_file": "Background.hoc",
+        "source_var": "Tb_Start",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "GCb[i][j].interval",
+        "source_file": "Background.hoc",
+        "source_var": "Tb_ISI",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "GCb[i][j].seed",
+        "source_file": "Parameter.hoc",
+        "source_var": "NSSEED",
+        "resolved_value": 2.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "GCbinput[i][j].threshold",
+        "source_file": "Background.hoc",
+        "source_var": "Thresh",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "GCbinput[i][j].weight",
+        "source_file": "Background.hoc",
+        "source_var": "Wb_GC",
+        "resolved_value": 3.0e-4
+      }
+    ],
+    "Cal_Synch.hoc": [
+
+    ],
+    "Connect.hoc": [
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "mit[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "mit[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "pg[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "pg[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgy",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "gran[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngranx",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "gran[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngrany",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "m2pAMPA[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "m2pAMPA[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "m2pNMDA[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "m2pNMDA[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "p2m[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "p2m[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2pAMPA[i][j].gmax",
+        "source_file": "Connect.hoc",
+        "source_var": "AMPAgmax",
+        "resolved_value": 2.0e-3
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2pAMPA[i][j].alpha",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPAalpha",
+        "resolved_value": 1.0e0
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2pAMPA[i][j].beta",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPAbeta",
+        "resolved_value": 1.8181818181818182e-1
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2pAMPA[i][j].thetasyn",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPAact",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2pAMPA[i][j].sigma",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPAsigma",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2pAMPA[i][j].e",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPArev",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2pNMDA[i][j].gmax",
+        "source_file": "Connect.hoc",
+        "source_var": "NMDAgmax",
+        "resolved_value": 1.0e-3
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2pNMDA[i][j].alpha",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDAalpha",
+        "resolved_value": 1.9230769230769232e-2
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2pNMDA[i][j].beta",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDAbeta",
+        "resolved_value": 2.9154518950437317e-3
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2pNMDA[i][j].thetasyn",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDAact",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2pNMDA[i][j].sigma",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDAsigma",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2pNMDA[i][j].e",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDArev",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "p2m[i][j].gmax",
+        "source_file": "Connect.hoc",
+        "source_var": "GABAAgmax",
+        "resolved_value": 8.0e-3
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "p2m[i][j].alpha",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAAalpha_PG",
+        "resolved_value": 8.0e-1
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "p2m[i][j].beta",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAAbeta_PG",
+        "resolved_value": 5.555555555555556e-2
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "p2m[i][j].thetasyn",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAAact",
+        "resolved_value": -4.0e1
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "p2m[i][j].sigma",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAAsigma",
+        "resolved_value": 2.0e0
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "p2m[i][j].e",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAArev",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "m2gAMPA[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nGran",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "m2gAMPA[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nMit",
+        "resolved_value": 2.5e1
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "m2gNMDA[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nGran",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "m2gNMDA[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nMit",
+        "resolved_value": 2.5e1
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "g2m[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nMit",
+        "resolved_value": 2.5e1
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "g2m[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nGran",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "MGS[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngranx",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "MGS[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngrany",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "Connect.hoc",
+        "target_var": "GMS[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nMit",
+        "resolved_value": 2.5e1
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2gAMPA[N][H].gmax",
+        "source_file": "Connect.hoc",
+        "source_var": "AMPAgmax",
+        "resolved_value": 2.0e-3
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2gAMPA[N][H].alpha",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPAalpha",
+        "resolved_value": 1.0e0
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2gAMPA[N][H].beta",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPAbeta",
+        "resolved_value": 1.8181818181818182e-1
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2gAMPA[N][H].thetasyn",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPAact",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2gAMPA[N][H].sigma",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPAsigma",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "gradAMPA.mod",
+        "target_var": "m2gAMPA[N][H].e",
+        "source_file": "Parameter.hoc",
+        "source_var": "AMPArev",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2gNMDA[N][H].gmax",
+        "source_file": "Connect.hoc",
+        "source_var": "NMDAgmax",
+        "resolved_value": 1.0e-3
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2gNMDA[N][H].alpha",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDAalpha",
+        "resolved_value": 1.9230769230769232e-2
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2gNMDA[N][H].beta",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDAbeta",
+        "resolved_value": 2.9154518950437317e-3
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2gNMDA[N][H].thetasyn",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDAact",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2gNMDA[N][H].sigma",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDAsigma",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "gradNMDA.mod",
+        "target_var": "m2gNMDA[N][H].e",
+        "source_file": "Parameter.hoc",
+        "source_var": "NMDArev",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "g2m[M][Z].gmax",
+        "source_file": "Connect.hoc",
+        "source_var": "GABAAgmax",
+        "resolved_value": 4.0e-3
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "g2m[M][Z].alpha",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAAalpha_GC",
+        "resolved_value": 8.0e-1
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "g2m[M][Z].beta",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAAbeta_GC",
+        "resolved_value": 5.555555555555556e-2
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "g2m[M][Z].thetasyn",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAAact",
+        "resolved_value": -4.0e1
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "g2m[M][Z].sigma",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAAsigma",
+        "resolved_value": 2.0e0
+      },
+      {
+        "target_file": "gradGABA.mod",
+        "target_var": "g2m[M][Z].e",
+        "source_file": "Parameter.hoc",
+        "source_var": "GABAArev",
+        "resolved_value": -8.0e1
+      }
+    ],
+    "Figure.hoc": [
+
+    ],
+    "GC_def.hoc": [
+      {
+        "target_file": "built-in",
+        "target_var": "soma.e_pas",
+        "source_file": "GC_def.hoc",
+        "source_var": "EL",
+        "resolved_value": -6.0e1
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "soma.gbar_nax",
+        "source_file": "GC_def.hoc",
+        "source_var": "gNa_Soma",
+        "resolved_value": 5.0e-2
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "soma.sh_nax",
+        "source_file": "GC_def.hoc",
+        "source_var": "Sh_Na",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "KDRmt.mod",
+        "target_var": "soma.gbar_kdrmt",
+        "source_file": "GC_def.hoc",
+        "source_var": "gKdr_Soma",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.gbar_kamt",
+        "source_file": "GC_def.hoc",
+        "source_var": "gA_Soma",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.sha_kamt",
+        "source_file": "GC_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.shi_kamt",
+        "source_file": "GC_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": -2.0e1
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.k_tauH_kam",
+        "source_file": "GC_def.hoc",
+        "source_var": "k_tauH",
+        "resolved_value": 2.5e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.sh_tauH_kamt",
+        "source_file": "GC_def.hoc",
+        "source_var": "sh_tauH",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kM.mod",
+        "target_var": "soma.gkbar_kM",
+        "source_file": "GC_def.hoc",
+        "source_var": "gM_Soma",
+        "resolved_value": 5.0e-4
+      },
+      {
+        "target_file": "KCa.mod",
+        "target_var": "soma.gkbar_Ikca",
+        "source_file": "GC_def.hoc",
+        "source_var": "gKCa_Soma",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "cadecay2.mod",
+        "target_var": "soma.depth_cad2",
+        "source_file": "GC_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "soma.ena",
+        "source_file": "GC_def.hoc",
+        "source_var": "ENA",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "soma.ek",
+        "source_file": "GC_def.hoc",
+        "source_var": "EK",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.e_pas",
+        "source_file": "GC_def.hoc",
+        "source_var": "EL",
+        "resolved_value": -6.0e1
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "dend.gbar_nax",
+        "source_file": "GC_def.hoc",
+        "source_var": "gNa_Dend",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "dend.sh_nax",
+        "source_file": "GC_def.hoc",
+        "source_var": "Sh_Na",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "KDRmt.mod",
+        "target_var": "dend.gbar_kdrmt",
+        "source_file": "GC_def.hoc",
+        "source_var": "gKdr_Dend",
+        "resolved_value": 5.0e-3
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.gbar_kamt",
+        "source_file": "GC_def.hoc",
+        "source_var": "gA_Dend",
+        "resolved_value": 6.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.sha_kamt",
+        "source_file": "GC_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.shi_kamt",
+        "source_file": "GC_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": -2.0e1
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.k_tauH_kamt",
+        "source_file": "GC_def.hoc",
+        "source_var": "k_tauH",
+        "resolved_value": 2.5e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.sh_tauH_kamt",
+        "source_file": "GC_def.hoc",
+        "source_var": "sh_tauH",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kM.mod",
+        "target_var": "dend.gkbar_kM",
+        "source_file": "GC_def.hoc",
+        "source_var": "gM_Dend",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "dend.gbar_Icat",
+        "source_file": "GC_def.hoc",
+        "source_var": "gCaT_Dend",
+        "resolved_value": 1.0e-4
+      },
+      {
+        "target_file": "CaPN.mod",
+        "target_var": "dend.gbar_Icapn",
+        "source_file": "GC_def.hoc",
+        "source_var": "gCapn_Dend",
+        "resolved_value": 2.0e-4
+      },
+      {
+        "target_file": "Can.mod",
+        "target_var": "dend.gbar_Ican",
+        "source_file": "GC_def.hoc",
+        "source_var": "gcan_Dend",
+        "resolved_value": 1.0e-3
+      },
+      {
+        "target_file": "KCa.mod",
+        "target_var": "dend.gkbar_Ikca",
+        "source_file": "GC_def.hoc",
+        "source_var": "gKCa_Dend",
+        "resolved_value": 5.0e-4
+      },
+      {
+        "target_file": "cadecay2.mod",
+        "target_var": "dend.depth_cad2",
+        "source_file": "GC_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.ena",
+        "source_file": "GC_def.hoc",
+        "source_var": "ENA",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.ek",
+        "source_file": "GC_def.hoc",
+        "source_var": "EK",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.eca",
+        "source_file": "GC_def.hoc",
+        "source_var": "ECA",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.AMPAr.tau",
+        "source_file": "GC_def.hoc",
+        "source_var": "AMPAtau",
+        "resolved_value": 5.5e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.AMPAr.e",
+        "source_file": "GC_def.hoc",
+        "source_var": "Erev",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "NMDA.mod",
+        "target_var": "gemmbody.NMDAr.Alpha",
+        "source_file": "GC_def.hoc",
+        "source_var": "NMDAalpha",
+        "resolved_value": 1.63e-2
+      },
+      {
+        "target_file": "NMDA.mod",
+        "target_var": "gemmbody.NMDAr.Beta",
+        "source_file": "GC_def.hoc",
+        "source_var": "NMDAbeta",
+        "resolved_value": 2.92e-3
+      },
+      {
+        "target_file": "NMDA.mod",
+        "target_var": "gemmbody.NMDAr.e",
+        "source_file": "GC_def.hoc",
+        "source_var": "Erev",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.GABAAr.tau",
+        "source_file": "GC_def.hoc",
+        "source_var": "GABAAtau",
+        "resolved_value": 8.3e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.GABAAr.e",
+        "source_file": "GC_def.hoc",
+        "source_var": "GABAArev",
+        "resolved_value": -7.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.dendcount.thresh",
+        "source_file": "GC_def.hoc",
+        "source_var": "spike_threshold",
+        "resolved_value": -1.0e1
+      }
+    ],
+    "GC_save.hoc": [
+
+    ],
+    "GC_Stim.hoc": [
+      {
+        "target_file": "GC_def.hoc",
+        "target_var": "$1",
+        "source_file": "GC_Stim.hoc",
+        "source_var": "MUSCAR",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "stim1.dur",
+        "source_file": "GC_Stim.hoc",
+        "source_var": "tstop",
+        "resolved_value": 2.5e3
+      }
+    ],
+    "Input.hoc": [
+      {
+        "target_file": "Input.hoc",
+        "target_var": "MCinput[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Input.hoc",
+        "target_var": "MCinput[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Input.hoc",
+        "target_var": "PGinput[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Input.hoc",
+        "target_var": "PGinput[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgy",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Input.hoc",
+        "target_var": "pre_odor[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Input.hoc",
+        "target_var": "pre_odor[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Input.hoc",
+        "target_var": "odor[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Input.hoc",
+        "target_var": "odor[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Input.hoc",
+        "target_var": "IM[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "Input.hoc",
+        "target_var": "IM[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "MCinput[i][j].torn",
+        "source_file": "Parameter.hoc",
+        "source_var": "Todor",
+        "resolved_value": 2.0e3
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "MCinput[i][j].r",
+        "source_file": "Parameter.hoc",
+        "source_var": "RiseRate",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "MCinput[i][j].dur",
+        "source_file": "Input.hoc",
+        "source_var": "tstop",
+        "resolved_value": 2.5e3
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "PGinput[i][j].torn",
+        "source_file": "Parameter.hoc",
+        "source_var": "Todor",
+        "resolved_value": 2.0e3
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "PGinput[i][j].r",
+        "source_file": "Parameter.hoc",
+        "source_var": "RiseRate",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "PGinput[i][j].dur",
+        "source_file": "Input.hoc",
+        "source_var": "tstop",
+        "resolved_value": 2.5e3
+      }
+    ],
+    "mathslib.hoc": [
+
+    ],
+    "MC_def.hoc": [
+      {
+        "target_file": "built-in",
+        "target_var": "soma.e_pas",
+        "source_file": "MC_def.hoc",
+        "source_var": "El",
+        "resolved_value": -6.0e1
+      },
+      {
+        "target_file": "nafast.mod",
+        "target_var": "soma.gnabar_nafast",
+        "source_file": "MC_def.hoc",
+        "source_var": "gNa_soma",
+        "resolved_value": 5.0e-2
+      },
+      {
+        "target_file": "nafast.mod",
+        "target_var": "soma.sh_nafast",
+        "source_file": "MC_def.hoc",
+        "source_var": "sh_Na",
+        "resolved_value": -3.0e0
+      },
+      {
+        "target_file": "kfasttab.mod",
+        "target_var": "soma.gkbar_kfasttab",
+        "source_file": "MC_def.hoc",
+        "source_var": "gKdr_soma",
+        "resolved_value": 3.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.gbar_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "gA_soma",
+        "resolved_value": 1.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.sha_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 9.9e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.shi_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": 5.7e0
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "soma.gbar_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "gKs_soma",
+        "resolved_value": 4.2e-2
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "soma.tauM_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "tau_KS",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "soma.kh_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "kh_KS",
+        "resolved_value": 1.5e0
+      },
+      {
+        "target_file": "NaP.mod",
+        "target_var": "soma.gbar_INaP",
+        "source_file": "MC_def.hoc",
+        "source_var": "gNaP_soma",
+        "resolved_value": 2.0e-4
+      },
+      {
+        "target_file": "LCa.mod",
+        "target_var": "soma.gcabar_ICa",
+        "source_file": "MC_def.hoc",
+        "source_var": "gCa_soma",
+        "resolved_value": 4.0e-4
+      },
+      {
+        "target_file": "KCa.mod",
+        "target_var": "soma.gkbar_Ikca",
+        "source_file": "MC_def.hoc",
+        "source_var": "gKCa_soma",
+        "resolved_value": 5.0e-3
+      },
+      {
+        "target_file": "cadecay.mod",
+        "target_var": "soma.depth_cad",
+        "source_file": "MC_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 1.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "soma.spikecount.thresh",
+        "source_file": "MC_def.hoc",
+        "source_var": "spike_threshold",
+        "resolved_value": -1.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.e_pas",
+        "source_file": "MC_def.hoc",
+        "source_var": "El",
+        "resolved_value": -6.0e1
+      },
+      {
+        "target_file": "nafast.mod",
+        "target_var": "dend.gnabar_nafast",
+        "source_file": "MC_def.hoc",
+        "source_var": "gNa_dend",
+        "resolved_value": 3.0e-2
+      },
+      {
+        "target_file": "nafast.mod",
+        "target_var": "dend.sh_nafast",
+        "source_file": "MC_def.hoc",
+        "source_var": "sh_Na",
+        "resolved_value": -3.0e0
+      },
+      {
+        "target_file": "kfasttab.mod",
+        "target_var": "dend.gkbar_kfasttab",
+        "source_file": "MC_def.hoc",
+        "source_var": "gKdr_dend",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.gbar_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "gA_dend",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.sha_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 9.9e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.shi_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": 5.7e0
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "dend.gbar_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "gKs_dend",
+        "resolved_value": 8.0e-3
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "dend.tauM_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "tau_KS",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "dend.kh_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "kh_KS",
+        "resolved_value": 1.5e0
+      },
+      {
+        "target_file": "NaP.mod",
+        "target_var": "dend.gbar_INaP",
+        "source_file": "MC_def.hoc",
+        "source_var": "gNaP_dend",
+        "resolved_value": 2.0e-5
+      },
+      {
+        "target_file": "LCa.mod",
+        "target_var": "dend.gcabar_ICa",
+        "source_file": "MC_def.hoc",
+        "source_var": "gCa_dend",
+        "resolved_value": 5.0e-5
+      },
+      {
+        "target_file": "cadecay.mod",
+        "target_var": "dend.depth_cad",
+        "source_file": "MC_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 1.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.GABAA.tau",
+        "source_file": "MC_def.hoc",
+        "source_var": "GABAAtau",
+        "resolved_value": 1.8e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.GABAA.e",
+        "source_file": "MC_def.hoc",
+        "source_var": "GABAArev",
+        "resolved_value": -7.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.spikecount2.thresh",
+        "source_file": "MC_def.hoc",
+        "source_var": "spike_threshold",
+        "resolved_value": -1.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "prim.e_pas",
+        "source_file": "MC_def.hoc",
+        "source_var": "El",
+        "resolved_value": -6.0e1
+      },
+      {
+        "target_file": "nafast.mod",
+        "target_var": "prim.gnabar_nafast",
+        "source_file": "MC_def.hoc",
+        "source_var": "gNa_prim",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "nafast.mod",
+        "target_var": "prim.sh_nafast",
+        "source_file": "MC_def.hoc",
+        "source_var": "sh_Na",
+        "resolved_value": -3.0e0
+      },
+      {
+        "target_file": "kfasttab.mod",
+        "target_var": "prim.gkbar_kfasttab",
+        "source_file": "MC_def.hoc",
+        "source_var": "gKdr_prim",
+        "resolved_value": 1.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "prim.gbar_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "gA_prim",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "prim.sha_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 9.9e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "prim.shi_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": 5.7e0
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "prim.gbar_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "gKs_prim",
+        "resolved_value": 1.8e-2
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "prim.tauM_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "tau_KS",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "prim.kh_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "kh_KS",
+        "resolved_value": 1.5e0
+      },
+      {
+        "target_file": "NaP.mod",
+        "target_var": "prim.gbar_INaP",
+        "source_file": "MC_def.hoc",
+        "source_var": "gNaP_prim",
+        "resolved_value": 1.0e-4
+      },
+      {
+        "target_file": "LCa.mod",
+        "target_var": "prim.gcabar_ICa",
+        "source_file": "MC_def.hoc",
+        "source_var": "gCa_prim",
+        "resolved_value": 2.0e-4
+      },
+      {
+        "target_file": "cadecay.mod",
+        "target_var": "prim.depth_cad",
+        "source_file": "MC_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 1.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "tuft.e_pas",
+        "source_file": "MC_def.hoc",
+        "source_var": "El",
+        "resolved_value": -6.0e1
+      },
+      {
+        "target_file": "Nicotin.mod",
+        "target_var": "tuft.gbar_Inic",
+        "source_file": "MC_def.hoc",
+        "source_var": "$1",
+        "resolved_value": null
+      },
+      {
+        "target_file": "nafast.mod",
+        "target_var": "tuft.gnabar_nafast",
+        "source_file": "MC_def.hoc",
+        "source_var": "gNa_tuft",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "nafast.mod",
+        "target_var": "tuft.sh_nafast",
+        "source_file": "MC_def.hoc",
+        "source_var": "sh_Na",
+        "resolved_value": -3.0e0
+      },
+      {
+        "target_file": "kfasttab.mod",
+        "target_var": "tuft.gkbar_kfasttab",
+        "source_file": "MC_def.hoc",
+        "source_var": "gKdr_tuft",
+        "resolved_value": 1.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "tuft.gbar_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "gA_tuft",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "tuft.sha_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 9.9e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "tuft.shi_kamt",
+        "source_file": "MC_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": 5.7e0
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "tuft.gbar_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "gKs_tuft",
+        "resolved_value": 1.8e-2
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "tuft.tauM_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "tau_KS",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "KS.mod",
+        "target_var": "tuft.kh_IKs",
+        "source_file": "MC_def.hoc",
+        "source_var": "kh_KS",
+        "resolved_value": 1.5e0
+      },
+      {
+        "target_file": "NaP.mod",
+        "target_var": "tuft.gbar_INaP",
+        "source_file": "MC_def.hoc",
+        "source_var": "gNaP_tuft",
+        "resolved_value": 1.0e-4
+      },
+      {
+        "target_file": "LCa.mod",
+        "target_var": "tuft.gcabar_ICa",
+        "source_file": "MC_def.hoc",
+        "source_var": "gCa_tuft",
+        "resolved_value": 2.0e-4
+      },
+      {
+        "target_file": "cadecay.mod",
+        "target_var": "tuft.depth_cad",
+        "source_file": "MC_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 1.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "tuft.AMPA.tau",
+        "source_file": "MC_def.hoc",
+        "source_var": "AMPAtau",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "tuft.AMPA.e",
+        "source_file": "MC_def.hoc",
+        "source_var": "AMPArev",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "tuft.spikecount3.thresh",
+        "source_file": "MC_def.hoc",
+        "source_var": "spike_threshold",
+        "resolved_value": -1.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "soma.ena",
+        "source_file": "MC_def.hoc",
+        "source_var": "ENa",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.ena",
+        "source_file": "MC_def.hoc",
+        "source_var": "ENa",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "prim.ena",
+        "source_file": "MC_def.hoc",
+        "source_var": "ENa",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "tuft.ena",
+        "source_file": "MC_def.hoc",
+        "source_var": "ENa",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "soma.ek",
+        "source_file": "MC_def.hoc",
+        "source_var": "Ek",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.ek",
+        "source_file": "MC_def.hoc",
+        "source_var": "Ek",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "prim.ek",
+        "source_file": "MC_def.hoc",
+        "source_var": "Ek",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "tuft.ek",
+        "source_file": "MC_def.hoc",
+        "source_var": "Ek",
+        "resolved_value": -8.0e1
+      }
+    ],
+    "MC_save.hoc": [
+
+    ],
+    "MC_Stim.hoc": [
+      {
+        "target_file": "built-in",
+        "target_var": "Stim1.del",
+        "source_file": "MC_Stim.hoc",
+        "source_var": "T1",
+        "resolved_value": 1.5e3
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "Stim1.dur",
+        "source_file": "MC_Stim.hoc",
+        "source_var": "Dur",
+        "resolved_value": 4.0e3
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "Stim1.amp",
+        "source_file": "MC_Stim.hoc",
+        "source_var": "Ic1",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "Stim2.dur",
+        "source_file": "MC_Stim.hoc",
+        "source_var": "Dur",
+        "resolved_value": 4.0e3
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "Stim2.f0",
+        "source_file": "MC_Stim.hoc",
+        "source_var": "F0",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "Stim2.f1",
+        "source_file": "MC_Stim.hoc",
+        "source_var": "F1",
+        "resolved_value": 0.0e0
+      }
+    ],
+    "OBNet.hoc": [
+      {
+        "target_file": "built-in",
+        "target_var": "NetStim[0].seed",
+        "source_file": "Parameter.hoc",
+        "source_var": "NSSEED",
+        "resolved_value": 2.0e0
+      }
+    ],
+    "Parameter.hoc": [
+
+    ],
+    "PG_def.hoc": [
+      {
+        "target_file": "built-in",
+        "target_var": "soma.e_pas",
+        "source_file": "PG_def.hoc",
+        "source_var": "EL",
+        "resolved_value": -6.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.e_pas",
+        "source_file": "PG_def.hoc",
+        "source_var": "EL",
+        "resolved_value": -6.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmshaft.e_pas",
+        "source_file": "PG_def.hoc",
+        "source_var": "EL",
+        "resolved_value": -6.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.e_pas",
+        "source_file": "PG_def.hoc",
+        "source_var": "EL",
+        "resolved_value": -6.5e1
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "soma.gbar_nax",
+        "source_file": "PG_def.hoc",
+        "source_var": "gNa_Soma",
+        "resolved_value": 5.0e-2
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "soma.sh_nax",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sh_Na",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "KDRmt.mod",
+        "target_var": "soma.gbar_kdrmt",
+        "source_file": "PG_def.hoc",
+        "source_var": "gKdr_Soma",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.gbar_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "gA_Soma",
+        "resolved_value": 1.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.sha_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.shi_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": -2.0e1
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.k_tauH_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "k_tauH",
+        "resolved_value": 2.5e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "soma.sh_tauH_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "sh_tauH",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kM.mod",
+        "target_var": "soma.gkbar_kM",
+        "source_file": "PG_def.hoc",
+        "source_var": "gM_Soma",
+        "resolved_value": 1.0e-3
+      },
+      {
+        "target_file": "CaPN.mod",
+        "target_var": "soma.gbar_Icapn",
+        "source_file": "PG_def.hoc",
+        "source_var": "gCapn_Soma",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "KCa.mod",
+        "target_var": "soma.gkbar_Ikca",
+        "source_file": "PG_def.hoc",
+        "source_var": "gKCa_Soma",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "soma.gbar_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "gCaT_Soma",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "soma.sha_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sha_T",
+        "resolved_value": -1.5e1
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "soma.shi_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "Shi_T",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "cadecay2.mod",
+        "target_var": "soma.depth_cad2",
+        "source_file": "PG_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "soma.ena",
+        "source_file": "PG_def.hoc",
+        "source_var": "ENA",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "soma.ek",
+        "source_file": "PG_def.hoc",
+        "source_var": "EK",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "soma.eca",
+        "source_file": "PG_def.hoc",
+        "source_var": "ECA",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "soma.spikecount.thresh",
+        "source_file": "PG_def.hoc",
+        "source_var": "spike_threshold",
+        "resolved_value": -1.0e1
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "dend.gbar_nax",
+        "source_file": "PG_def.hoc",
+        "source_var": "gNa_Dend",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "dend.sh_nax",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sh_Na",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "KDRmt.mod",
+        "target_var": "dend.gbar_kdrmt",
+        "source_file": "PG_def.hoc",
+        "source_var": "gKdr_Dend",
+        "resolved_value": 5.0e-3
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.gbar_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "gA_Dend",
+        "resolved_value": 3.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.sha_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.shi_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": -2.0e1
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.k_tauH_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "k_tauH",
+        "resolved_value": 2.5e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "dend.sh_tauH_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "sh_tauH",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kM.mod",
+        "target_var": "dend.gkbar_kM",
+        "source_file": "PG_def.hoc",
+        "source_var": "gM_Dend",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "hpg.mod",
+        "target_var": "dend.ghbar_hpg",
+        "source_file": "PG_def.hoc",
+        "source_var": "gH_Dend",
+        "resolved_value": 2.0e-4
+      },
+      {
+        "target_file": "Can.mod",
+        "target_var": "dend.gbar_Ican",
+        "source_file": "PG_def.hoc",
+        "source_var": "gcan_Dend",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "KCa.mod",
+        "target_var": "dend.gkbar_Ikca",
+        "source_file": "PG_def.hoc",
+        "source_var": "gKCa_Dend",
+        "resolved_value": 2.0e-3
+      },
+      {
+        "target_file": "CaPN.mod",
+        "target_var": "dend.gbar_Icapn",
+        "source_file": "PG_def.hoc",
+        "source_var": "gCapn_Dend",
+        "resolved_value": 1.0e-3
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "dend.gbar_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "gCaT_Dend",
+        "resolved_value": 3.0e-3
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "dend.sha_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sha_T",
+        "resolved_value": -1.5e1
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "dend.shi_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "Shi_T",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "dend.k_tauH_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "K_tauH",
+        "resolved_value": 1.0e0
+      },
+      {
+        "target_file": "cadecay2.mod",
+        "target_var": "dend.depth_cad2",
+        "source_file": "PG_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.ena",
+        "source_file": "PG_def.hoc",
+        "source_var": "ENA",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.ek",
+        "source_file": "PG_def.hoc",
+        "source_var": "EK",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "dend.eca",
+        "source_file": "PG_def.hoc",
+        "source_var": "ECA",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "gemmshaft.gbar_nax",
+        "source_file": "PG_def.hoc",
+        "source_var": "gNa_Dend",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "gemmshaft.sh_nax",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sh_Na",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "KDRmt.mod",
+        "target_var": "gemmshaft.gbar_kdrmt",
+        "source_file": "PG_def.hoc",
+        "source_var": "gKdr_Dend",
+        "resolved_value": 5.0e-3
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmshaft.gbar_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "gA_Dend",
+        "resolved_value": 3.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmshaft.sha_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmshaft.shi_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": -2.0e1
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmshaft.k_tauH_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "k_tauH",
+        "resolved_value": 2.5e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmshaft.sh_tauH_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "sh_tauH",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kM.mod",
+        "target_var": "gemmshaft.gkbar_kM",
+        "source_file": "PG_def.hoc",
+        "source_var": "gM_Dend",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "hpg.mod",
+        "target_var": "gemmshaft.ghbar_hpg",
+        "source_file": "PG_def.hoc",
+        "source_var": "gH_Dend",
+        "resolved_value": 2.0e-4
+      },
+      {
+        "target_file": "Can.mod",
+        "target_var": "gemmshaft.gbar_Ican",
+        "source_file": "PG_def.hoc",
+        "source_var": "gcan_Dend",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "KCa.mod",
+        "target_var": "gemmshaft.gkbar_Ikca",
+        "source_file": "PG_def.hoc",
+        "source_var": "gKCa_Dend",
+        "resolved_value": 2.0e-3
+      },
+      {
+        "target_file": "CaPN.mod",
+        "target_var": "gemmshaft.gbar_Icapn",
+        "source_file": "PG_def.hoc",
+        "source_var": "gCapn_Dend",
+        "resolved_value": 1.0e-3
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "gemmshaft.gbar_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "gCaT_Dend",
+        "resolved_value": 3.0e-3
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "gemmshaft.sha_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sha_T",
+        "resolved_value": -1.5e1
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "gemmshaft.shi_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "Shi_T",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "gemmshaft.k_tauH_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "K_tauH",
+        "resolved_value": 1.0e0
+      },
+      {
+        "target_file": "cadecay2.mod",
+        "target_var": "gemmshaft.depth_cad2",
+        "source_file": "PG_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmshaft.ena",
+        "source_file": "PG_def.hoc",
+        "source_var": "ENA",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmshaft.ek",
+        "source_file": "PG_def.hoc",
+        "source_var": "EK",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmshaft.eca",
+        "source_file": "PG_def.hoc",
+        "source_var": "ECA",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "gemmbody.gbar_nax",
+        "source_file": "PG_def.hoc",
+        "source_var": "gNa_Dend",
+        "resolved_value": 2.0e-2
+      },
+      {
+        "target_file": "Naxn.mod",
+        "target_var": "gemmbody.sh_nax",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sh_Na",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "KDRmt.mod",
+        "target_var": "gemmbody.gbar_kdrmt",
+        "source_file": "PG_def.hoc",
+        "source_var": "gKdr_Dend",
+        "resolved_value": 5.0e-3
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmbody.gbar_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "gA_Dend",
+        "resolved_value": 3.0e-2
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmbody.sha_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sha_A",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmbody.shi_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "Shi_A",
+        "resolved_value": -2.0e1
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmbody.k_tauH_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "k_tauH",
+        "resolved_value": 2.5e0
+      },
+      {
+        "target_file": "kAmt.mod",
+        "target_var": "gemmbody.sh_tauH_kamt",
+        "source_file": "PG_def.hoc",
+        "source_var": "sh_tauH",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "kM.mod",
+        "target_var": "gemmbody.gkbar_kM",
+        "source_file": "PG_def.hoc",
+        "source_var": "gM_Dend",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "hpg.mod",
+        "target_var": "gemmbody.ghbar_hpg",
+        "source_file": "PG_def.hoc",
+        "source_var": "gH_Dend",
+        "resolved_value": 2.0e-4
+      },
+      {
+        "target_file": "Can.mod",
+        "target_var": "gemmbody.gbar_Ican",
+        "source_file": "PG_def.hoc",
+        "source_var": "gcan_Dend",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "KCa.mod",
+        "target_var": "gemmbody.gkbar_Ikca",
+        "source_file": "PG_def.hoc",
+        "source_var": "gKCa_Dend",
+        "resolved_value": 2.0e-3
+      },
+      {
+        "target_file": "CaPN.mod",
+        "target_var": "gemmbody.gbar_Icapn",
+        "source_file": "PG_def.hoc",
+        "source_var": "gCapn_Dend",
+        "resolved_value": 1.0e-3
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "gemmbody.gbar_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "gCaT_Dend",
+        "resolved_value": 3.0e-3
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "gemmbody.sha_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "Sha_T",
+        "resolved_value": -1.5e1
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "gemmbody.shi_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "Shi_T",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "CaT.mod",
+        "target_var": "gemmbody.k_tauH_Icat",
+        "source_file": "PG_def.hoc",
+        "source_var": "K_tauH",
+        "resolved_value": 1.0e0
+      },
+      {
+        "target_file": "cadecay2.mod",
+        "target_var": "gemmbody.depth_cad2",
+        "source_file": "PG_def.hoc",
+        "source_var": "shell_depth",
+        "resolved_value": 2.0e-1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.ena",
+        "source_file": "PG_def.hoc",
+        "source_var": "ENA",
+        "resolved_value": 4.5e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.ek",
+        "source_file": "PG_def.hoc",
+        "source_var": "EK",
+        "resolved_value": -8.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.eca",
+        "source_file": "PG_def.hoc",
+        "source_var": "ECA",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "Nicotin.mod",
+        "target_var": "gemmshaft.gbar_Inic",
+        "source_file": "PG_def.hoc",
+        "source_var": "$1",
+        "resolved_value": null
+      },
+      {
+        "target_file": "Nicotin.mod",
+        "target_var": "gemmbody.gbar_Inic",
+        "source_file": "PG_def.hoc",
+        "source_var": "$1",
+        "resolved_value": null
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.AMPAr.tau",
+        "source_file": "PG_def.hoc",
+        "source_var": "AMPAtau",
+        "resolved_value": 5.5e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.AMPAr.e",
+        "source_file": "PG_def.hoc",
+        "source_var": "Erev",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "gemmbody.dendcount.thresh",
+        "source_file": "PG_def.hoc",
+        "source_var": "spike_threshold",
+        "resolved_value": -1.0e1
+      }
+    ],
+    "PG_save.hoc": [
+
+    ],
+    "PG_Stim.hoc": [
+      {
+        "target_file": "PG_def.hoc",
+        "target_var": "$1",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "gnic_spine",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "Stim1.del",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "T1",
+        "resolved_value": 5.0e2
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "Stim1.dur",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "Dur",
+        "resolved_value": 6.0e2
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "Stim1.amp",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "Ic1",
+        "resolved_value": 1.0e-1
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "Stim2.dur",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "tstop",
+        "resolved_value": 1.5e3
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "Stim2.f0",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "u0",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "OdorInput.mod",
+        "target_var": "Stim2.f1",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "u1",
+        "resolved_value": 0.0e0
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "PGb.number",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "N_SPIKE",
+        "resolved_value": 1.0e3
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "PGb.interval",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "Tb_ISI",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "built-in",
+        "target_var": "PGbinput.weight",
+        "source_file": "PG_Stim.hoc",
+        "source_var": "Wb_PG",
+        "resolved_value": 0.0e0
+      }
+    ],
+    "SaveData.hoc": [
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Gpm[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Gpm[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Ggm[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nMit",
+        "resolved_value": 2.5e1
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Ggm[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nGran",
+        "resolved_value": 1.0e2
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Ggm_Total[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nMit",
+        "resolved_value": 2.5e1
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vms[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vms[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vmd[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vmd[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vmt[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmitx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vmt[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "nmity",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vgs[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngranx",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vgs[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngrany",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vgb[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngranx",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vgb[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "ngrany",
+        "resolved_value": 1.0e1
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vps[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vps[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgy",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vpb[dim_0]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgx",
+        "resolved_value": 5.0e0
+      },
+      {
+        "target_file": "SaveData.hoc",
+        "target_var": "Vpb[dim_1]",
+        "source_file": "Parameter.hoc",
+        "source_var": "npgy",
+        "resolved_value": 5.0e0
+      }
+    ],
+    "tabchannels.hoc": [
+
+    ]
+  }
+}
