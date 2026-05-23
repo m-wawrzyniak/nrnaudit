@@ -53,3 +53,18 @@ A **data scraper** for NEURON projects from ModelDB that parses code files to:
 * **Comparison reporting** - generate an automated report comparing model parameters against the experimental biological distributions.
 
 ---
+
+## 4. Running the dependency analyzer
+
+From the repository root, run the static analyzer on a NEURON project directory. Output is written as Cytoscape.js-compatible JSON (`neuron_dependencies.cyjs`) under the output directory.
+
+```bash
+python -m src.main --input ground_truth_cases/232097/OBGAMMA/ --output tmp
+```
+
+Required arguments:
+
+* `--input` / `-i` — root directory of the NEURON codebase to analyze
+* `--output` / `-o` — directory where `neuron_dependencies.cyjs` is created (created if missing)
+
+---
