@@ -13,6 +13,7 @@ from src import (
     mod_parser,
     traversal,
     utils,
+    variables_extractor,
 )
 
 
@@ -57,7 +58,15 @@ def main() -> None:
     hoc_relpaths, mod_relpaths = traversal.discover_files(repo_root)
     mechanism_map = mod_parser.build_mechanism_map(repo_root, mod_relpaths)
     parsed_hoc = hoc_parser.parse_all_hoc(repo_root, hoc_relpaths)
-    graph = graph_builder.build_graph(hoc_relpaths, parsed_hoc, mechanism_map)
+    hoc_variables = variables_extractor.build_hoc_variables_map(
+        repo_root, hoc_relpaths
+    )
+    mod_variables = variables_extractor.build_mod_variables_map(
+        repo_root, mod_relpaths
+    )
+    graph = graph_builder.build_graph(
+        hoc_relpaths, parsed_hoc, mechanism_map, hoc_variables, mod_variables
+    )
     cytoscape_graph = cytoscape_export.to_cytoscape(graph)
     target = utils.write_json(cytoscape_graph, args.output)
     print(f"Wrote {target}")

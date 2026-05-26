@@ -27,6 +27,11 @@ def strip_hoc_comments(text: str) -> str:
     return text
 
 
+def strip_hoc_block_comments(text: str) -> str:
+    """Remove HOC /* */ block comments only; preserves // line comments."""
+    return re.sub(r"/\*.*?\*/", " ", text, flags=re.DOTALL)
+
+
 def strip_mod_comments(text: str) -> str:
     """Remove NMODL COMMENT/ENDCOMMENT blocks and ? / ~ line comments."""
     text = re.sub(r"COMMENT\b.*?\bENDCOMMENT\b", " ", text, flags=re.DOTALL)
@@ -61,3 +66,20 @@ def write_json(data: dict, output_dir: Path) -> Path:
     with target.open("w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=2, sort_keys=False)
     return target
+
+
+def extract_brace_body(text: str, open_pos: int) -> str | None:
+    """Return inner text from open_pos to its matching closing brace, or None."""
+    depth = 1
+    i = open_pos
+    while i < len(text) and depth > 0:
+        if text[i] == "{":
+            depth += 1
+        elif text[i] == "}":
+            depth -= 1
+            if depth == 0:
+                break
+        i += 1
+    if depth != 0:
+        return None
+    return text[open_pos:i]

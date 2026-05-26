@@ -1,0 +1,3522 @@
+{
+  "elements": {
+    "nodes": [
+      {
+        "data": {
+          "id": "Background.hoc",
+          "type": "hoc",
+          "label": "Background.hoc",
+          "source_file": "Background.hoc",
+          "variables": [
+            {
+              "name": "MCbinput",
+              "unit": "N/A"
+            },
+            {
+              "name": "MCb",
+              "unit": "N/A"
+            },
+            {
+              "name": "RSP",
+              "unit": "N/A"
+            },
+            {
+              "name": "Tb_Start",
+              "unit": "???"
+            },
+            {
+              "name": "Tb_ISI",
+              "unit": "???"
+            },
+            {
+              "name": "N_SPIKE",
+              "unit": "???"
+            },
+            {
+              "name": "Thresh",
+              "unit": "???"
+            },
+            {
+              "name": "Wb_MC",
+              "unit": "???"
+            },
+            {
+              "name": "Wb_PG",
+              "unit": "???"
+            },
+            {
+              "name": "Wb_GC",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "MCbinput (N/A) | MCb (N/A) | RSP (N/A) | Tb_Start (???) | Tb_ISI (???) | N_SPIKE (???) | Thresh (???) | Wb_MC (???) | Wb_PG (???) | Wb_GC (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "Cal_Synch.hoc",
+          "type": "hoc",
+          "label": "Cal_Synch.hoc",
+          "source_file": "Cal_Synch.hoc",
+          "variables": [
+            {
+              "name": "mitrate",
+              "unit": "N/A"
+            },
+            {
+              "name": "outfile",
+              "unit": "N/A"
+            },
+            {
+              "name": "spk",
+              "unit": "???"
+            },
+            {
+              "name": "granrate",
+              "unit": "???"
+            },
+            {
+              "name": "T",
+              "unit": "???"
+            },
+            {
+              "name": "n",
+              "unit": "???"
+            },
+            {
+              "name": "ind",
+              "unit": "???"
+            },
+            {
+              "name": "minrate",
+              "unit": "???"
+            },
+            {
+              "name": "maxrate",
+              "unit": "???"
+            },
+            {
+              "name": "lags",
+              "unit": "???"
+            },
+            {
+              "name": "work",
+              "unit": "???"
+            },
+            {
+              "name": "synchindex",
+              "unit": "???"
+            },
+            {
+              "name": "i1",
+              "unit": "???"
+            },
+            {
+              "name": "i2",
+              "unit": "???"
+            },
+            {
+              "name": "minidx",
+              "unit": "???"
+            },
+            {
+              "name": "min",
+              "unit": "???"
+            },
+            {
+              "name": "isiprev",
+              "unit": "???"
+            },
+            {
+              "name": "isinext",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "mitrate (N/A) | outfile (N/A) | spk (???) | granrate (???) | T (???) | n (???) | ind (???) | minrate (???) | maxrate (???) | lags (???) | work (???) | synchindex (???) | i1 (???) | i2 (???) | minidx (???) | min (???) | isiprev (???) | isinext (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "Connect.hoc",
+          "type": "hoc",
+          "label": "Connect.hoc",
+          "source_file": "Connect.hoc",
+          "variables": [
+            {
+              "name": "outfile",
+              "unit": "N/A"
+            },
+            {
+              "name": "outfilepath",
+              "unit": "N/A"
+            },
+            {
+              "name": "ru",
+              "unit": "N/A"
+            },
+            {
+              "name": "mit",
+              "unit": "N/A"
+            },
+            {
+              "name": "m2pAMPA",
+              "unit": "N/A"
+            },
+            {
+              "name": "NC",
+              "unit": "N/A"
+            },
+            {
+              "name": "m2gAMPA",
+              "unit": "N/A"
+            },
+            {
+              "name": "MGS",
+              "unit": "N/A"
+            },
+            {
+              "name": "GMS",
+              "unit": "N/A"
+            },
+            {
+              "name": "outfile2",
+              "unit": "???"
+            },
+            {
+              "name": "rn",
+              "unit": "???"
+            },
+            {
+              "name": "null",
+              "unit": "???"
+            },
+            {
+              "name": "gnic_MC",
+              "unit": "???"
+            },
+            {
+              "name": "gnic_PG",
+              "unit": "???"
+            },
+            {
+              "name": "seed",
+              "unit": "???"
+            },
+            {
+              "name": "AMPAgmax",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAgmax",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAgmax",
+              "unit": "???"
+            },
+            {
+              "name": "count",
+              "unit": "???"
+            },
+            {
+              "name": "M",
+              "unit": "???"
+            },
+            {
+              "name": "Z",
+              "unit": "???"
+            },
+            {
+              "name": "x0",
+              "unit": "???"
+            },
+            {
+              "name": "y0",
+              "unit": "???"
+            },
+            {
+              "name": "N",
+              "unit": "???"
+            },
+            {
+              "name": "x1",
+              "unit": "???"
+            },
+            {
+              "name": "y1",
+              "unit": "???"
+            },
+            {
+              "name": "dx",
+              "unit": "???"
+            },
+            {
+              "name": "dy",
+              "unit": "???"
+            },
+            {
+              "name": "nx",
+              "unit": "???"
+            },
+            {
+              "name": "ny",
+              "unit": "???"
+            },
+            {
+              "name": "kk",
+              "unit": "???"
+            },
+            {
+              "name": "ll",
+              "unit": "???"
+            },
+            {
+              "name": "x2",
+              "unit": "???"
+            },
+            {
+              "name": "y2",
+              "unit": "???"
+            },
+            {
+              "name": "d",
+              "unit": "???"
+            },
+            {
+              "name": "Pr",
+              "unit": "???"
+            },
+            {
+              "name": "H",
+              "unit": "???"
+            },
+            {
+              "name": "index",
+              "unit": "???"
+            },
+            {
+              "name": "Ntotal",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "outfile (N/A) | outfilepath (N/A) | ru (N/A) | mit (N/A) | m2pAMPA (N/A) | NC (N/A) | m2gAMPA (N/A) | MGS (N/A) | GMS (N/A) | outfile2 (???) | rn (???) | null (???) | gnic_MC (???) | gnic_PG (???) | seed (???) | AMPAgmax (???) | NMDAgmax (???) | GABAAgmax (???) | count (???) | M (???) | Z (???) | x0 (???) | y0 (???) | N (???) | x1 (???) | y1 (???) | dx (???) | dy (???) | nx (???) | ny (???) | kk (???) | ll (???) | x2 (???) | y2 (???) | d (???) | Pr (???) | H (???) | index (???) | Ntotal (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "Figure.hoc",
+          "type": "hoc",
+          "label": "Figure.hoc",
+          "source_file": "Figure.hoc",
+          "variables": [
+            {
+              "name": "gm1",
+              "unit": "N/A"
+            },
+            {
+              "name": "gr1",
+              "unit": "N/A"
+            },
+            {
+              "name": "g5",
+              "unit": "???"
+            },
+            {
+              "name": "g6",
+              "unit": "???"
+            },
+            {
+              "name": "g7",
+              "unit": "???"
+            },
+            {
+              "name": "g8",
+              "unit": "???"
+            },
+            {
+              "name": "g9",
+              "unit": "???"
+            },
+            {
+              "name": "g10",
+              "unit": "???"
+            },
+            {
+              "name": "yvec",
+              "unit": "???"
+            },
+            {
+              "name": "gr2",
+              "unit": "???"
+            },
+            {
+              "name": "gr3",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "gm1 (N/A) | gr1 (N/A) | g5 (???) | g6 (???) | g7 (???) | g8 (???) | g9 (???) | g10 (???) | yvec (???) | gr2 (???) | gr3 (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "GC_Stim.hoc",
+          "type": "hoc",
+          "label": "GC_Stim.hoc",
+          "source_file": "GC_Stim.hoc",
+          "variables": [
+            {
+              "name": "Gran",
+              "unit": "N/A"
+            },
+            {
+              "name": "stim1",
+              "unit": "N/A"
+            },
+            {
+              "name": "g1",
+              "unit": "N/A"
+            },
+            {
+              "name": "v_init",
+              "unit": "???"
+            },
+            {
+              "name": "tstop",
+              "unit": "???"
+            },
+            {
+              "name": "celsius",
+              "unit": "???"
+            },
+            {
+              "name": "MUSCAR",
+              "unit": "???"
+            },
+            {
+              "name": "g6",
+              "unit": "???"
+            },
+            {
+              "name": "g2",
+              "unit": "???"
+            },
+            {
+              "name": "g7",
+              "unit": "???"
+            },
+            {
+              "name": "g3",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "Gran (N/A) | stim1 (N/A) | g1 (N/A) | v_init (???) | tstop (???) | celsius (???) | MUSCAR (???) | g6 (???) | g2 (???) | g7 (???) | g3 (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "GC_def.hoc",
+          "type": "hoc",
+          "label": "GC_def.hoc",
+          "source_file": "GC_def.hoc",
+          "variables": [
+            {
+              "name": "soma",
+              "unit": "N/A"
+            },
+            {
+              "name": "AMPAr",
+              "unit": "N/A"
+            },
+            {
+              "name": "spiketimes",
+              "unit": "N/A"
+            },
+            {
+              "name": "all",
+              "unit": "N/A"
+            },
+            {
+              "name": "gcdendgemm",
+              "unit": "???"
+            },
+            {
+              "name": "dendspike",
+              "unit": "???"
+            },
+            {
+              "name": "RM",
+              "unit": "???"
+            },
+            {
+              "name": "EL",
+              "unit": "???"
+            },
+            {
+              "name": "ENA",
+              "unit": "???"
+            },
+            {
+              "name": "EK",
+              "unit": "???"
+            },
+            {
+              "name": "ECA",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAalpha",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAbeta",
+              "unit": "???"
+            },
+            {
+              "name": "AMPAtau",
+              "unit": "ms"
+            },
+            {
+              "name": "Erev",
+              "unit": "mV"
+            },
+            {
+              "name": "GABAAtau",
+              "unit": "???"
+            },
+            {
+              "name": "GABAArev",
+              "unit": "???"
+            },
+            {
+              "name": "spike_threshold",
+              "unit": "???"
+            },
+            {
+              "name": "gNa_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gNa_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "Sh_Na",
+              "unit": "???"
+            },
+            {
+              "name": "gKdr_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gKdr_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gA_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gA_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "Sha_A",
+              "unit": "???"
+            },
+            {
+              "name": "Shi_A",
+              "unit": "???"
+            },
+            {
+              "name": "k_tauH",
+              "unit": "???"
+            },
+            {
+              "name": "sh_tauH",
+              "unit": "???"
+            },
+            {
+              "name": "gM_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gM_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gKCa_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gKCa_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gCaT_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gCapn_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gcan_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "shell_depth",
+              "unit": "um"
+            },
+            {
+              "name": "Ra",
+              "unit": "???"
+            },
+            {
+              "name": "cm",
+              "unit": "???"
+            },
+            {
+              "name": "g_pas",
+              "unit": "???"
+            },
+            {
+              "name": "e_pas",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_nax",
+              "unit": "???"
+            },
+            {
+              "name": "sh_nax",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_kdrmt",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "sha_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "shi_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "k_tauH_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "sh_tauH_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "gkbar_kM",
+              "unit": "???"
+            },
+            {
+              "name": "gkbar_Ikca",
+              "unit": "???"
+            },
+            {
+              "name": "depth_cad2",
+              "unit": "???"
+            },
+            {
+              "name": "ena",
+              "unit": "???"
+            },
+            {
+              "name": "ek",
+              "unit": "???"
+            },
+            {
+              "name": "spikecount",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_Icat",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_Icapn",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_Ican",
+              "unit": "???"
+            },
+            {
+              "name": "eca",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAr",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAr",
+              "unit": "???"
+            },
+            {
+              "name": "dendcount",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "soma (N/A) | AMPAr (N/A) | spiketimes (N/A) | all (N/A) | gcdendgemm (???) | dendspike (???) | RM (???) | EL (???) | ENA (???) | EK (???) | ECA (???) | NMDAalpha (???) | NMDAbeta (???) | AMPAtau (ms) | Erev (mV) | GABAAtau (???) | GABAArev (???) | spike_threshold (???) | gNa_Soma (???) | gNa_Dend (???) | Sh_Na (???) | gKdr_Soma (???) | gKdr_Dend (???) | gA_Soma (???) | gA_Dend (???) | Sha_A (???) | Shi_A (???) | k_tauH (???) | sh_tauH (???) | gM_Soma (???) | gM_Dend (???) | gKCa_Soma (???) | gKCa_Dend (???) | gCaT_Dend (???) | gCapn_Dend (???) | gcan_Dend (???) | shell_depth (um) | Ra (???) | cm (???) | g_pas (???) | e_pas (???) | gbar_nax (???) | sh_nax (???) | gbar_kdrmt (???) | gbar_kamt (???) | sha_kamt (???) | shi_kamt (???) | k_tauH_kamt (???) | sh_tauH_kamt (???) | gkbar_kM (???) | gkbar_Ikca (???) | depth_cad2 (???) | ena (???) | ek (???) | spikecount (???) | gbar_Icat (???) | gbar_Icapn (???) | gbar_Ican (???) | eca (???) | NMDAr (???) | GABAAr (???) | dendcount (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "GC_save.hoc",
+          "type": "hoc",
+          "label": "GC_save.hoc",
+          "source_file": "GC_save.hoc",
+          "variables": [
+            {
+              "name": "f1",
+              "unit": "N/A"
+            },
+            {
+              "name": "filepath",
+              "unit": "N/A"
+            },
+            {
+              "name": "time",
+              "unit": "N/A"
+            },
+            {
+              "name": "Nd",
+              "unit": "???"
+            },
+            {
+              "name": "Vol",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | Nd (???) | Vol (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "Input.hoc",
+          "type": "hoc",
+          "label": "Input.hoc",
+          "source_file": "Input.hoc",
+          "variables": [
+            {
+              "name": "MCinput",
+              "unit": "N/A"
+            },
+            {
+              "name": "pre_odor",
+              "unit": "N/A"
+            },
+            {
+              "name": "IM",
+              "unit": "N/A"
+            },
+            {
+              "name": "n",
+              "unit": "???"
+            },
+            {
+              "name": "u0",
+              "unit": "???"
+            },
+            {
+              "name": "u1",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "MCinput (N/A) | pre_odor (N/A) | IM (N/A) | n (???) | u0 (???) | u1 (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "MC_Stim.hoc",
+          "type": "hoc",
+          "label": "MC_Stim.hoc",
+          "source_file": "MC_Stim.hoc",
+          "variables": [
+            {
+              "name": "mit",
+              "unit": "N/A"
+            },
+            {
+              "name": "Stim1",
+              "unit": "N/A"
+            },
+            {
+              "name": "syn1",
+              "unit": "N/A"
+            },
+            {
+              "name": "nc",
+              "unit": "N/A"
+            },
+            {
+              "name": "ns",
+              "unit": "N/A"
+            },
+            {
+              "name": "mitrate",
+              "unit": "N/A"
+            },
+            {
+              "name": "g1",
+              "unit": "N/A"
+            },
+            {
+              "name": "tstop",
+              "unit": "???"
+            },
+            {
+              "name": "celsius",
+              "unit": "???"
+            },
+            {
+              "name": "dt",
+              "unit": "???"
+            },
+            {
+              "name": "steps_per_ms",
+              "unit": "???"
+            },
+            {
+              "name": "secondorder",
+              "unit": "???"
+            },
+            {
+              "name": "gnic_tuft",
+              "unit": "???"
+            },
+            {
+              "name": "T1",
+              "unit": "???"
+            },
+            {
+              "name": "Dur",
+              "unit": "???"
+            },
+            {
+              "name": "Ic1",
+              "unit": "???"
+            },
+            {
+              "name": "F0",
+              "unit": "???"
+            },
+            {
+              "name": "F1",
+              "unit": "???"
+            },
+            {
+              "name": "running_",
+              "unit": "???"
+            },
+            {
+              "name": "spk",
+              "unit": "???"
+            },
+            {
+              "name": "T",
+              "unit": "???"
+            },
+            {
+              "name": "n",
+              "unit": "???"
+            },
+            {
+              "name": "ind",
+              "unit": "???"
+            },
+            {
+              "name": "g3",
+              "unit": "???"
+            },
+            {
+              "name": "g4",
+              "unit": "???"
+            },
+            {
+              "name": "g2",
+              "unit": "???"
+            },
+            {
+              "name": "g6",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "mit (N/A) | Stim1 (N/A) | syn1 (N/A) | nc (N/A) | ns (N/A) | mitrate (N/A) | g1 (N/A) | tstop (???) | celsius (???) | dt (???) | steps_per_ms (???) | secondorder (???) | gnic_tuft (???) | T1 (???) | Dur (???) | Ic1 (???) | F0 (???) | F1 (???) | running_ (???) | spk (???) | T (???) | n (???) | ind (???) | g3 (???) | g4 (???) | g2 (???) | g6 (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "MC_def.hoc",
+          "type": "hoc",
+          "label": "MC_def.hoc",
+          "source_file": "MC_def.hoc",
+          "variables": [
+            {
+              "name": "soma",
+              "unit": "N/A"
+            },
+            {
+              "name": "real",
+              "unit": "N/A"
+            },
+            {
+              "name": "AMPA",
+              "unit": "N/A"
+            },
+            {
+              "name": "spiketimes",
+              "unit": "N/A"
+            },
+            {
+              "name": "subsets",
+              "unit": "N/A"
+            },
+            {
+              "name": "all",
+              "unit": "N/A"
+            },
+            {
+              "name": "L",
+              "unit": "???"
+            },
+            {
+              "name": "diam",
+              "unit": "???"
+            },
+            {
+              "name": "nseg",
+              "unit": "???"
+            },
+            {
+              "name": "RM",
+              "unit": "???"
+            },
+            {
+              "name": "El",
+              "unit": "???"
+            },
+            {
+              "name": "ENa",
+              "unit": "???"
+            },
+            {
+              "name": "Ek",
+              "unit": "???"
+            },
+            {
+              "name": "AMPAtau",
+              "unit": "???"
+            },
+            {
+              "name": "AMPArev",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAtau",
+              "unit": "???"
+            },
+            {
+              "name": "GABAArev",
+              "unit": "???"
+            },
+            {
+              "name": "shell_depth",
+              "unit": "???"
+            },
+            {
+              "name": "spike_threshold",
+              "unit": "???"
+            },
+            {
+              "name": "gNa_soma",
+              "unit": "???"
+            },
+            {
+              "name": "gNa_dend",
+              "unit": "???"
+            },
+            {
+              "name": "gNa_prim",
+              "unit": "???"
+            },
+            {
+              "name": "gNa_tuft",
+              "unit": "???"
+            },
+            {
+              "name": "sh_Na",
+              "unit": "???"
+            },
+            {
+              "name": "gKdr_soma",
+              "unit": "???"
+            },
+            {
+              "name": "gKdr_dend",
+              "unit": "???"
+            },
+            {
+              "name": "gKdr_prim",
+              "unit": "???"
+            },
+            {
+              "name": "gKdr_tuft",
+              "unit": "???"
+            },
+            {
+              "name": "gA_soma",
+              "unit": "???"
+            },
+            {
+              "name": "gA_dend",
+              "unit": "???"
+            },
+            {
+              "name": "gA_prim",
+              "unit": "???"
+            },
+            {
+              "name": "gA_tuft",
+              "unit": "???"
+            },
+            {
+              "name": "Sha_A",
+              "unit": "???"
+            },
+            {
+              "name": "Shi_A",
+              "unit": "???"
+            },
+            {
+              "name": "ScaleNP",
+              "unit": "???"
+            },
+            {
+              "name": "ScaleKS",
+              "unit": "???"
+            },
+            {
+              "name": "gNaP_soma",
+              "unit": "???"
+            },
+            {
+              "name": "gNaP_dend",
+              "unit": "???"
+            },
+            {
+              "name": "gNaP_prim",
+              "unit": "???"
+            },
+            {
+              "name": "gNaP_tuft",
+              "unit": "???"
+            },
+            {
+              "name": "gKs_soma",
+              "unit": "???"
+            },
+            {
+              "name": "gKs_dend",
+              "unit": "???"
+            },
+            {
+              "name": "gKs_prim",
+              "unit": "???"
+            },
+            {
+              "name": "gKs_tuft",
+              "unit": "???"
+            },
+            {
+              "name": "tau_KS",
+              "unit": "???"
+            },
+            {
+              "name": "kh_KS",
+              "unit": "???"
+            },
+            {
+              "name": "gCa_soma",
+              "unit": "???"
+            },
+            {
+              "name": "gCa_dend",
+              "unit": "???"
+            },
+            {
+              "name": "gCa_prim",
+              "unit": "???"
+            },
+            {
+              "name": "gCa_tuft",
+              "unit": "???"
+            },
+            {
+              "name": "gKCa_soma",
+              "unit": "???"
+            },
+            {
+              "name": "dendspike",
+              "unit": "???"
+            },
+            {
+              "name": "tuftspike",
+              "unit": "???"
+            },
+            {
+              "name": "Ra",
+              "unit": "???"
+            },
+            {
+              "name": "cm",
+              "unit": "???"
+            },
+            {
+              "name": "e_pas",
+              "unit": "???"
+            },
+            {
+              "name": "g_pas",
+              "unit": "???"
+            },
+            {
+              "name": "enic_Inic",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_Inic",
+              "unit": "???"
+            },
+            {
+              "name": "gnabar_nafast",
+              "unit": "???"
+            },
+            {
+              "name": "sh_nafast",
+              "unit": "???"
+            },
+            {
+              "name": "gkbar_kfasttab",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "sha_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "shi_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_IKs",
+              "unit": "???"
+            },
+            {
+              "name": "tauM_IKs",
+              "unit": "???"
+            },
+            {
+              "name": "kh_IKs",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_INaP",
+              "unit": "???"
+            },
+            {
+              "name": "gcabar_ICa",
+              "unit": "???"
+            },
+            {
+              "name": "gkbar_Ikca",
+              "unit": "???"
+            },
+            {
+              "name": "depth_cad",
+              "unit": "???"
+            },
+            {
+              "name": "spikecount",
+              "unit": "???"
+            },
+            {
+              "name": "GABAA",
+              "unit": "???"
+            },
+            {
+              "name": "spikecount2",
+              "unit": "???"
+            },
+            {
+              "name": "spikecount3",
+              "unit": "???"
+            },
+            {
+              "name": "ena",
+              "unit": "???"
+            },
+            {
+              "name": "ek",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "soma (N/A) | real (N/A) | AMPA (N/A) | spiketimes (N/A) | subsets (N/A) | all (N/A) | L (???) | diam (???) | nseg (???) | RM (???) | El (???) | ENa (???) | Ek (???) | AMPAtau (???) | AMPArev (???) | GABAAtau (???) | GABAArev (???) | shell_depth (???) | spike_threshold (???) | gNa_soma (???) | gNa_dend (???) | gNa_prim (???) | gNa_tuft (???) | sh_Na (???) | gKdr_soma (???) | gKdr_dend (???) | gKdr_prim (???) | gKdr_tuft (???) | gA_soma (???) | gA_dend (???) | gA_prim (???) | gA_tuft (???) | Sha_A (???) | Shi_A (???) | ScaleNP (???) | ScaleKS (???) | gNaP_soma (???) | gNaP_dend (???) | gNaP_prim (???) | gNaP_tuft (???) | gKs_soma (???) | gKs_dend (???) | gKs_prim (???) | gKs_tuft (???) | tau_KS (???) | kh_KS (???) | gCa_soma (???) | gCa_dend (???) | gCa_prim (???) | gCa_tuft (???) | gKCa_soma (???) | dendspike (???) | tuftspike (???) | Ra (???) | cm (???) | e_pas (???) | g_pas (???) | enic_Inic (???) | gbar_Inic (???) | gnabar_nafast (???) | sh_nafast (???) | gkbar_kfasttab (???) | gbar_kamt (???) | sha_kamt (???) | shi_kamt (???) | gbar_IKs (???) | tauM_IKs (???) | kh_IKs (???) | gbar_INaP (???) | gcabar_ICa (???) | gkbar_Ikca (???) | depth_cad (???) | spikecount (???) | GABAA (???) | spikecount2 (???) | spikecount3 (???) | ena (???) | ek (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "MC_save.hoc",
+          "type": "hoc",
+          "label": "MC_save.hoc",
+          "source_file": "MC_save.hoc",
+          "variables": [
+            {
+              "name": "f1",
+              "unit": "N/A"
+            },
+            {
+              "name": "filepath",
+              "unit": "N/A"
+            },
+            {
+              "name": "time",
+              "unit": "N/A"
+            },
+            {
+              "name": "DT",
+              "unit": "???"
+            },
+            {
+              "name": "Vt",
+              "unit": "???"
+            },
+            {
+              "name": "Vp",
+              "unit": "???"
+            },
+            {
+              "name": "Vs",
+              "unit": "???"
+            },
+            {
+              "name": "Vd",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | DT (???) | Vt (???) | Vp (???) | Vs (???) | Vd (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "OBNet.hoc",
+          "type": "hoc",
+          "label": "OBNet.hoc",
+          "source_file": "OBNet.hoc",
+          "variables": [
+            {
+              "name": "v_init",
+              "unit": "???"
+            },
+            {
+              "name": "tstop",
+              "unit": "???"
+            },
+            {
+              "name": "celsius",
+              "unit": "???"
+            },
+            {
+              "name": "dt",
+              "unit": "???"
+            },
+            {
+              "name": "steps_per_ms",
+              "unit": "???"
+            },
+            {
+              "name": "secondorder",
+              "unit": "???"
+            },
+            {
+              "name": "running_",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "v_init (???) | tstop (???) | celsius (???) | dt (???) | steps_per_ms (???) | secondorder (???) | running_ (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "PG_Stim.hoc",
+          "type": "hoc",
+          "label": "PG_Stim.hoc",
+          "source_file": "PG_Stim.hoc",
+          "variables": [
+            {
+              "name": "cvode",
+              "unit": "N/A"
+            },
+            {
+              "name": "pg",
+              "unit": "N/A"
+            },
+            {
+              "name": "Stim1",
+              "unit": "N/A"
+            },
+            {
+              "name": "Stim2",
+              "unit": "N/A"
+            },
+            {
+              "name": "PGbinput",
+              "unit": "N/A"
+            },
+            {
+              "name": "PGb",
+              "unit": "N/A"
+            },
+            {
+              "name": "g1",
+              "unit": "N/A"
+            },
+            {
+              "name": "tstop",
+              "unit": "???"
+            },
+            {
+              "name": "celsius",
+              "unit": "???"
+            },
+            {
+              "name": "gnic_spine",
+              "unit": "???"
+            },
+            {
+              "name": "T1",
+              "unit": "???"
+            },
+            {
+              "name": "Dur",
+              "unit": "???"
+            },
+            {
+              "name": "BI",
+              "unit": "???"
+            },
+            {
+              "name": "Ic1",
+              "unit": "???"
+            },
+            {
+              "name": "u0",
+              "unit": "???"
+            },
+            {
+              "name": "u1",
+              "unit": "???"
+            },
+            {
+              "name": "Wb_PG",
+              "unit": "???"
+            },
+            {
+              "name": "Tb_ISI",
+              "unit": "???"
+            },
+            {
+              "name": "N_SPIKE",
+              "unit": "???"
+            },
+            {
+              "name": "g4",
+              "unit": "???"
+            },
+            {
+              "name": "g6",
+              "unit": "???"
+            },
+            {
+              "name": "g5",
+              "unit": "???"
+            },
+            {
+              "name": "g2",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "cvode (N/A) | pg (N/A) | Stim1 (N/A) | Stim2 (N/A) | PGbinput (N/A) | PGb (N/A) | g1 (N/A) | tstop (???) | celsius (???) | gnic_spine (???) | T1 (???) | Dur (???) | BI (???) | Ic1 (???) | u0 (???) | u1 (???) | Wb_PG (???) | Tb_ISI (???) | N_SPIKE (???) | g4 (???) | g6 (???) | g5 (???) | g2 (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "PG_def.hoc",
+          "type": "hoc",
+          "label": "PG_def.hoc",
+          "source_file": "PG_def.hoc",
+          "variables": [
+            {
+              "name": "soma",
+              "unit": "N/A"
+            },
+            {
+              "name": "AMPAr",
+              "unit": "N/A"
+            },
+            {
+              "name": "subsets",
+              "unit": "N/A"
+            },
+            {
+              "name": "pg_all",
+              "unit": "N/A"
+            },
+            {
+              "name": "AMPAtau",
+              "unit": "ms"
+            },
+            {
+              "name": "Erev",
+              "unit": "mV"
+            },
+            {
+              "name": "shell_depth",
+              "unit": "???"
+            },
+            {
+              "name": "RM",
+              "unit": "???"
+            },
+            {
+              "name": "EL",
+              "unit": "???"
+            },
+            {
+              "name": "ENA",
+              "unit": "???"
+            },
+            {
+              "name": "EK",
+              "unit": "???"
+            },
+            {
+              "name": "ECA",
+              "unit": "???"
+            },
+            {
+              "name": "gNa_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gNa_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "Sh_Na",
+              "unit": "???"
+            },
+            {
+              "name": "gKdr_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gKdr_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gA_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gA_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "Sha_A",
+              "unit": "???"
+            },
+            {
+              "name": "Shi_A",
+              "unit": "???"
+            },
+            {
+              "name": "k_tauH",
+              "unit": "???"
+            },
+            {
+              "name": "sh_tauH",
+              "unit": "???"
+            },
+            {
+              "name": "gH_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gM_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gM_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gKCa_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gKCa_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gCapn_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gCapn_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "gCaT_Soma",
+              "unit": "???"
+            },
+            {
+              "name": "gCaT_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "Sha_T",
+              "unit": "???"
+            },
+            {
+              "name": "Shi_T",
+              "unit": "???"
+            },
+            {
+              "name": "K_tauH",
+              "unit": "???"
+            },
+            {
+              "name": "gcan_Dend",
+              "unit": "???"
+            },
+            {
+              "name": "spine",
+              "unit": "???"
+            },
+            {
+              "name": "pgdendgemm",
+              "unit": "???"
+            },
+            {
+              "name": "spiketimes",
+              "unit": "???"
+            },
+            {
+              "name": "dendspike",
+              "unit": "???"
+            },
+            {
+              "name": "spike_threshold",
+              "unit": "???"
+            },
+            {
+              "name": "Ra",
+              "unit": "???"
+            },
+            {
+              "name": "cm",
+              "unit": "???"
+            },
+            {
+              "name": "g_pas",
+              "unit": "???"
+            },
+            {
+              "name": "e_pas",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_nax",
+              "unit": "???"
+            },
+            {
+              "name": "sh_nax",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_kdrmt",
+              "unit": "???"
+            },
+            {
+              "name": "q10_kdrmt",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "sha_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "shi_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "k_tauH_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "sh_tauH_kamt",
+              "unit": "???"
+            },
+            {
+              "name": "gkbar_kM",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_Icapn",
+              "unit": "???"
+            },
+            {
+              "name": "gkbar_Ikca",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_Icat",
+              "unit": "???"
+            },
+            {
+              "name": "sha_Icat",
+              "unit": "???"
+            },
+            {
+              "name": "shi_Icat",
+              "unit": "???"
+            },
+            {
+              "name": "depth_cad2",
+              "unit": "???"
+            },
+            {
+              "name": "ena",
+              "unit": "???"
+            },
+            {
+              "name": "ek",
+              "unit": "???"
+            },
+            {
+              "name": "eca",
+              "unit": "???"
+            },
+            {
+              "name": "spikecount",
+              "unit": "???"
+            },
+            {
+              "name": "eh_hpg",
+              "unit": "???"
+            },
+            {
+              "name": "ghbar_hpg",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_Ican",
+              "unit": "???"
+            },
+            {
+              "name": "k_tauH_Icat",
+              "unit": "???"
+            },
+            {
+              "name": "enic_Inic",
+              "unit": "???"
+            },
+            {
+              "name": "gbar_Inic",
+              "unit": "S/cm2"
+            },
+            {
+              "name": "dendcount",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "soma (N/A) | AMPAr (N/A) | subsets (N/A) | pg_all (N/A) | AMPAtau (ms) | Erev (mV) | shell_depth (???) | RM (???) | EL (???) | ENA (???) | EK (???) | ECA (???) | gNa_Soma (???) | gNa_Dend (???) | Sh_Na (???) | gKdr_Soma (???) | gKdr_Dend (???) | gA_Soma (???) | gA_Dend (???) | Sha_A (???) | Shi_A (???) | k_tauH (???) | sh_tauH (???) | gH_Dend (???) | gM_Soma (???) | gM_Dend (???) | gKCa_Soma (???) | gKCa_Dend (???) | gCapn_Soma (???) | gCapn_Dend (???) | gCaT_Soma (???) | gCaT_Dend (???) | Sha_T (???) | Shi_T (???) | K_tauH (???) | gcan_Dend (???) | spine (???) | pgdendgemm (???) | spiketimes (???) | dendspike (???) | spike_threshold (???) | Ra (???) | cm (???) | g_pas (???) | e_pas (???) | gbar_nax (???) | sh_nax (???) | gbar_kdrmt (???) | q10_kdrmt (???) | gbar_kamt (???) | sha_kamt (???) | shi_kamt (???) | k_tauH_kamt (???) | sh_tauH_kamt (???) | gkbar_kM (???) | gbar_Icapn (???) | gkbar_Ikca (???) | gbar_Icat (???) | sha_Icat (???) | shi_Icat (???) | depth_cad2 (???) | ena (???) | ek (???) | eca (???) | spikecount (???) | eh_hpg (???) | ghbar_hpg (???) | gbar_Ican (???) | k_tauH_Icat (???) | enic_Inic (???) | gbar_Inic (S/cm2) | dendcount (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "PG_save.hoc",
+          "type": "hoc",
+          "label": "PG_save.hoc",
+          "source_file": "PG_save.hoc",
+          "variables": [
+            {
+              "name": "f1",
+              "unit": "N/A"
+            },
+            {
+              "name": "filepath",
+              "unit": "N/A"
+            },
+            {
+              "name": "time",
+              "unit": "N/A"
+            },
+            {
+              "name": "Nd",
+              "unit": "???"
+            },
+            {
+              "name": "Vol",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | Nd (???) | Vol (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "Parameter.hoc",
+          "type": "hoc",
+          "label": "Parameter.hoc",
+          "source_file": "Parameter.hoc",
+          "variables": [
+            {
+              "name": "seedU",
+              "unit": "???"
+            },
+            {
+              "name": "seedN",
+              "unit": "???"
+            },
+            {
+              "name": "NSSEED",
+              "unit": "???"
+            },
+            {
+              "name": "nmitx",
+              "unit": "???"
+            },
+            {
+              "name": "nmity",
+              "unit": "???"
+            },
+            {
+              "name": "nMit",
+              "unit": "???"
+            },
+            {
+              "name": "npgx",
+              "unit": "???"
+            },
+            {
+              "name": "npgy",
+              "unit": "???"
+            },
+            {
+              "name": "nPG",
+              "unit": "???"
+            },
+            {
+              "name": "ngranx",
+              "unit": "???"
+            },
+            {
+              "name": "ngrany",
+              "unit": "???"
+            },
+            {
+              "name": "nGran",
+              "unit": "???"
+            },
+            {
+              "name": "Hgc",
+              "unit": "???"
+            },
+            {
+              "name": "RATIO",
+              "unit": "???"
+            },
+            {
+              "name": "Todor",
+              "unit": "???"
+            },
+            {
+              "name": "RiseRate",
+              "unit": "???"
+            },
+            {
+              "name": "Pre_Odor_L",
+              "unit": "???"
+            },
+            {
+              "name": "Pre_Odor_U",
+              "unit": "???"
+            },
+            {
+              "name": "Odor_L",
+              "unit": "???"
+            },
+            {
+              "name": "Odor_U",
+              "unit": "???"
+            },
+            {
+              "name": "Pc",
+              "unit": "???"
+            },
+            {
+              "name": "LEN",
+              "unit": "???"
+            },
+            {
+              "name": "R",
+              "unit": "???"
+            },
+            {
+              "name": "dm",
+              "unit": "???"
+            },
+            {
+              "name": "dg",
+              "unit": "???"
+            },
+            {
+              "name": "Km2p",
+              "unit": "???"
+            },
+            {
+              "name": "Wm2p",
+              "unit": "???"
+            },
+            {
+              "name": "Wm2g",
+              "unit": "???"
+            },
+            {
+              "name": "Wp2m",
+              "unit": "???"
+            },
+            {
+              "name": "Wg2m",
+              "unit": "???"
+            },
+            {
+              "name": "AMPAgmaxPG",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAgmaxPG",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAgmaxPG",
+              "unit": "???"
+            },
+            {
+              "name": "AMPAgmaxGC",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAgmaxGC",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAgmaxGC",
+              "unit": "???"
+            },
+            {
+              "name": "Gampa",
+              "unit": "???"
+            },
+            {
+              "name": "Gnmda",
+              "unit": "???"
+            },
+            {
+              "name": "Ggaba",
+              "unit": "???"
+            },
+            {
+              "name": "tau1_AMPA",
+              "unit": "???"
+            },
+            {
+              "name": "tau2_AMPA",
+              "unit": "???"
+            },
+            {
+              "name": "tau1_NMDA",
+              "unit": "???"
+            },
+            {
+              "name": "tau2_NMDA",
+              "unit": "???"
+            },
+            {
+              "name": "tau1_GABA_PG",
+              "unit": "???"
+            },
+            {
+              "name": "tau2_GABA_PG",
+              "unit": "???"
+            },
+            {
+              "name": "tau1_GABA_GC",
+              "unit": "???"
+            },
+            {
+              "name": "tau2_GABA_GC",
+              "unit": "???"
+            },
+            {
+              "name": "AMPAalpha",
+              "unit": "???"
+            },
+            {
+              "name": "AMPAbeta",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAalpha",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAbeta",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAalpha_PG",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAbeta_PG",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAalpha_GC",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAbeta_GC",
+              "unit": "???"
+            },
+            {
+              "name": "AMPArev",
+              "unit": "???"
+            },
+            {
+              "name": "NMDArev",
+              "unit": "???"
+            },
+            {
+              "name": "GABAArev",
+              "unit": "???"
+            },
+            {
+              "name": "AMPAact",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAact",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAact",
+              "unit": "???"
+            },
+            {
+              "name": "AMPAsigma",
+              "unit": "???"
+            },
+            {
+              "name": "NMDAsigma",
+              "unit": "???"
+            },
+            {
+              "name": "GABAAsigma",
+              "unit": "???"
+            },
+            {
+              "name": "NICOTIN",
+              "unit": "???"
+            },
+            {
+              "name": "MUSCARIN",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "seedU (???) | seedN (???) | NSSEED (???) | nmitx (???) | nmity (???) | nMit (???) | npgx (???) | npgy (???) | nPG (???) | ngranx (???) | ngrany (???) | nGran (???) | Hgc (???) | RATIO (???) | Todor (???) | RiseRate (???) | Pre_Odor_L (???) | Pre_Odor_U (???) | Odor_L (???) | Odor_U (???) | Pc (???) | LEN (???) | R (???) | dm (???) | dg (???) | Km2p (???) | Wm2p (???) | Wm2g (???) | Wp2m (???) | Wg2m (???) | AMPAgmaxPG (???) | NMDAgmaxPG (???) | GABAAgmaxPG (???) | AMPAgmaxGC (???) | NMDAgmaxGC (???) | GABAAgmaxGC (???) | Gampa (???) | Gnmda (???) | Ggaba (???) | tau1_AMPA (???) | tau2_AMPA (???) | tau1_NMDA (???) | tau2_NMDA (???) | tau1_GABA_PG (???) | tau2_GABA_PG (???) | tau1_GABA_GC (???) | tau2_GABA_GC (???) | AMPAalpha (???) | AMPAbeta (???) | NMDAalpha (???) | NMDAbeta (???) | GABAAalpha_PG (???) | GABAAbeta_PG (???) | GABAAalpha_GC (???) | GABAAbeta_GC (???) | AMPArev (???) | NMDArev (???) | GABAArev (???) | AMPAact (???) | NMDAact (???) | GABAAact (???) | AMPAsigma (???) | NMDAsigma (???) | GABAAsigma (???) | NICOTIN (???) | MUSCARIN (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "SaveData.hoc",
+          "type": "hoc",
+          "label": "SaveData.hoc",
+          "source_file": "SaveData.hoc",
+          "variables": [
+            {
+              "name": "f1",
+              "unit": "N/A"
+            },
+            {
+              "name": "filepath",
+              "unit": "N/A"
+            },
+            {
+              "name": "time",
+              "unit": "N/A"
+            },
+            {
+              "name": "Gpm",
+              "unit": "N/A"
+            },
+            {
+              "name": "Ggm",
+              "unit": "N/A"
+            },
+            {
+              "name": "Vms",
+              "unit": "N/A"
+            },
+            {
+              "name": "Vgs",
+              "unit": "N/A"
+            },
+            {
+              "name": "Vps",
+              "unit": "N/A"
+            },
+            {
+              "name": "Tt",
+              "unit": "N/A"
+            },
+            {
+              "name": "Vmc22",
+              "unit": "N/A"
+            },
+            {
+              "name": "DT",
+              "unit": "???"
+            },
+            {
+              "name": "DTT",
+              "unit": "???"
+            },
+            {
+              "name": "sum",
+              "unit": "???"
+            },
+            {
+              "name": "filepath1",
+              "unit": "???"
+            },
+            {
+              "name": "input",
+              "unit": "???"
+            },
+            {
+              "name": "WD",
+              "unit": "???"
+            },
+            {
+              "name": "FL",
+              "unit": "???"
+            },
+            {
+              "name": "size1",
+              "unit": "???"
+            },
+            {
+              "name": "Vmean",
+              "unit": "???"
+            },
+            {
+              "name": "size2",
+              "unit": "???"
+            },
+            {
+              "name": "Vmean2",
+              "unit": "???"
+            },
+            {
+              "name": "size",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | Gpm (N/A) | Ggm (N/A) | Vms (N/A) | Vgs (N/A) | Vps (N/A) | Tt (N/A) | Vmc22 (N/A) | DT (???) | DTT (???) | sum (???) | filepath1 (???) | input (???) | WD (???) | FL (???) | size1 (???) | Vmean (???) | size2 (???) | Vmean2 (???) | size (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "mathslib.hoc",
+          "type": "hoc",
+          "label": "mathslib.hoc",
+          "source_file": "mathslib.hoc",
+          "variables": [
+            {
+              "name": "mymaths_work",
+              "unit": "N/A"
+            },
+            {
+              "name": "x",
+              "unit": "???"
+            },
+            {
+              "name": "max",
+              "unit": "???"
+            },
+            {
+              "name": "min",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "mymaths_work (N/A) | x (???) | max (???) | min (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "mosinit.hoc",
+          "type": "hoc",
+          "label": "mosinit.hoc",
+          "source_file": "mosinit.hoc",
+          "variables": [],
+          "variables_flat": ""
+        }
+      },
+      {
+        "data": {
+          "id": "tabchannels.hoc",
+          "type": "hoc",
+          "label": "tabchannels.hoc",
+          "source_file": "tabchannels.hoc",
+          "variables": [
+            {
+              "name": "datafile",
+              "unit": "N/A"
+            },
+            {
+              "name": "npoints",
+              "unit": "???"
+            },
+            {
+              "name": "vvec",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "datafile (N/A) | npoints (???) | vvec (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "ICa",
+          "type": "mechanism",
+          "label": "ICa",
+          "source_file": "LCa.mod",
+          "variables": [
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "dt",
+              "unit": "ms"
+            },
+            {
+              "name": "gcabar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "ica",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "sinf",
+              "unit": "???"
+            },
+            {
+              "name": "rinf",
+              "unit": "???"
+            },
+            {
+              "name": "stau",
+              "unit": "ms"
+            },
+            {
+              "name": "rtau",
+              "unit": "ms"
+            },
+            {
+              "name": "r",
+              "unit": "???"
+            },
+            {
+              "name": "eca",
+              "unit": "mV"
+            }
+          ],
+          "variables_flat": "v (mV) | dt (ms) | gcabar (mho/cm2) | ica (mA/cm2) | sinf (???) | rinf (???) | stau (ms) | rtau (ms) | r (???) | eca (mV)"
+        }
+      },
+      {
+        "data": {
+          "id": "IKs",
+          "type": "mechanism",
+          "label": "IKs",
+          "source_file": "KS.mod",
+          "variables": [
+            {
+              "name": "gbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "ek",
+              "unit": "mV"
+            },
+            {
+              "name": "kh",
+              "unit": "???"
+            },
+            {
+              "name": "sha",
+              "unit": "mV"
+            },
+            {
+              "name": "shi",
+              "unit": "mV"
+            },
+            {
+              "name": "tauM",
+              "unit": "ms"
+            },
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "ik",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "minf",
+              "unit": "???"
+            },
+            {
+              "name": "mtau",
+              "unit": "ms"
+            },
+            {
+              "name": "hinf",
+              "unit": "???"
+            },
+            {
+              "name": "htau",
+              "unit": "ms"
+            },
+            {
+              "name": "m",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "gbar (mho/cm2) | ek (mV) | kh (???) | sha (mV) | shi (mV) | tauM (ms) | v (mV) | ik (mA/cm2) | minf (???) | mtau (ms) | hinf (???) | htau (ms) | m (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "INaP",
+          "type": "mechanism",
+          "label": "INaP",
+          "source_file": "NaP.mod",
+          "variables": [
+            {
+              "name": "gbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "ena",
+              "unit": "mV"
+            },
+            {
+              "name": "shm",
+              "unit": "mV"
+            },
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "ina",
+              "unit": "mA/cm2"
+            }
+          ],
+          "variables_flat": "gbar (mho/cm2) | ena (mV) | shm (mV) | v (mV) | ina (mA/cm2)"
+        }
+      },
+      {
+        "data": {
+          "id": "Ican",
+          "type": "mechanism",
+          "label": "Ican",
+          "source_file": "Can.mod",
+          "variables": [
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "dt",
+              "unit": "ms"
+            },
+            {
+              "name": "gbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "e",
+              "unit": "mV"
+            },
+            {
+              "name": "tauca",
+              "unit": "ms"
+            },
+            {
+              "name": "kdcan",
+              "unit": "mM"
+            },
+            {
+              "name": "Shm",
+              "unit": "???"
+            },
+            {
+              "name": "cai",
+              "unit": "mM"
+            },
+            {
+              "name": "i",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "minf",
+              "unit": "???"
+            },
+            {
+              "name": "tauinf",
+              "unit": "ms"
+            },
+            {
+              "name": "m",
+              "unit": "???"
+            },
+            {
+              "name": "g",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "MCa",
+              "unit": "???"
+            },
+            {
+              "name": "mm",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "v (mV) | dt (ms) | gbar (mho/cm2) | e (mV) | tauca (ms) | kdcan (mM) | Shm (???) | cai (mM) | i (mA/cm2) | minf (???) | tauinf (ms) | m (???) | g (mho/cm2) | MCa (???) | mm (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "Icapn",
+          "type": "mechanism",
+          "label": "Icapn",
+          "source_file": "CaPN.mod",
+          "variables": [
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "gbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "e",
+              "unit": "mV"
+            },
+            {
+              "name": "ica",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "minf",
+              "unit": "???"
+            },
+            {
+              "name": "hinf",
+              "unit": "???"
+            },
+            {
+              "name": "mtau",
+              "unit": "ms"
+            },
+            {
+              "name": "htau",
+              "unit": "ms"
+            },
+            {
+              "name": "m",
+              "unit": "???"
+            },
+            {
+              "name": "h",
+              "unit": "???"
+            },
+            {
+              "name": "g",
+              "unit": "mho/cm2"
+            }
+          ],
+          "variables_flat": "v (mV) | gbar (mho/cm2) | e (mV) | ica (mA/cm2) | minf (???) | hinf (???) | mtau (ms) | htau (ms) | m (???) | h (???) | g (mho/cm2)"
+        }
+      },
+      {
+        "data": {
+          "id": "Icat",
+          "type": "mechanism",
+          "label": "Icat",
+          "source_file": "CaT.mod",
+          "variables": [
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "gbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "e",
+              "unit": "mV"
+            },
+            {
+              "name": "sha",
+              "unit": "???"
+            },
+            {
+              "name": "shi",
+              "unit": "???"
+            },
+            {
+              "name": "k_tauH",
+              "unit": "???"
+            },
+            {
+              "name": "ica",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "minf",
+              "unit": "???"
+            },
+            {
+              "name": "hinf",
+              "unit": "???"
+            },
+            {
+              "name": "mtau",
+              "unit": "ms"
+            },
+            {
+              "name": "htau",
+              "unit": "ms"
+            },
+            {
+              "name": "m",
+              "unit": "???"
+            },
+            {
+              "name": "h",
+              "unit": "???"
+            },
+            {
+              "name": "g",
+              "unit": "mho/cm2"
+            }
+          ],
+          "variables_flat": "v (mV) | gbar (mho/cm2) | e (mV) | sha (???) | shi (???) | k_tauH (???) | ica (mA/cm2) | minf (???) | hinf (???) | mtau (ms) | htau (ms) | m (???) | h (???) | g (mho/cm2)"
+        }
+      },
+      {
+        "data": {
+          "id": "Ikca",
+          "type": "mechanism",
+          "label": "Ikca",
+          "source_file": "KCa.mod",
+          "variables": [
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "dt",
+              "unit": "ms"
+            },
+            {
+              "name": "gkbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "ek",
+              "unit": "mV"
+            },
+            {
+              "name": "Ybeta",
+              "unit": "/ms"
+            },
+            {
+              "name": "cai",
+              "unit": "mM"
+            },
+            {
+              "name": "ik",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "Yalpha",
+              "unit": "/ms"
+            },
+            {
+              "name": "Yvdep",
+              "unit": "???"
+            },
+            {
+              "name": "Yconcdep",
+              "unit": "/ms"
+            },
+            {
+              "name": "Y",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "v (mV) | dt (ms) | gkbar (mho/cm2) | ek (mV) | Ybeta (/ms) | cai (mM) | ik (mA/cm2) | Yalpha (/ms) | Yvdep (???) | Yconcdep (/ms) | Y (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "Inic",
+          "type": "mechanism",
+          "label": "Inic",
+          "source_file": "Nicotin.mod",
+          "variables": [
+            {
+              "name": "gbar",
+              "unit": "siemens/cm2"
+            },
+            {
+              "name": "enic",
+              "unit": "mV"
+            },
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "i",
+              "unit": "mA/cm2"
+            }
+          ],
+          "variables_flat": "gbar (siemens/cm2) | enic (mV) | v (mV) | i (mA/cm2)"
+        }
+      },
+      {
+        "data": {
+          "id": "cad",
+          "type": "mechanism",
+          "label": "cad",
+          "source_file": "cadecay.mod",
+          "variables": [
+            {
+              "name": "dt",
+              "unit": "ms"
+            },
+            {
+              "name": "depth",
+              "unit": "um"
+            },
+            {
+              "name": "tau",
+              "unit": "ms"
+            },
+            {
+              "name": "cainf",
+              "unit": "mM"
+            },
+            {
+              "name": "ica",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "f",
+              "unit": "???"
+            },
+            {
+              "name": "channel_flow",
+              "unit": "mM/ms"
+            },
+            {
+              "name": "B",
+              "unit": "mM cm2/ms/mA"
+            },
+            {
+              "name": "cai",
+              "unit": "mM"
+            },
+            {
+              "name": "FARADAY",
+              "unit": "coul"
+            }
+          ],
+          "variables_flat": "dt (ms) | depth (um) | tau (ms) | cainf (mM) | ica (mA/cm2) | f (???) | channel_flow (mM/ms) | B (mM cm2/ms/mA) | cai (mM) | FARADAY (coul)"
+        }
+      },
+      {
+        "data": {
+          "id": "cad2",
+          "type": "mechanism",
+          "label": "cad2",
+          "source_file": "cadecay2.mod",
+          "variables": [
+            {
+              "name": "dt",
+              "unit": "ms"
+            },
+            {
+              "name": "depth",
+              "unit": "um"
+            },
+            {
+              "name": "tau",
+              "unit": "ms"
+            },
+            {
+              "name": "cainf",
+              "unit": "mM"
+            },
+            {
+              "name": "ica",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "f",
+              "unit": "???"
+            },
+            {
+              "name": "channel_flow",
+              "unit": "mM/ms"
+            },
+            {
+              "name": "B",
+              "unit": "mM cm2/ms/mA"
+            },
+            {
+              "name": "cai",
+              "unit": "mM"
+            },
+            {
+              "name": "FARADAY",
+              "unit": "coul"
+            }
+          ],
+          "variables_flat": "dt (ms) | depth (um) | tau (ms) | cainf (mM) | ica (mA/cm2) | f (???) | channel_flow (mM/ms) | B (mM cm2/ms/mA) | cai (mM) | FARADAY (coul)"
+        }
+      },
+      {
+        "data": {
+          "id": "hpg",
+          "type": "mechanism",
+          "label": "hpg",
+          "source_file": "hpg.mod",
+          "variables": [
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "eh",
+              "unit": "mV"
+            },
+            {
+              "name": "celsius",
+              "unit": "degC"
+            },
+            {
+              "name": "ghbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "vhalft",
+              "unit": "mV"
+            },
+            {
+              "name": "a0t",
+              "unit": "/ms"
+            },
+            {
+              "name": "zetat",
+              "unit": "1"
+            },
+            {
+              "name": "gmt",
+              "unit": "1"
+            },
+            {
+              "name": "q10",
+              "unit": "???"
+            },
+            {
+              "name": "i",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "linf",
+              "unit": "???"
+            },
+            {
+              "name": "taul",
+              "unit": "???"
+            },
+            {
+              "name": "g",
+              "unit": "???"
+            },
+            {
+              "name": "l",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "v (mV) | eh (mV) | celsius (degC) | ghbar (mho/cm2) | vhalft (mV) | a0t (/ms) | zetat (1) | gmt (1) | q10 (???) | i (mA/cm2) | linf (???) | taul (???) | g (???) | l (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "kM",
+          "type": "mechanism",
+          "label": "kM",
+          "source_file": "kM.mod",
+          "variables": [
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "dt",
+              "unit": "ms"
+            },
+            {
+              "name": "gkbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "ek",
+              "unit": "mV"
+            },
+            {
+              "name": "ik",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "xinf",
+              "unit": "???"
+            },
+            {
+              "name": "xtau",
+              "unit": "ms"
+            },
+            {
+              "name": "x",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "v (mV) | dt (ms) | gkbar (mho/cm2) | ek (mV) | ik (mA/cm2) | xinf (???) | xtau (ms) | x (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "kamt",
+          "type": "mechanism",
+          "label": "kamt",
+          "source_file": "kAmt.mod",
+          "variables": [
+            {
+              "name": "gbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "celsius",
+              "unit": "???"
+            },
+            {
+              "name": "ek",
+              "unit": "mV"
+            },
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "a0m",
+              "unit": "???"
+            },
+            {
+              "name": "vhalfm",
+              "unit": "???"
+            },
+            {
+              "name": "zetam",
+              "unit": "???"
+            },
+            {
+              "name": "gmm",
+              "unit": "???"
+            },
+            {
+              "name": "a0h",
+              "unit": "???"
+            },
+            {
+              "name": "vhalfh",
+              "unit": "???"
+            },
+            {
+              "name": "zetah",
+              "unit": "???"
+            },
+            {
+              "name": "gmh",
+              "unit": "???"
+            },
+            {
+              "name": "sha",
+              "unit": "???"
+            },
+            {
+              "name": "shi",
+              "unit": "???"
+            },
+            {
+              "name": "q10",
+              "unit": "???"
+            },
+            {
+              "name": "k_tauH",
+              "unit": "???"
+            },
+            {
+              "name": "sh_tauH",
+              "unit": "???"
+            },
+            {
+              "name": "ik",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "minf",
+              "unit": "ms"
+            },
+            {
+              "name": "hinf",
+              "unit": "ms"
+            },
+            {
+              "name": "m",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "gbar (mho/cm2) | celsius (???) | ek (mV) | v (mV) | a0m (???) | vhalfm (???) | zetam (???) | gmm (???) | a0h (???) | vhalfh (???) | zetah (???) | gmh (???) | sha (???) | shi (???) | q10 (???) | k_tauH (???) | sh_tauH (???) | ik (mA/cm2) | minf (ms) | hinf (ms) | m (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "kdrmt",
+          "type": "mechanism",
+          "label": "kdrmt",
+          "source_file": "KDRmt.mod",
+          "variables": [
+            {
+              "name": "gbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "celsius",
+              "unit": "???"
+            },
+            {
+              "name": "ek",
+              "unit": "mV"
+            },
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "a0m",
+              "unit": "???"
+            },
+            {
+              "name": "vhalfm",
+              "unit": "???"
+            },
+            {
+              "name": "zetam",
+              "unit": "???"
+            },
+            {
+              "name": "gmm",
+              "unit": "???"
+            },
+            {
+              "name": "q10",
+              "unit": "???"
+            },
+            {
+              "name": "ik",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "minf",
+              "unit": "ms"
+            },
+            {
+              "name": "m",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "gbar (mho/cm2) | celsius (???) | ek (mV) | v (mV) | a0m (???) | vhalfm (???) | zetam (???) | gmm (???) | q10 (???) | ik (mA/cm2) | minf (ms) | m (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "kfasttab",
+          "type": "mechanism",
+          "label": "kfasttab",
+          "source_file": "kfasttab.mod",
+          "variables": [
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "dt",
+              "unit": "ms"
+            },
+            {
+              "name": "gkbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "ek",
+              "unit": "mV"
+            },
+            {
+              "name": "ik",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "ninf",
+              "unit": "???"
+            },
+            {
+              "name": "kinf",
+              "unit": "???"
+            },
+            {
+              "name": "ntau",
+              "unit": "ms"
+            },
+            {
+              "name": "ktau",
+              "unit": "ms"
+            },
+            {
+              "name": "n",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "v (mV) | dt (ms) | gkbar (mho/cm2) | ek (mV) | ik (mA/cm2) | ninf (???) | kinf (???) | ntau (ms) | ktau (ms) | n (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "nafast",
+          "type": "mechanism",
+          "label": "nafast",
+          "source_file": "nafast.mod",
+          "variables": [
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "dt",
+              "unit": "ms"
+            },
+            {
+              "name": "gnabar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "ena",
+              "unit": "mV"
+            },
+            {
+              "name": "sh",
+              "unit": "???"
+            },
+            {
+              "name": "ina",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "minf",
+              "unit": "???"
+            },
+            {
+              "name": "hinf",
+              "unit": "???"
+            },
+            {
+              "name": "mtau",
+              "unit": "ms"
+            },
+            {
+              "name": "htau",
+              "unit": "ms"
+            },
+            {
+              "name": "m",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "v (mV) | dt (ms) | gnabar (mho/cm2) | ena (mV) | sh (???) | ina (mA/cm2) | minf (???) | hinf (???) | mtau (ms) | htau (ms) | m (???)"
+        }
+      },
+      {
+        "data": {
+          "id": "nax",
+          "type": "mechanism",
+          "label": "nax",
+          "source_file": "Naxn.mod",
+          "variables": [
+            {
+              "name": "sh",
+              "unit": "mV"
+            },
+            {
+              "name": "gbar",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "tha",
+              "unit": "mV"
+            },
+            {
+              "name": "qa",
+              "unit": "mV"
+            },
+            {
+              "name": "Ra",
+              "unit": "/ms"
+            },
+            {
+              "name": "Rb",
+              "unit": "/ms"
+            },
+            {
+              "name": "thi1",
+              "unit": "mV"
+            },
+            {
+              "name": "thi2",
+              "unit": "mV"
+            },
+            {
+              "name": "qd",
+              "unit": "mV"
+            },
+            {
+              "name": "qg",
+              "unit": "mV"
+            },
+            {
+              "name": "mmin",
+              "unit": "???"
+            },
+            {
+              "name": "hmin",
+              "unit": "???"
+            },
+            {
+              "name": "q10",
+              "unit": "???"
+            },
+            {
+              "name": "Rg",
+              "unit": "/ms"
+            },
+            {
+              "name": "Rd",
+              "unit": "/ms"
+            },
+            {
+              "name": "thinf",
+              "unit": "mV"
+            },
+            {
+              "name": "qinf",
+              "unit": "mV"
+            },
+            {
+              "name": "ena",
+              "unit": "mV"
+            },
+            {
+              "name": "celsius",
+              "unit": "???"
+            },
+            {
+              "name": "v",
+              "unit": "mV"
+            },
+            {
+              "name": "ina",
+              "unit": "mA/cm2"
+            },
+            {
+              "name": "thegna",
+              "unit": "mho/cm2"
+            },
+            {
+              "name": "minf",
+              "unit": "???"
+            },
+            {
+              "name": "mtau",
+              "unit": "ms"
+            },
+            {
+              "name": "m",
+              "unit": "???"
+            }
+          ],
+          "variables_flat": "sh (mV) | gbar (mho/cm2) | tha (mV) | qa (mV) | Ra (/ms) | Rb (/ms) | thi1 (mV) | thi2 (mV) | qd (mV) | qg (mV) | mmin (???) | hmin (???) | q10 (???) | Rg (/ms) | Rd (/ms) | thinf (mV) | qinf (mV) | ena (mV) | celsius (???) | v (mV) | ina (mA/cm2) | thegna (mho/cm2) | minf (???) | mtau (ms) | m (???)"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "data": {
+          "source": "GC_Stim.hoc",
+          "target": "GC_def.hoc",
+          "relation": "loads",
+          "id": "GC_Stim.hoc_loads_GC_def.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_Stim.hoc",
+          "target": "GC_save.hoc",
+          "relation": "loads",
+          "id": "GC_Stim.hoc_loads_GC_save.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_Stim.hoc",
+          "target": "tabchannels.hoc",
+          "relation": "loads",
+          "id": "MC_Stim.hoc_loads_tabchannels.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_Stim.hoc",
+          "target": "MC_def.hoc",
+          "relation": "loads",
+          "id": "MC_Stim.hoc_loads_MC_def.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_Stim.hoc",
+          "target": "MC_save.hoc",
+          "relation": "loads",
+          "id": "MC_Stim.hoc_loads_MC_save.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "tabchannels.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_tabchannels.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "Parameter.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_Parameter.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "mathslib.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_mathslib.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "MC_def.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_MC_def.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "PG_def.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_PG_def.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "GC_def.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_GC_def.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "Connect.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_Connect.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "Background.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_Background.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "Input.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_Input.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "Figure.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_Figure.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "OBNet.hoc",
+          "target": "SaveData.hoc",
+          "relation": "loads",
+          "id": "OBNet.hoc_loads_SaveData.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_Stim.hoc",
+          "target": "PG_def.hoc",
+          "relation": "loads",
+          "id": "PG_Stim.hoc_loads_PG_def.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_Stim.hoc",
+          "target": "PG_save.hoc",
+          "relation": "loads",
+          "id": "PG_Stim.hoc_loads_PG_save.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "mosinit.hoc",
+          "target": "OBNet.hoc",
+          "relation": "loads",
+          "id": "mosinit.hoc_loads_OBNet.hoc"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_def.hoc",
+          "target": "nax",
+          "relation": "inserts",
+          "id": "GC_def.hoc_inserts_nax"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_def.hoc",
+          "target": "kdrmt",
+          "relation": "inserts",
+          "id": "GC_def.hoc_inserts_kdrmt"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_def.hoc",
+          "target": "kamt",
+          "relation": "inserts",
+          "id": "GC_def.hoc_inserts_kamt"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_def.hoc",
+          "target": "kM",
+          "relation": "inserts",
+          "id": "GC_def.hoc_inserts_kM"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_def.hoc",
+          "target": "Ikca",
+          "relation": "inserts",
+          "id": "GC_def.hoc_inserts_Ikca"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_def.hoc",
+          "target": "cad2",
+          "relation": "inserts",
+          "id": "GC_def.hoc_inserts_cad2"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_def.hoc",
+          "target": "Icat",
+          "relation": "inserts",
+          "id": "GC_def.hoc_inserts_Icat"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_def.hoc",
+          "target": "Icapn",
+          "relation": "inserts",
+          "id": "GC_def.hoc_inserts_Icapn"
+        }
+      },
+      {
+        "data": {
+          "source": "GC_def.hoc",
+          "target": "Ican",
+          "relation": "inserts",
+          "id": "GC_def.hoc_inserts_Ican"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_def.hoc",
+          "target": "Inic",
+          "relation": "inserts",
+          "id": "MC_def.hoc_inserts_Inic"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_def.hoc",
+          "target": "nafast",
+          "relation": "inserts",
+          "id": "MC_def.hoc_inserts_nafast"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_def.hoc",
+          "target": "kfasttab",
+          "relation": "inserts",
+          "id": "MC_def.hoc_inserts_kfasttab"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_def.hoc",
+          "target": "kamt",
+          "relation": "inserts",
+          "id": "MC_def.hoc_inserts_kamt"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_def.hoc",
+          "target": "IKs",
+          "relation": "inserts",
+          "id": "MC_def.hoc_inserts_IKs"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_def.hoc",
+          "target": "INaP",
+          "relation": "inserts",
+          "id": "MC_def.hoc_inserts_INaP"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_def.hoc",
+          "target": "ICa",
+          "relation": "inserts",
+          "id": "MC_def.hoc_inserts_ICa"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_def.hoc",
+          "target": "Ikca",
+          "relation": "inserts",
+          "id": "MC_def.hoc_inserts_Ikca"
+        }
+      },
+      {
+        "data": {
+          "source": "MC_def.hoc",
+          "target": "cad",
+          "relation": "inserts",
+          "id": "MC_def.hoc_inserts_cad"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "nax",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_nax"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "kdrmt",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_kdrmt"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "kamt",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_kamt"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "kM",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_kM"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "Icapn",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_Icapn"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "Ikca",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_Ikca"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "Icat",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_Icat"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "cad2",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_cad2"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "hpg",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_hpg"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "Ican",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_Ican"
+        }
+      },
+      {
+        "data": {
+          "source": "PG_def.hoc",
+          "target": "Inic",
+          "relation": "inserts",
+          "id": "PG_def.hoc_inserts_Inic"
+        }
+      }
+    ]
+  }
+}

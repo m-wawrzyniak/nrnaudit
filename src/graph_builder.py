@@ -90,11 +90,21 @@ def build_nodes(
     hoc_relpaths: list[str],
     mechanism_map: dict[str, str],
     used_mechanisms: set[str],
+    hoc_variables: dict[str, list[dict]],
+    mod_variables: dict[str, list[dict]],
 ) -> list[dict]:
     """Build flat node dicts for all hoc files and inserted mechanisms."""
     nodes: list[dict] = []
     for p in hoc_relpaths:
-        nodes.append({"id": p, "type": "hoc", "label": Path(p).name})
+        nodes.append(
+            {
+                "id": p,
+                "type": "hoc",
+                "label": Path(p).name,
+                "source_file": p,
+                "variables": hoc_variables.get(p, []),
+            }
+        )
     for mech in sorted(used_mechanisms):
         nodes.append(
             {
@@ -102,6 +112,7 @@ def build_nodes(
                 "type": "mechanism",
                 "label": mech,
                 "source_file": mechanism_map[mech],
+                "variables": mod_variables.get(mechanism_map[mech], []),
             }
         )
     return nodes
@@ -111,11 +122,15 @@ def build_graph(
     hoc_relpaths: list[str],
     parsed_hoc: dict[str, dict[str, list[str]]],
     mechanism_map: dict[str, str],
+    hoc_variables: dict[str, list[dict]],
+    mod_variables: dict[str, list[dict]],
 ) -> dict:
     """Assemble the internal flat graph with 'nodes' and 'edges' keys."""
     load_edges = build_load_edges(parsed_hoc, hoc_relpaths)
     insert_edges, used_mechanisms = build_insert_edges(
         parsed_hoc, hoc_relpaths, mechanism_map
     )
-    nodes = build_nodes(hoc_relpaths, mechanism_map, used_mechanisms)
+    nodes = build_nodes(
+        hoc_relpaths, mechanism_map, used_mechanisms, hoc_variables, mod_variables
+    )
     return {"nodes": nodes, "edges": load_edges + insert_edges}

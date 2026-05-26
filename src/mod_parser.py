@@ -19,22 +19,7 @@ def extract_neuron_block_body(stripped_text: str) -> str | None:
     m = NEURON_BLOCK_OPEN_RE.search(stripped_text)
     if m is None:
         return None
-
-    i = m.end()
-    depth = 1
-    while i < len(stripped_text) and depth > 0:
-        if stripped_text[i] == "{":
-            depth += 1
-        elif stripped_text[i] == "}":
-            depth -= 1
-            if depth == 0:
-                break
-        i += 1
-
-    if depth != 0:
-        return None
-
-    return stripped_text[m.end() : i]
+    return utils.extract_brace_body(stripped_text, m.end())
 
 
 def extract_mechanism_name(neuron_block_body: str) -> str | None:

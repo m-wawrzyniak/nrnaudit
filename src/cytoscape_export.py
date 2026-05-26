@@ -8,9 +8,17 @@ def make_edge_id(source: str, relation: str, target: str) -> str:
     return f"{source}_{relation}_{target}"
 
 
+def format_variables_flat(variables: list[dict]) -> str:
+    """Render a variables list as 'name (unit) | name (unit) | ...'."""
+    return " | ".join(f"{v['name']} ({v['unit']})" for v in variables)
+
+
 def wrap_node(node: dict) -> dict:
     """Wrap a flat node dict in a Cytoscape.js {'data': ...} envelope."""
-    return {"data": dict(node)}
+    node_data = dict(node)
+    if "variables" in node_data:
+        node_data["variables_flat"] = format_variables_flat(node_data["variables"])
+    return {"data": node_data}
 
 
 def wrap_edge(edge: dict) -> dict:
