@@ -1,0 +1,62 @@
+begintemplate SIMPLE
+public soma, dend, ais, axon, all, somatic, basal, excitozone, axonal, abd, cv
+
+proc celldef() {
+  topol()
+  subsets()
+  geom() 
+}
+
+create soma
+
+soma.diam = 5
+soma.L = 10
+
+proc topol() { local i
+}
+
+
+objref all, somatic, basal, excitozone, axonal,abd, temp,distal,proximal,s1,s2
+proc subsets() { local i
+  objref all, somatic, basal, excitozone, axonal,abd,temp,distal,proximal,s1,s2
+  all = new SectionList()
+	soma all.append()
+   
+  soma distance(0,0.5)
+
+  somatic = new SectionList()
+    soma somatic.append()
+
+
+}
+proc geom() {
+}
+external lambda_f
+proc geom_nseg() {
+  forsec all { nseg = int((L/(0.1*lambda_f(100))+.999)/2)*2 + 1  }
+}
+
+
+
+
+
+proc init() {  
+	
+create soma
+
+soma.diam = 5
+soma.L = 10
+
+access soma
+
+celldef()
+//forsec all {
+//    printf("diam=%e, L=%e\n", diam, L)
+//}
+}
+endtemplate SIMPLE
+
+
+
+
+

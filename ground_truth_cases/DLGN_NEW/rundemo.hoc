@@ -1,0 +1,61 @@
+
+//----------------------------------------------------------------------------
+//  define a panel to run the different demos
+//----------------------------------------------------------------------------
+
+proc make_demopanel() {
+	xpanel("Simulations of thalamic oscillations")
+	xbutton("Spindle oscillations - short run","restart(\"Fspin\")")
+	xbutton("Spindle oscillations - long run","restart(\"FspinL\")")
+        xbutton("Bicuculline-induced oscillations - short run","restart(\"Fbic\")")
+	xbutton("Bicuculline-induced oscillations - long run","restart(\"FbicL\")")
+	xbutton("Delta oscillations - short run","restart(\"Fdelta\")")
+	xbutton("Delta oscillations - long run","restart(\"FdeltaL\")")
+	xpanel()
+}
+
+make_demopanel()
+
+ismenu=0
+
+load_file("nrngui.hoc")
+
+strdef tstr
+
+objref El
+
+electrodes_present=0	// after electrodes are created they must be
+			// destroyed if simulation restarted
+
+proc destroy_elec() {
+	execute("objref stim, vc",El)
+}
+
+pwmcnt = PWManager[0].count  // the initial GUIs should not be dismissed
+ismenu=0		// determines if electrode is defined
+
+proc restart() { local i
+	if (electrodes_present) {
+		destroy_elec()
+	}
+
+	forall delete_section()
+
+	for i=0, n_graph_lists-1 {
+		graphList[i].remove_all()
+	}
+	flush_list.remove_all()
+	fast_flush_list.remove_all()
+	doNotify()
+	for (i= PWManager[0].count-1; i >= pwmcnt; i -= 1) {
+		PWManager[0].close(i)
+		doNotify()
+	}
+	stoprun = 0
+	cvode_active(0)
+
+	ismenu=0
+	
+	sprint(tstr, "%s.oc", $s1)
+	load_file(1, tstr)
+}

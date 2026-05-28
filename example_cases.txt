@@ -1,0 +1,6 @@
+OBGAMMA - Olfactory bulb, LI & Cleland; https://modeldb.science/232097?tab=1
+nrntraub - Thalomocortical column, Traub; https://modeldb.science/82894
+ca1 - CA1 Pyr. Neuron, Migliore; https://modeldb.science/2796
+DLGN_NEW - Thalamocortical & Retircular net. (Destexhe, 1996); https://modeldb.science/3343
+dentategyrusnet2005 - Dentate gyrus network model (Santhakumar et al 2005); https://modeldb.science/51781
+depblock_mdb - Maximal firing rate in midbrain dopamine neurons (Knowlton et al., 2021) ; https://modeldb.science/266814

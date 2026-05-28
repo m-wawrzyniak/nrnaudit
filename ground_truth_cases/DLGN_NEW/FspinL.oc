@@ -1,0 +1,483 @@
+/*----------------------------------------------------------------------------
+
+	SIMULATIONS OF INTERCONNECTED TC AND RE CELLS
+	=============================================
+
+	- Object sTC (simplified single-compartment cell based on 
+	  Huguenard-McCormick model of TC cell)
+
+	- Object sRE (simplified single-compartment cell based on 
+	  Destexhe et al. model)
+
+	- kinetic models for synaptic receptors with pulses of transmitter
+
+
+	SIMULATION OF THALAMIC SPINDLES WITH SINGLE COMPARTMENTS
+
+		RE  <--(GABAa)-->  RE  <---(AMPA)----   TC
+				       ----(GABAa)-->
+					   (GABAb)
+
+	SIMPLE NETWORK CONFIGURATION WITH 2 TC and 2 RE cells
+
+	     RE = RE
+	     | / \ |
+	     TC   TC
+
+
+
+	This file simulates a spindle oscillation in the 4-cell circuit
+	(long time scale)
+
+	See details and Fig.7 in:
+
+	Destexhe, A., Bal, T., McCormick, D.A. and Sejnowski, T.J.
+	Ionic mechanisms underlying synchronized oscillations and propagating
+	waves in a model of ferret thalamic slices. Journal of Neurophysiology
+	76: 2049-2070, 1996.
+	(see http://www.cnl.salk.edu/~alain or http://cns.fmed.ulaval.ca)
+
+
+
+	Alain Destexhe, Salk Institute and Laval University, 1995
+
+
+----------------------------------------------------------------------------*/
+
+
+
+//----------------------------------------------------------------------------
+//  load and define general graphical procedures
+//----------------------------------------------------------------------------
+
+load_file("nrngui.hoc")
+
+objectvar g[20]			// max 20 graphs
+ngraph = 0
+
+proc addgraph() { local ii	// define subroutine to add a new graph
+				// addgraph("variable", minvalue, maxvalue)
+	ngraph = ngraph+1
+	ii = ngraph-1
+	g[ii] = new Graph(0)
+	g[ii].view(0,1,0,1, int(ii/2)*350+50, ii%2*260+80, 300, 200)
+	g[ii].size(tstart,tstop,$2,$3)
+	g[ii].xaxis()
+	g[ii].yaxis()
+	g[ii].addvar($s1,1,0)
+	g[ii].save_name("graphList[0].")
+	graphList[0].append(g[ii])
+}
+
+proc addtext() { local ii	// define subroutine to add a text graph
+				// addtext("text")
+	ngraph = ngraph+1
+	ii = ngraph-1
+	g[ii] = new Graph()
+	g[ii].size(0,tstop,0,1)
+	g[ii].xaxis(3)
+	g[ii].yaxis(3)
+	g[ii].label(0.1,0.8,$s1)
+	g[ii].save_name("graphList[0].")
+	graphList[0].append(g[ii])
+	text_id = ii
+}
+
+proc addline() {		// to add a comment to the text window
+				// addline("text")
+	g[text_id].label($s1)
+}
+
+if(ismenu==0) {
+  nrnmainmenu()			// create main menu
+  nrncontrolmenu()		// create control menu
+  ismenu=1
+}
+
+
+
+
+//----------------------------------------------------------------------------
+//  transient time
+//----------------------------------------------------------------------------
+
+trans = 00
+
+print " "
+print ">> Transient time of ",trans," ms"
+print " "
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//  create TC cells
+//----------------------------------------------------------------------------
+
+print " "
+print "<<==================================>>"
+print "<<            CREATE CELLS          >>"
+print "<<==================================>>"
+print " "
+
+load_file("TC.tem")		// read geometry file
+
+ncells = 2
+
+objectvar TC[ncells]
+for i=0,ncells-1 {
+  TC[i] = new sTC()
+}
+
+
+
+
+//----------------------------------------------------------------------------
+//  create RE cells
+//----------------------------------------------------------------------------
+
+load_file("RE.tem")		// read geometry file
+
+objectvar RE[ncells]		// create RE cells
+for i=0,ncells-1 {
+  RE[i] = new sRE()
+}
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//  PROCEDURES FOR SYNAPTIC CONNECTIVITY IN 1-DIM
+//----------------------------------------------------------------------------
+
+print " "
+print "<<==================================>>"
+print "<<     CREATE SYNAPTIC RECEPTORS    >>"
+print "<<==================================>>"
+print " "
+
+func ncon() { local nc		// function to get the number of connections 
+				// argument: interaction diameter
+   nc = 2 * $1 + 1
+   if(nc>ncells) nc = ncells
+   return nc
+}
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//  Glutamate AMPA receptors in synapses from TC to RE
+//----------------------------------------------------------------------------
+
+diamTCRE = 1		// diameter of connectivity for TC->RE
+
+nTCRE = ncon(diamTCRE)	// nb of RE cells receiving synapses from one TC cell
+
+objectvar reG[ncells][nTCRE]
+
+for i=0,ncells-1 {
+   nv = 0
+   for j=0,ncells-1 {
+     if( abs(i-j) <= diamTCRE) {
+	print "<< AMPA receptor from TC cell ",i," to RE cell ",j," >>"
+	print " "
+	reG[i][nv] = new AMPA_S()
+	RE[j].soma reG[i][nv].loc(0.5)		// postsynaptic is RE[j] 
+	setpointer reG[i][nv].pre, TC[i].soma.v	// presynaptic is TC[i]
+	nv = nv + 1
+     }
+   }
+}
+
+print " "
+print "<< ",nv," AMPA-MEDIATED SYNAPTIC CONTACTS FROM TC TO RE >>"
+print " "
+
+	
+Alpha_AMPA_S = 0.94		// kinetics from simplex with short pulses
+Beta_AMPA_S = 0.18
+Cmax_AMPA_S = 0.5
+Cdur_AMPA_S = 0.3
+Erev_AMPA_S = 0
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//  GABAa receptors in intra-RE synapses
+//----------------------------------------------------------------------------
+
+diamRERE = 1		// diameter of connectivity for RE->RE
+
+nRERE = ncon(diamRERE)	// nb of RE cells receiving synapses from one TC cell
+
+objectvar reA[ncells][nRERE]
+
+for i=0,ncells-1 {
+   nv = 0
+   for j=0,ncells-1 {
+     if( abs(i-j) <= diamRERE) {
+	print "<< GABAa receptor from RE cell ",i," to RE cell ",j," >>"
+	print " "
+	reA[i][nv] = new GABAa_S()
+	RE[j].soma reA[i][nv].loc(0.5)		// postsynaptic is RE[j] 
+	setpointer reA[i][nv].pre, RE[i].soma.v	// presynaptic is TC[i]
+	nv = nv + 1
+     }
+   }
+}
+	
+print " "
+print "<< ",nv," GABAa-MEDIATED SYNAPTIC CONTACTS FROM RE TO RE >>"
+print " "
+
+
+Alpha_GABAa_S = 20		// from diffusion model
+Beta_GABAa_S = 0.162
+Cmax_GABAa_S = 0.5		// short pulses
+Cdur_GABAa_S = 0.3
+Erev_GABAa_S = -80
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//  GABAa receptors in synapses from RE to TC cells
+//----------------------------------------------------------------------------
+
+diamRETC = 1		// diameter of connectivity from RE->TC
+
+nRETC = ncon(diamRETC)	// nb of RE cells receiving synapses from one TC cell
+
+objectvar tcA[ncells][nRETC]
+
+for i=0,ncells-1 {
+   nv = 0
+   for j=0,ncells-1 {
+     if( abs(i-j) <= diamRETC) {
+	print "<< GABAa receptor from RE cell ",i," to TC cell ",j," >>"
+	print " "
+	tcA[i][nv] = new GABAa_S()
+	TC[j].soma tcA[i][nv].loc(0.5)		// postsynaptic is TC[j] 
+	setpointer tcA[i][nv].pre, RE[i].soma.v	// presynaptic is RE[i]
+	nv = nv + 1
+     }
+   }
+}
+	
+print " "
+print "<< ",nv," GABAa-MEDIATED SYNAPTIC CONTACTS FROM RE TO TC >>"
+print " "
+
+
+
+Alpha_GABAa_S = 20		// from diffusion model
+Beta_GABAa_S = 0.162
+Cmax_GABAa_S = 0.5		// short pulses
+Cdur_GABAa_S = 0.3
+Erev_GABAa_S = -85		// Rinzel's Erev
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//  GABAb receptors in synapses from RE to TC cells
+//----------------------------------------------------------------------------
+
+// use same diameters and connectivity as GABAa receptors (colocalized)
+
+objectvar tcB[ncells][nRETC]
+
+for i=0,ncells-1 {
+   nv = 0
+   for j=0,ncells-1 {
+     if( abs(i-j) <= diamRETC) {
+	print "<< GABAb receptor from RE cell ",i," to TC cell ",j," >>"
+	print " "
+	tcB[i][nv] = new GABAb_S()
+	TC[j].soma tcB[i][nv].loc(0.5)		// postsynaptic is TC[j] 
+	setpointer tcB[i][nv].pre, RE[i].soma.v	// presynaptic is RE[i]
+	nv = nv + 1
+     }
+   }
+}
+	
+print " "
+print "<< ",nv," GABAb-MEDIATED SYNAPTIC CONTACTS FROM RE TO TC >>"
+print " "
+
+//
+//  Kinetics of GABAb_S synapses (from simplex low K1)
+//
+
+K1_GABAb_S	= 0.09	//	(/ms mM) forward binding rate to receptor
+K2_GABAb_S	= 0.0012 //	(/ms)	backward (unbinding) rate of receptor
+K3_GABAb_S	= 0.18 //	(/ms)	rate of G-protein production
+K4_GABAb_S	= 0.034 //	(/ms)	rate of G-protein decay
+KD_GABAb_S	= 100	//		dissociation constant of K+ channel
+n_GABAb_S	= 4	//		nb of binding sites of G-protein on K+
+Erev_GABAb_S	= -95	//	(mV)	reversal potential (E_K)
+
+Cmax_GABAb_S = 0.5	// short pulses
+Cdur_GABAb_S = 0.3
+
+
+
+
+
+
+
+
+
+
+
+proc assign_synapses() {	// procedure to assign syn conductances 
+				// params: 1=intraRE, 2=GABAa in TC,
+				// 3=GABAb in TC, 3=AMPA in RE
+  for i=0, ncells-1 {
+    for j=0, nRERE-1 {
+	reA[i][j].gmax = $1 / nRERE
+    }
+    for j=0, nRETC-1 {
+	tcA[i][j].gmax = $2 / nRETC
+	tcB[i][j].gmax = $3 / nRETC
+    }
+    for j=0, nTCRE-1 {
+	reG[i][j].gmax = $4 / nTCRE
+    }
+  }
+}
+
+
+assign_synapses(0.2,0.02,0.04,0.2)		// synaptic weights J neurophys
+
+
+
+
+
+// setup TC cells in resting mode (no spontaneous oscillation)
+for i=0,ncells-1 { 
+  TC[i].soma.ghbar_iar = 1.5e-5
+  TC[i].kl.gmax = 0.003
+}
+
+// setup first TC cell as an initiator (spontaneous waxing-waning)
+// TC[0].soma.ghbar_iar = 2.5e-5	// long interspindle period
+// TC[0].kl.gmax = 0.005
+
+TC[0].soma.ghbar_iar = 2e-5	// shorter interspindle period
+TC[0].kl.gmax = 0.005
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//  setup simulation parameters
+//----------------------------------------------------------------------------
+
+Dt = 1
+npoints = 60000
+
+objectvar Sim			// create vector of simulation points
+Sim = new Vector(npoints)
+
+dt = 0.1			// must be submultiple of Dt
+tstart = trans
+tstop = trans + npoints * Dt
+runStopAt = tstop
+steps_per_ms = 1/Dt
+celsius = 36
+v_init = -70
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//  add graphs
+//----------------------------------------------------------------------------
+
+//addgraph("tcB[0][0].g",0,0.05)
+
+//addgraph("TC[0].soma.o2_iar",0,1)
+//addgraph("TC[0].soma.p1_iar",0,1)
+
+strdef gtxt
+for i=0,ncells-1 {
+	sprint(gtxt,"TC[%d].soma.v(0.5)",i)
+	addgraph(gtxt,-120,40)
+	sprint(gtxt,"RE[%d].soma.v(0.5)",i)
+	addgraph(gtxt,-120,40)
+}
+
+
+
+
+
+//----------------------------------------------------------------------------
+//  add text
+//----------------------------------------------------------------------------
+
+access TC[0].soma
+
+proc text() {
+  sprint(gtxt,"%d RE and %d TC cell",ncells,ncells)
+  addtext(gtxt)
+  sprint(gtxt,"Membrane level: kleak=%g",TC.kl.gmax)
+  addline(gtxt)
+  sprint(gtxt,"Ih: g=%g, ginc=%g, nca=%g, k2=%g, cac=%g", \
+  ghbar_iar,ginc_iar,nca_iar,k2_iar,cac_iar)
+  addline(gtxt)
+  sprint(gtxt,"Ih: nexp=%g, Pc=%g, k4=%g, taum=%g", \
+  nexp_iar,Pc_iar,k4_iar,taum_iar)
+  addline(gtxt)
+  sprint(gtxt,"GABAa_S: Alpha=%g, Beta=%g, Cdur=%g, Cmax=%g", \
+  Alpha_GABAa_S,Beta_GABAa_S,Cmax_GABAa_S,Cdur_GABAa_S)
+  addline(gtxt)
+  sprint(gtxt,"GABAb_S: K1=%g, K2=%g, K3=%g, K4=%g, KD=%g", \
+  K1_GABAb_S,K2_GABAb_S,K3_GABAb_S,K4_GABAb_S,KD_GABAb_S)
+  addline(gtxt)
+  sprint(gtxt,"RE-RE=%g, RE-TC=%g, RE-TC(b)=%g, TC-RE=%g", \
+  reA[0][0].gmax, tcA[0][0].gmax, tcB[0][0].gmax, reG[0][0].gmax)
+  addline(gtxt)
+}
+
+text()
+
+
+print " "
+print "Use procedure text() to create a new window with actual parameters"
+print "Use procedure assign_synapses() to change synaptic conductances"
+print " "
