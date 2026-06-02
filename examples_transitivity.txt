@@ -1,0 +1,59 @@
+Ex.1
+
+MC_def.hoc
+    line 102:
+        gA_soma   = 10e-3
+
+    lines 141; 158-159:
+        soma {
+            ...
+            insert kamt
+              gbar_kamt = gA_soma
+            ...
+
+Based on 'mechnism_suffixes.json':
+    line 13:
+        "kamt": "kAmt.mod",
+
+So 'insert kamt' relates to 'kAmt.mod'.
+
+kAmt.mod
+    lines 12-13:
+        PARAMETER {
+            gbar = 0.0002   	(mho/cm2)
+            ...
+
+So:
+gbar in kAmt.mod has (mho/cm2)
+gA_soma has what gbar_kamt has, which is (mho/cm2)
+10e-3 is then in (mho/cm2)
+
+
+
+Ex.2
+
+PG_def.hoc
+    line 44:
+        gCapn_Soma = 0.0e-3
+
+    lines 120; 137-138:
+        insert Icapn
+            gbar_Icapn = gCapn_Soma
+
+Based on 'mechnism_suffixes.json':
+    line 7:
+        "Icapn": "CaPN.mod",
+
+So 'insert Icapn' relates to 'CaPN.mod'.
+
+CaPN.mod
+    lines 15;17:
+        PARAMETER {
+         ...
+         gbar = 0.1 (mho/cm2) <0,1e9>
+         ...
+
+So:
+gbar in CaPN.mod has (mho/cm2)
+gCapn_Soma has what gbar_Icapn has, which is (mho/cm2)
+0.00e-3 is then (mho/cm2)
