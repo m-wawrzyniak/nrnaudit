@@ -58,8 +58,11 @@ def main() -> None:
     hoc_relpaths, mod_relpaths = traversal.discover_files(repo_root)
     mechanism_map = mod_parser.build_mechanism_map(repo_root, mod_relpaths)
     parsed_hoc = hoc_parser.parse_all_hoc(repo_root, hoc_relpaths)
+    global_mod_registry, global_mod_registry_files = (
+        variables_extractor.build_global_mod_registry(repo_root, mod_relpaths)
+    )
     hoc_variables = variables_extractor.build_hoc_variables_map(
-        repo_root, hoc_relpaths
+        repo_root, hoc_relpaths, global_mod_registry, global_mod_registry_files
     )
     mod_variables = variables_extractor.build_mod_variables_map(
         repo_root, mod_relpaths

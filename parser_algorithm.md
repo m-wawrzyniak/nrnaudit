@@ -1,7 +1,7 @@
 # NEURON project directory parsing algorithm
 This document contains a brief description of the algorithm used for 
 parsing NEURON files. Within each step there are examples and 
-**Implementation** comments which were usefull during writing them.
+**Implementation** comments.
 
 ---
 

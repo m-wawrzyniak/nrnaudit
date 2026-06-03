@@ -10,46 +10,66 @@
           "variables": [
             {
               "name": "MCbinput",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "MCb",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "RSP",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Tb_Start",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "Tb_ISI",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "N_SPIKE",
-              "unit": "???"
+              "unit": "um",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "Thresh",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "Wb_MC",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "Wb_PG",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "Wb_GC",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "MCbinput (N/A) | MCb (N/A) | RSP (N/A) | Tb_Start (???) | Tb_ISI (???) | N_SPIKE (???) | Thresh (???) | Wb_MC (???) | Wb_PG (???) | Wb_GC (???)"
+          "variables_flat": "MCbinput (N/A) | MCb (N/A) | RSP (N/A) | Tb_Start (s) | Tb_ISI (s) | N_SPIKE (um) | Thresh (???) | Wb_MC (s) | Wb_PG (s) | Wb_GC (s)"
         }
       },
       {
@@ -61,78 +81,180 @@
           "variables": [
             {
               "name": "mitrate",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "outfile",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
-              "name": "spk",
-              "unit": "???"
+              "name": "gran",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "granrate",
-              "unit": "???"
-            },
-            {
-              "name": "T",
-              "unit": "???"
-            },
-            {
-              "name": "n",
-              "unit": "???"
-            },
-            {
-              "name": "ind",
-              "unit": "???"
-            },
-            {
-              "name": "minrate",
-              "unit": "???"
-            },
-            {
-              "name": "maxrate",
-              "unit": "???"
-            },
-            {
-              "name": "lags",
-              "unit": "???"
-            },
-            {
-              "name": "work",
-              "unit": "???"
-            },
-            {
-              "name": "synchindex",
-              "unit": "???"
-            },
-            {
-              "name": "i1",
-              "unit": "???"
-            },
-            {
-              "name": "i2",
-              "unit": "???"
-            },
-            {
-              "name": "minidx",
-              "unit": "???"
-            },
-            {
-              "name": "min",
-              "unit": "???"
-            },
-            {
-              "name": "isiprev",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "isinext",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "isiprev",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "lags",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "mit",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "spk",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "work",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "T",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tstop",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "n",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "size",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ind",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "indwhere",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "min",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "minrate",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "x",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "max",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "maxrate",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "sqrt",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "synchindex",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "i1",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "i2",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "int",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "min_ind",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "minidx",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "mitrate (N/A) | outfile (N/A) | spk (???) | granrate (???) | T (???) | n (???) | ind (???) | minrate (???) | maxrate (???) | lags (???) | work (???) | synchindex (???) | i1 (???) | i2 (???) | minidx (???) | min (???) | isiprev (???) | isinext (???)"
+          "variables_flat": "mitrate (N/A) | outfile (N/A) | gran (???) | granrate (???) | isinext (???) | isiprev (???) | lags (???) | mit (???) | new (???) | spk (???) | work (???) | T (???) | tstop (???) | n (???) | size (???) | ind (???) | indwhere (???) | min (???) | minrate (???) | x (???) | max (???) | maxrate (???) | sqrt (???) | synchindex (???) | i1 (???) | i2 (???) | int (???) | min_ind (???) | minidx (???)"
         }
       },
       {
@@ -144,162 +266,354 @@
           "variables": [
             {
               "name": "outfile",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "outfilepath",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "ru",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "mit",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "m2pAMPA",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "NC",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "m2gAMPA",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "MGS",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "GMS",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "outfile2",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "rn",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "connection",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "null",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "uniform",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "gnic_MC",
-              "unit": "???"
+              "unit": "mS/cm2",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "gnic_PG",
-              "unit": "???"
-            },
-            {
-              "name": "seed",
-              "unit": "???"
-            },
-            {
-              "name": "AMPAgmax",
-              "unit": "???"
-            },
-            {
-              "name": "NMDAgmax",
-              "unit": "???"
-            },
-            {
-              "name": "GABAAgmax",
-              "unit": "???"
-            },
-            {
-              "name": "count",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "M",
-              "unit": "???"
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
             },
             {
-              "name": "Z",
-              "unit": "???"
-            },
-            {
-              "name": "x0",
-              "unit": "???"
-            },
-            {
-              "name": "y0",
-              "unit": "???"
-            },
-            {
-              "name": "N",
-              "unit": "???"
-            },
-            {
-              "name": "x1",
-              "unit": "???"
-            },
-            {
-              "name": "y1",
-              "unit": "???"
-            },
-            {
-              "name": "dx",
-              "unit": "???"
-            },
-            {
-              "name": "dy",
-              "unit": "???"
-            },
-            {
-              "name": "nx",
-              "unit": "???"
-            },
-            {
-              "name": "ny",
-              "unit": "???"
-            },
-            {
-              "name": "kk",
-              "unit": "???"
-            },
-            {
-              "name": "ll",
-              "unit": "???"
-            },
-            {
-              "name": "x2",
-              "unit": "???"
-            },
-            {
-              "name": "y2",
-              "unit": "???"
-            },
-            {
-              "name": "d",
-              "unit": "???"
-            },
-            {
-              "name": "Pr",
-              "unit": "???"
-            },
-            {
-              "name": "H",
-              "unit": "???"
+              "name": "i",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
             },
             {
               "name": "index",
-              "unit": "???"
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "seed",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "AMPAgmax",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "NMDAgmax",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Wm2g",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Wm2p",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "GABAAgmax",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Wg2m",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Wp2m",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "count",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Z",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dm",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dx",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dy",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "x0",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "y0",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "N",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "k",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "kk",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ngranx",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dg",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "x1",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "x2",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "y1",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "y2",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "abs",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "nx",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ny",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "l",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ll",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ngrany",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "R",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "d",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "sqrt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "Pr",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "repick",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "H",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "Ntotal",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "sum",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "outfile (N/A) | outfilepath (N/A) | ru (N/A) | mit (N/A) | m2pAMPA (N/A) | NC (N/A) | m2gAMPA (N/A) | MGS (N/A) | GMS (N/A) | outfile2 (???) | rn (???) | null (???) | gnic_MC (???) | gnic_PG (???) | seed (???) | AMPAgmax (???) | NMDAgmax (???) | GABAAgmax (???) | count (???) | M (???) | Z (???) | x0 (???) | y0 (???) | N (???) | x1 (???) | y1 (???) | dx (???) | dy (???) | nx (???) | ny (???) | kk (???) | ll (???) | x2 (???) | y2 (???) | d (???) | Pr (???) | H (???) | index (???) | Ntotal (???)"
+          "variables_flat": "outfile (N/A) | outfilepath (N/A) | ru (N/A) | mit (N/A) | m2pAMPA (N/A) | NC (N/A) | m2gAMPA (N/A) | MGS (N/A) | GMS (N/A) | new (???) | outfile2 (???) | rn (???) | connection (???) | null (???) | uniform (???) | gnic_MC (mS/cm2) | gnic_PG (???) | M (nA) | i (nA) | index (nA) | seed (nA) | AMPAgmax (???) | NMDAgmax (???) | Wm2g (???) | Wm2p (???) | GABAAgmax (???) | Wg2m (???) | Wp2m (???) | count (???) | Z (???) | dm (???) | dx (???) | dy (???) | x0 (???) | y0 (???) | N (???) | k (???) | kk (???) | ngranx (???) | dg (s) | x1 (s) | x2 (s) | y1 (s) | y2 (s) | abs (???) | nx (???) | ny (???) | l (???) | ll (???) | ngrany (???) | R (???) | d (???) | sqrt (???) | Pr (???) | repick (???) | H (???) | Ntotal (???) | sum (???)"
         }
       },
       {
@@ -311,50 +625,78 @@
           "variables": [
             {
               "name": "gm1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "gr1",
-              "unit": "N/A"
-            },
-            {
-              "name": "g5",
-              "unit": "???"
-            },
-            {
-              "name": "g6",
-              "unit": "???"
-            },
-            {
-              "name": "g7",
-              "unit": "???"
-            },
-            {
-              "name": "g8",
-              "unit": "???"
-            },
-            {
-              "name": "g9",
-              "unit": "???"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "g10",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
-              "name": "yvec",
-              "unit": "???"
+              "name": "g5",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g6",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g7",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g8",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g9",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "gr2",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "gr3",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "yvec",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "gm1 (N/A) | gr1 (N/A) | g5 (???) | g6 (???) | g7 (???) | g8 (???) | g9 (???) | g10 (???) | yvec (???) | gr2 (???) | gr3 (???)"
+          "variables_flat": "gm1 (N/A) | gr1 (N/A) | g10 (???) | g5 (???) | g6 (???) | g7 (???) | g8 (???) | g9 (???) | gr2 (???) | gr3 (???) | new (???) | yvec (???)"
         }
       },
       {
@@ -366,50 +708,102 @@
           "variables": [
             {
               "name": "Gran",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "stim1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "g1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "v_init",
-              "unit": "???"
+              "unit": "mV",
+              "resolution_method": "levenshtein",
+              "resolution_file": "Nicotin.mod"
+            },
+            {
+              "name": "dur",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
             },
             {
               "name": "tstop",
-              "unit": "???"
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
             },
             {
               "name": "celsius",
-              "unit": "???"
+              "unit": "degC",
+              "resolution_method": "substring",
+              "resolution_file": "hpg.mod"
             },
             {
               "name": "MUSCAR",
-              "unit": "???"
-            },
-            {
-              "name": "g6",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "g2",
-              "unit": "???"
-            },
-            {
-              "name": "g7",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "g3",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g6",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g7",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "soma",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "del",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "amp",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
             }
           ],
-          "variables_flat": "Gran (N/A) | stim1 (N/A) | g1 (N/A) | v_init (???) | tstop (???) | celsius (???) | MUSCAR (???) | g6 (???) | g2 (???) | g7 (???) | g3 (???)"
+          "variables_flat": "Gran (N/A) | stim1 (N/A) | g1 (N/A) | v_init (mV) | dur (ms) | tstop (ms) | celsius (degC) | MUSCAR (s) | g2 (???) | g3 (???) | g6 (???) | g7 (???) | new (???) | soma (???) | del (ms) | amp (nA)"
         }
       },
       {
@@ -421,254 +815,414 @@
           "variables": [
             {
               "name": "soma",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPAr",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "spiketimes",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "all",
-              "unit": "N/A"
-            },
-            {
-              "name": "gcdendgemm",
-              "unit": "???"
-            },
-            {
-              "name": "dendspike",
-              "unit": "???"
-            },
-            {
-              "name": "RM",
-              "unit": "???"
-            },
-            {
-              "name": "EL",
-              "unit": "???"
-            },
-            {
-              "name": "ENA",
-              "unit": "???"
-            },
-            {
-              "name": "EK",
-              "unit": "???"
-            },
-            {
-              "name": "ECA",
-              "unit": "???"
-            },
-            {
-              "name": "NMDAalpha",
-              "unit": "???"
-            },
-            {
-              "name": "NMDAbeta",
-              "unit": "???"
-            },
-            {
-              "name": "AMPAtau",
-              "unit": "ms"
-            },
-            {
-              "name": "Erev",
-              "unit": "mV"
-            },
-            {
-              "name": "GABAAtau",
-              "unit": "???"
-            },
-            {
-              "name": "GABAArev",
-              "unit": "???"
-            },
-            {
-              "name": "spike_threshold",
-              "unit": "???"
-            },
-            {
-              "name": "gNa_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gNa_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "Sh_Na",
-              "unit": "???"
-            },
-            {
-              "name": "gKdr_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gKdr_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gA_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gA_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "Sha_A",
-              "unit": "???"
-            },
-            {
-              "name": "Shi_A",
-              "unit": "???"
-            },
-            {
-              "name": "k_tauH",
-              "unit": "???"
-            },
-            {
-              "name": "sh_tauH",
-              "unit": "???"
-            },
-            {
-              "name": "gM_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gM_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gKCa_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gKCa_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gCaT_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gCapn_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gcan_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "shell_depth",
-              "unit": "um"
-            },
-            {
-              "name": "Ra",
-              "unit": "???"
-            },
-            {
-              "name": "cm",
-              "unit": "???"
-            },
-            {
-              "name": "g_pas",
-              "unit": "???"
-            },
-            {
-              "name": "e_pas",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_nax",
-              "unit": "???"
-            },
-            {
-              "name": "sh_nax",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_kdrmt",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "sha_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "shi_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "k_tauH_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "sh_tauH_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "gkbar_kM",
-              "unit": "???"
-            },
-            {
-              "name": "gkbar_Ikca",
-              "unit": "???"
-            },
-            {
-              "name": "depth_cad2",
-              "unit": "???"
-            },
-            {
-              "name": "ena",
-              "unit": "???"
-            },
-            {
-              "name": "ek",
-              "unit": "???"
-            },
-            {
-              "name": "spikecount",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_Icat",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_Icapn",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_Ican",
-              "unit": "???"
-            },
-            {
-              "name": "eca",
-              "unit": "???"
-            },
-            {
-              "name": "NMDAr",
-              "unit": "???"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAAr",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "NMDAr",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "dendcount",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dendspike",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "gcdendgemm",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "spikecount",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "RM",
+              "unit": "ohm*cm",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g_pas",
+              "unit": "ohm*cm",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "EL",
+              "unit": "mV",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "e_pas",
+              "unit": "mV",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ENA",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "ena",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "EK",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "ek",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "ECA",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "eca",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Alpha",
+              "unit": "/ms /mM",
+              "resolution_method": "exact",
+              "resolution_file": "nmdanet.mod"
+            },
+            {
+              "name": "NMDAalpha",
+              "unit": "/ms /mM",
+              "resolution_method": "exact",
+              "resolution_file": "nmdanet.mod"
+            },
+            {
+              "name": "Beta",
+              "unit": "/ms",
+              "resolution_method": "exact",
+              "resolution_file": "nmdanet.mod"
+            },
+            {
+              "name": "NMDAbeta",
+              "unit": "/ms",
+              "resolution_method": "exact",
+              "resolution_file": "nmdanet.mod"
+            },
+            {
+              "name": "AMPAtau",
+              "unit": "ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "GABAAtau",
+              "unit": "ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau",
+              "unit": "ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Erev",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "GABAArev",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "e",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "spike_threshold",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "thresh",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "gNa_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "gNa_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "gbar_nax",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "Sh_Na",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "sh_nax",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "gKdr_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KDRmt.mod"
+            },
+            {
+              "name": "gKdr_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KDRmt.mod"
+            },
+            {
+              "name": "gbar_kdrmt",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KDRmt.mod"
+            },
+            {
+              "name": "gA_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gA_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gbar_kamt",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "Sha_A",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "sha_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "Shi_A",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "shi_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "k_tauH",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "k_tauH_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "sh_tauH",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "sh_tauH_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gM_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kM.mod"
+            },
+            {
+              "name": "gM_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kM.mod"
+            },
+            {
+              "name": "gkbar_kM",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kM.mod"
+            },
+            {
+              "name": "gKCa_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "gKCa_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "gkbar_Ikca",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "gCaT_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaT.mod"
+            },
+            {
+              "name": "gbar_Icat",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaT.mod"
+            },
+            {
+              "name": "gCapn_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaPN.mod"
+            },
+            {
+              "name": "gbar_Icapn",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaPN.mod"
+            },
+            {
+              "name": "gbar_Ican",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Can.mod"
+            },
+            {
+              "name": "gcan_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Can.mod"
+            },
+            {
+              "name": "depth_cad2",
+              "unit": "um",
+              "resolution_method": "exact",
+              "resolution_file": "cadecay2.mod"
+            },
+            {
+              "name": "shell_depth",
+              "unit": "um",
+              "resolution_method": "exact",
+              "resolution_file": "cadecay2.mod"
+            },
+            {
+              "name": "Ra",
+              "unit": "ohm*cm",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "cm",
+              "unit": "uF/cm^2",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "soma (N/A) | AMPAr (N/A) | spiketimes (N/A) | all (N/A) | gcdendgemm (???) | dendspike (???) | RM (???) | EL (???) | ENA (???) | EK (???) | ECA (???) | NMDAalpha (???) | NMDAbeta (???) | AMPAtau (ms) | Erev (mV) | GABAAtau (???) | GABAArev (???) | spike_threshold (???) | gNa_Soma (???) | gNa_Dend (???) | Sh_Na (???) | gKdr_Soma (???) | gKdr_Dend (???) | gA_Soma (???) | gA_Dend (???) | Sha_A (???) | Shi_A (???) | k_tauH (???) | sh_tauH (???) | gM_Soma (???) | gM_Dend (???) | gKCa_Soma (???) | gKCa_Dend (???) | gCaT_Dend (???) | gCapn_Dend (???) | gcan_Dend (???) | shell_depth (um) | Ra (???) | cm (???) | g_pas (???) | e_pas (???) | gbar_nax (???) | sh_nax (???) | gbar_kdrmt (???) | gbar_kamt (???) | sha_kamt (???) | shi_kamt (???) | k_tauH_kamt (???) | sh_tauH_kamt (???) | gkbar_kM (???) | gkbar_Ikca (???) | depth_cad2 (???) | ena (???) | ek (???) | spikecount (???) | gbar_Icat (???) | gbar_Icapn (???) | gbar_Ican (???) | eca (???) | NMDAr (???) | GABAAr (???) | dendcount (???)"
+          "variables_flat": "soma (N/A) | AMPAr (N/A) | spiketimes (N/A) | all (N/A) | GABAAr (???) | NMDAr (???) | dendcount (???) | dendspike (???) | gcdendgemm (???) | new (???) | spikecount (???) | RM (ohm*cm) | g_pas (ohm*cm) | EL (mV) | e_pas (mV) | ENA (mV) | ena (mV) | EK (mV) | ek (mV) | ECA (???) | eca (???) | Alpha (/ms /mM) | NMDAalpha (/ms /mM) | Beta (/ms) | NMDAbeta (/ms) | AMPAtau (ms) | GABAAtau (ms) | tau (ms) | Erev (mV) | GABAArev (mV) | e (mV) | spike_threshold (???) | thresh (???) | gNa_Dend (mho/cm2) | gNa_Soma (mho/cm2) | gbar_nax (mho/cm2) | Sh_Na (mV) | sh_nax (mV) | gKdr_Dend (mho/cm2) | gKdr_Soma (mho/cm2) | gbar_kdrmt (mho/cm2) | gA_Dend (mho/cm2) | gA_Soma (mho/cm2) | gbar_kamt (mho/cm2) | Sha_A (???) | sha_kamt (???) | Shi_A (???) | shi_kamt (???) | k_tauH (???) | k_tauH_kamt (???) | sh_tauH (???) | sh_tauH_kamt (???) | gM_Dend (mho/cm2) | gM_Soma (mho/cm2) | gkbar_kM (mho/cm2) | gKCa_Dend (mho/cm2) | gKCa_Soma (mho/cm2) | gkbar_Ikca (mho/cm2) | gCaT_Dend (mho/cm2) | gbar_Icat (mho/cm2) | gCapn_Dend (mho/cm2) | gbar_Icapn (mho/cm2) | gbar_Ican (mho/cm2) | gcan_Dend (mho/cm2) | depth_cad2 (um) | shell_depth (um) | Ra (ohm*cm) | cm (uF/cm^2)"
         }
       },
       {
@@ -680,26 +1234,48 @@
           "variables": [
             {
               "name": "f1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "filepath",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "time",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Nd",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "Vol",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "celldata",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | Nd (???) | Vol (???)"
+          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | Nd (???) | Vol (???) | new (???) | celldata (???)"
         }
       },
       {
@@ -711,30 +1287,54 @@
           "variables": [
             {
               "name": "MCinput",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "pre_odor",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "IM",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "i",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
             },
             {
               "name": "n",
-              "unit": "???"
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
             },
             {
               "name": "u0",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "u1",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "uniform",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "MCinput (N/A) | pre_odor (N/A) | IM (N/A) | n (???) | u0 (???) | u1 (???)"
+          "variables_flat": "MCinput (N/A) | pre_odor (N/A) | IM (N/A) | i (nA) | n (nA) | u0 (???) | u1 (???) | uniform (???)"
         }
       },
       {
@@ -746,114 +1346,318 @@
           "variables": [
             {
               "name": "mit",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Stim1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "syn1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "nc",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "ns",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "mitrate",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "g1",
-              "unit": "N/A"
-            },
-            {
-              "name": "tstop",
-              "unit": "???"
-            },
-            {
-              "name": "celsius",
-              "unit": "???"
-            },
-            {
-              "name": "dt",
-              "unit": "???"
-            },
-            {
-              "name": "steps_per_ms",
-              "unit": "???"
-            },
-            {
-              "name": "secondorder",
-              "unit": "???"
-            },
-            {
-              "name": "gnic_tuft",
-              "unit": "???"
-            },
-            {
-              "name": "T1",
-              "unit": "???"
-            },
-            {
-              "name": "Dur",
-              "unit": "???"
-            },
-            {
-              "name": "Ic1",
-              "unit": "???"
-            },
-            {
-              "name": "F0",
-              "unit": "???"
-            },
-            {
-              "name": "F1",
-              "unit": "???"
-            },
-            {
-              "name": "running_",
-              "unit": "???"
-            },
-            {
-              "name": "spk",
-              "unit": "???"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "T",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
-              "name": "n",
-              "unit": "???"
+              "name": "tstop",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
-              "name": "ind",
-              "unit": "???"
+              "name": "celsius",
+              "unit": "degC",
+              "resolution_method": "substring",
+              "resolution_file": "hpg.mod"
             },
             {
-              "name": "g3",
-              "unit": "???"
+              "name": "dt",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
-              "name": "g4",
-              "unit": "???"
+              "name": "steps_per_ms",
+              "unit": "ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "secondorder",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "gnic_tuft",
+              "unit": "mS/cm2",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dend",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "g2",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g3",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g4",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "g6",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "soma",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "spiketimes",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "spk",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tuft",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "T1",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "del",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "Dur",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "dur",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "Ic1",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "amp",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "F0",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "f0",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "F1",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "f1",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "torn",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "r",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "tau",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "e",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "onset",
+              "unit": "nA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "gmax",
+              "unit": "uS",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "number",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "start",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "interval",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "noise",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "SineInput.mod"
+            },
+            {
+              "name": "threshold",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "delay",
+              "unit": "ms",
+              "resolution_method": "levenshtein",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "weight",
+              "unit": "uS",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "running_",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "n",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "size",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ind",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "indwhere",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "mit (N/A) | Stim1 (N/A) | syn1 (N/A) | nc (N/A) | ns (N/A) | mitrate (N/A) | g1 (N/A) | tstop (???) | celsius (???) | dt (???) | steps_per_ms (???) | secondorder (???) | gnic_tuft (???) | T1 (???) | Dur (???) | Ic1 (???) | F0 (???) | F1 (???) | running_ (???) | spk (???) | T (???) | n (???) | ind (???) | g3 (???) | g4 (???) | g2 (???) | g6 (???)"
+          "variables_flat": "mit (N/A) | Stim1 (N/A) | syn1 (N/A) | nc (N/A) | ns (N/A) | mitrate (N/A) | g1 (N/A) | T (???) | tstop (???) | celsius (degC) | dt (???) | steps_per_ms (ms) | secondorder (???) | gnic_tuft (mS/cm2) | dend (???) | g2 (???) | g3 (???) | g4 (???) | g6 (???) | new (???) | soma (???) | spiketimes (???) | spk (???) | tuft (???) | T1 (ms) | del (ms) | Dur (ms) | dur (ms) | Ic1 (nA) | amp (nA) | F0 (nA) | f0 (nA) | F1 (nA) | f1 (nA) | torn (ms) | r (???) | tau (???) | e (mV) | onset (nA) | gmax (uS) | number (???) | start (???) | interval (???) | noise (nA) | threshold (???) | delay (ms) | weight (uS) | running_ (???) | n (???) | size (???) | ind (???) | indwhere (???)"
         }
       },
       {
@@ -865,318 +1669,498 @@
           "variables": [
             {
               "name": "soma",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "real",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPA",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "spiketimes",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "subsets",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "all",
-              "unit": "N/A"
-            },
-            {
-              "name": "L",
-              "unit": "???"
-            },
-            {
-              "name": "diam",
-              "unit": "???"
-            },
-            {
-              "name": "nseg",
-              "unit": "???"
-            },
-            {
-              "name": "RM",
-              "unit": "???"
-            },
-            {
-              "name": "El",
-              "unit": "???"
-            },
-            {
-              "name": "ENa",
-              "unit": "???"
-            },
-            {
-              "name": "Ek",
-              "unit": "???"
-            },
-            {
-              "name": "AMPAtau",
-              "unit": "???"
-            },
-            {
-              "name": "AMPArev",
-              "unit": "???"
-            },
-            {
-              "name": "GABAAtau",
-              "unit": "???"
-            },
-            {
-              "name": "GABAArev",
-              "unit": "???"
-            },
-            {
-              "name": "shell_depth",
-              "unit": "???"
-            },
-            {
-              "name": "spike_threshold",
-              "unit": "???"
-            },
-            {
-              "name": "gNa_soma",
-              "unit": "???"
-            },
-            {
-              "name": "gNa_dend",
-              "unit": "???"
-            },
-            {
-              "name": "gNa_prim",
-              "unit": "???"
-            },
-            {
-              "name": "gNa_tuft",
-              "unit": "???"
-            },
-            {
-              "name": "sh_Na",
-              "unit": "???"
-            },
-            {
-              "name": "gKdr_soma",
-              "unit": "???"
-            },
-            {
-              "name": "gKdr_dend",
-              "unit": "???"
-            },
-            {
-              "name": "gKdr_prim",
-              "unit": "???"
-            },
-            {
-              "name": "gKdr_tuft",
-              "unit": "???"
-            },
-            {
-              "name": "gA_soma",
-              "unit": "???"
-            },
-            {
-              "name": "gA_dend",
-              "unit": "???"
-            },
-            {
-              "name": "gA_prim",
-              "unit": "???"
-            },
-            {
-              "name": "gA_tuft",
-              "unit": "???"
-            },
-            {
-              "name": "Sha_A",
-              "unit": "???"
-            },
-            {
-              "name": "Shi_A",
-              "unit": "???"
-            },
-            {
-              "name": "ScaleNP",
-              "unit": "???"
-            },
-            {
-              "name": "ScaleKS",
-              "unit": "???"
-            },
-            {
-              "name": "gNaP_soma",
-              "unit": "???"
-            },
-            {
-              "name": "gNaP_dend",
-              "unit": "???"
-            },
-            {
-              "name": "gNaP_prim",
-              "unit": "???"
-            },
-            {
-              "name": "gNaP_tuft",
-              "unit": "???"
-            },
-            {
-              "name": "gKs_soma",
-              "unit": "???"
-            },
-            {
-              "name": "gKs_dend",
-              "unit": "???"
-            },
-            {
-              "name": "gKs_prim",
-              "unit": "???"
-            },
-            {
-              "name": "gKs_tuft",
-              "unit": "???"
-            },
-            {
-              "name": "tau_KS",
-              "unit": "???"
-            },
-            {
-              "name": "kh_KS",
-              "unit": "???"
-            },
-            {
-              "name": "gCa_soma",
-              "unit": "???"
-            },
-            {
-              "name": "gCa_dend",
-              "unit": "???"
-            },
-            {
-              "name": "gCa_prim",
-              "unit": "???"
-            },
-            {
-              "name": "gCa_tuft",
-              "unit": "???"
-            },
-            {
-              "name": "gKCa_soma",
-              "unit": "???"
-            },
-            {
-              "name": "dendspike",
-              "unit": "???"
-            },
-            {
-              "name": "tuftspike",
-              "unit": "???"
-            },
-            {
-              "name": "Ra",
-              "unit": "???"
-            },
-            {
-              "name": "cm",
-              "unit": "???"
-            },
-            {
-              "name": "e_pas",
-              "unit": "???"
-            },
-            {
-              "name": "g_pas",
-              "unit": "???"
-            },
-            {
-              "name": "enic_Inic",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_Inic",
-              "unit": "???"
-            },
-            {
-              "name": "gnabar_nafast",
-              "unit": "???"
-            },
-            {
-              "name": "sh_nafast",
-              "unit": "???"
-            },
-            {
-              "name": "gkbar_kfasttab",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "sha_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "shi_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_IKs",
-              "unit": "???"
-            },
-            {
-              "name": "tauM_IKs",
-              "unit": "???"
-            },
-            {
-              "name": "kh_IKs",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_INaP",
-              "unit": "???"
-            },
-            {
-              "name": "gcabar_ICa",
-              "unit": "???"
-            },
-            {
-              "name": "gkbar_Ikca",
-              "unit": "???"
-            },
-            {
-              "name": "depth_cad",
-              "unit": "???"
-            },
-            {
-              "name": "spikecount",
-              "unit": "???"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAA",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dendspike",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "spikecount",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "spikecount2",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "spikecount3",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tuftspike",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "L",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "diam",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "nseg",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "RM",
+              "unit": "ohm*cm",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g_pas",
+              "unit": "ohm*cm",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "El",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "e_pas",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ENa",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
             },
             {
               "name": "ena",
-              "unit": "???"
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "Ek",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
             },
             {
               "name": "ek",
-              "unit": "???"
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "AMPAtau",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "GABAAtau",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "AMPArev",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "GABAArev",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "e",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
+            },
+            {
+              "name": "depth_cad",
+              "unit": "um",
+              "resolution_method": "exact",
+              "resolution_file": "cadecay.mod"
+            },
+            {
+              "name": "shell_depth",
+              "unit": "um",
+              "resolution_method": "exact",
+              "resolution_file": "cadecay.mod"
+            },
+            {
+              "name": "spike_threshold",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "thresh",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "gNa_dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "nafast.mod"
+            },
+            {
+              "name": "gNa_prim",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "nafast.mod"
+            },
+            {
+              "name": "gNa_soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "nafast.mod"
+            },
+            {
+              "name": "gNa_tuft",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "nafast.mod"
+            },
+            {
+              "name": "gnabar_nafast",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "nafast.mod"
+            },
+            {
+              "name": "sh_Na",
+              "unit": "mV",
+              "resolution_method": "levenshtein",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "sh_nafast",
+              "unit": "mV",
+              "resolution_method": "levenshtein",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "gKdr_dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kfasttab.mod"
+            },
+            {
+              "name": "gKdr_prim",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kfasttab.mod"
+            },
+            {
+              "name": "gKdr_soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kfasttab.mod"
+            },
+            {
+              "name": "gKdr_tuft",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kfasttab.mod"
+            },
+            {
+              "name": "gkbar_kfasttab",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kfasttab.mod"
+            },
+            {
+              "name": "gA_dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gA_prim",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gA_soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gA_tuft",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gbar_kamt",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "Sha_A",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "sha_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "Shi_A",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "shi_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "ScaleNP",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "gNaP_dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "gNaP_prim",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "gNaP_soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "gNaP_tuft",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "gbar_INaP",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "ScaleKS",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "gKs_dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "gKs_prim",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "gKs_soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "gKs_tuft",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "gbar_IKs",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "tauM_IKs",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "tau_KS",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "kh_IKs",
+              "unit": "mV",
+              "resolution_method": "levenshtein",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "kh_KS",
+              "unit": "mV",
+              "resolution_method": "levenshtein",
+              "resolution_file": "KS.mod"
+            },
+            {
+              "name": "gCa_dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "LCa.mod"
+            },
+            {
+              "name": "gCa_prim",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "LCa.mod"
+            },
+            {
+              "name": "gCa_soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "LCa.mod"
+            },
+            {
+              "name": "gCa_tuft",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "LCa.mod"
+            },
+            {
+              "name": "gcabar_ICa",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "LCa.mod"
+            },
+            {
+              "name": "gKCa_soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "gkbar_Ikca",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "Ra",
+              "unit": "ohm*cm",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "cm",
+              "unit": "uF/cm^2",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "enic_Inic",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "Nicotin.mod"
+            },
+            {
+              "name": "gbar_Inic",
+              "unit": "siemens/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Nicotin.mod"
             }
           ],
-          "variables_flat": "soma (N/A) | real (N/A) | AMPA (N/A) | spiketimes (N/A) | subsets (N/A) | all (N/A) | L (???) | diam (???) | nseg (???) | RM (???) | El (???) | ENa (???) | Ek (???) | AMPAtau (???) | AMPArev (???) | GABAAtau (???) | GABAArev (???) | shell_depth (???) | spike_threshold (???) | gNa_soma (???) | gNa_dend (???) | gNa_prim (???) | gNa_tuft (???) | sh_Na (???) | gKdr_soma (???) | gKdr_dend (???) | gKdr_prim (???) | gKdr_tuft (???) | gA_soma (???) | gA_dend (???) | gA_prim (???) | gA_tuft (???) | Sha_A (???) | Shi_A (???) | ScaleNP (???) | ScaleKS (???) | gNaP_soma (???) | gNaP_dend (???) | gNaP_prim (???) | gNaP_tuft (???) | gKs_soma (???) | gKs_dend (???) | gKs_prim (???) | gKs_tuft (???) | tau_KS (???) | kh_KS (???) | gCa_soma (???) | gCa_dend (???) | gCa_prim (???) | gCa_tuft (???) | gKCa_soma (???) | dendspike (???) | tuftspike (???) | Ra (???) | cm (???) | e_pas (???) | g_pas (???) | enic_Inic (???) | gbar_Inic (???) | gnabar_nafast (???) | sh_nafast (???) | gkbar_kfasttab (???) | gbar_kamt (???) | sha_kamt (???) | shi_kamt (???) | gbar_IKs (???) | tauM_IKs (???) | kh_IKs (???) | gbar_INaP (???) | gcabar_ICa (???) | gkbar_Ikca (???) | depth_cad (???) | spikecount (???) | GABAA (???) | spikecount2 (???) | spikecount3 (???) | ena (???) | ek (???)"
+          "variables_flat": "soma (N/A) | real (N/A) | AMPA (N/A) | spiketimes (N/A) | subsets (N/A) | all (N/A) | GABAA (???) | dendspike (???) | new (???) | spikecount (???) | spikecount2 (???) | spikecount3 (???) | tuftspike (???) | L (???) | diam (???) | nseg (???) | RM (ohm*cm) | g_pas (ohm*cm) | El (???) | e_pas (???) | ENa (mV) | ena (mV) | Ek (mV) | ek (mV) | AMPAtau (???) | GABAAtau (???) | tau (???) | AMPArev (mV) | GABAArev (mV) | e (mV) | depth_cad (um) | shell_depth (um) | spike_threshold (???) | thresh (???) | gNa_dend (mho/cm2) | gNa_prim (mho/cm2) | gNa_soma (mho/cm2) | gNa_tuft (mho/cm2) | gnabar_nafast (mho/cm2) | sh_Na (mV) | sh_nafast (mV) | gKdr_dend (mho/cm2) | gKdr_prim (mho/cm2) | gKdr_soma (mho/cm2) | gKdr_tuft (mho/cm2) | gkbar_kfasttab (mho/cm2) | gA_dend (mho/cm2) | gA_prim (mho/cm2) | gA_soma (mho/cm2) | gA_tuft (mho/cm2) | gbar_kamt (mho/cm2) | Sha_A (???) | sha_kamt (???) | Shi_A (???) | shi_kamt (???) | ScaleNP (mho/cm2) | gNaP_dend (mho/cm2) | gNaP_prim (mho/cm2) | gNaP_soma (mho/cm2) | gNaP_tuft (mho/cm2) | gbar_INaP (mho/cm2) | ScaleKS (mho/cm2) | gKs_dend (mho/cm2) | gKs_prim (mho/cm2) | gKs_soma (mho/cm2) | gKs_tuft (mho/cm2) | gbar_IKs (mho/cm2) | tauM_IKs (ms) | tau_KS (ms) | kh_IKs (mV) | kh_KS (mV) | gCa_dend (mho/cm2) | gCa_prim (mho/cm2) | gCa_soma (mho/cm2) | gCa_tuft (mho/cm2) | gcabar_ICa (mho/cm2) | gKCa_soma (mho/cm2) | gkbar_Ikca (mho/cm2) | Ra (ohm*cm) | cm (uF/cm^2) | enic_Inic (mV) | gbar_Inic (siemens/cm2)"
         }
       },
       {
@@ -1188,38 +2172,66 @@
           "variables": [
             {
               "name": "f1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "filepath",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "time",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "DT",
-              "unit": "???"
-            },
-            {
-              "name": "Vt",
-              "unit": "???"
-            },
-            {
-              "name": "Vp",
-              "unit": "???"
-            },
-            {
-              "name": "Vs",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "Vd",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Vp",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Vs",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Vt",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "celldata",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | DT (???) | Vt (???) | Vp (???) | Vs (???) | Vd (???)"
+          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | DT (???) | Vd (???) | Vp (???) | Vs (???) | Vt (???) | new (???) | celldata (???)"
         }
       },
       {
@@ -1231,34 +2243,48 @@
           "variables": [
             {
               "name": "v_init",
-              "unit": "???"
+              "unit": "mV",
+              "resolution_method": "levenshtein",
+              "resolution_file": "Nicotin.mod"
             },
             {
               "name": "tstop",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "celsius",
-              "unit": "???"
+              "unit": "degC",
+              "resolution_method": "substring",
+              "resolution_file": "hpg.mod"
             },
             {
               "name": "dt",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "steps_per_ms",
-              "unit": "???"
+              "unit": "ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "secondorder",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "running_",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "v_init (???) | tstop (???) | celsius (???) | dt (???) | steps_per_ms (???) | secondorder (???) | running_ (???)"
+          "variables_flat": "v_init (mV) | tstop (s) | celsius (degC) | dt (s) | steps_per_ms (ms) | secondorder (s) | running_ (???)"
         }
       },
       {
@@ -1270,98 +2296,246 @@
           "variables": [
             {
               "name": "cvode",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "pg",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Stim1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Stim2",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "PGbinput",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "PGb",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "g1",
-              "unit": "N/A"
-            },
-            {
-              "name": "tstop",
-              "unit": "???"
-            },
-            {
-              "name": "celsius",
-              "unit": "???"
-            },
-            {
-              "name": "gnic_spine",
-              "unit": "???"
-            },
-            {
-              "name": "T1",
-              "unit": "???"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Dur",
-              "unit": "???"
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
             },
             {
-              "name": "BI",
-              "unit": "???"
+              "name": "dur",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
             },
             {
-              "name": "Ic1",
-              "unit": "???"
+              "name": "tstop",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
             },
             {
-              "name": "u0",
-              "unit": "???"
+              "name": "celsius",
+              "unit": "degC",
+              "resolution_method": "substring",
+              "resolution_file": "hpg.mod"
             },
             {
-              "name": "u1",
-              "unit": "???"
-            },
-            {
-              "name": "Wb_PG",
-              "unit": "???"
-            },
-            {
-              "name": "Tb_ISI",
-              "unit": "???"
-            },
-            {
-              "name": "N_SPIKE",
-              "unit": "???"
-            },
-            {
-              "name": "g4",
-              "unit": "???"
-            },
-            {
-              "name": "g6",
-              "unit": "???"
-            },
-            {
-              "name": "g5",
-              "unit": "???"
+              "name": "gnic_spine",
+              "unit": "mS/cm2",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "g2",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g4",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g5",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g6",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "gemmbody",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "soma",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "T1",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "del",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "BI",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Ic1",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "amp",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "f0",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "u0",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "f1",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "u1",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "Wb_PG",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "weight",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "torn",
+              "unit": "ms",
+              "resolution_method": "exact",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "r",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "Tb_ISI",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "interval",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "N_SPIKE",
+              "unit": "um",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "number",
+              "unit": "um",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "start",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "noise",
+              "unit": "nA",
+              "resolution_method": "exact",
+              "resolution_file": "SineInput.mod"
+            },
+            {
+              "name": "threshold",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "delay",
+              "unit": "ms",
+              "resolution_method": "levenshtein",
+              "resolution_file": "OdorInput.mod"
             }
           ],
-          "variables_flat": "cvode (N/A) | pg (N/A) | Stim1 (N/A) | Stim2 (N/A) | PGbinput (N/A) | PGb (N/A) | g1 (N/A) | tstop (???) | celsius (???) | gnic_spine (???) | T1 (???) | Dur (???) | BI (???) | Ic1 (???) | u0 (???) | u1 (???) | Wb_PG (???) | Tb_ISI (???) | N_SPIKE (???) | g4 (???) | g6 (???) | g5 (???) | g2 (???)"
+          "variables_flat": "cvode (N/A) | pg (N/A) | Stim1 (N/A) | Stim2 (N/A) | PGbinput (N/A) | PGb (N/A) | g1 (N/A) | Dur (ms) | dur (ms) | tstop (ms) | celsius (degC) | gnic_spine (mS/cm2) | g2 (???) | g4 (???) | g5 (???) | g6 (???) | gemmbody (???) | new (???) | soma (???) | T1 (ms) | del (ms) | BI (???) | Ic1 (nA) | amp (nA) | f0 (nA) | u0 (nA) | f1 (nA) | u1 (nA) | Wb_PG (???) | weight (???) | torn (ms) | r (???) | Tb_ISI (s) | interval (s) | N_SPIKE (um) | number (um) | start (???) | noise (nA) | threshold (???) | delay (ms)"
         }
       },
       {
@@ -1373,294 +2547,468 @@
           "variables": [
             {
               "name": "soma",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPAr",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "subsets",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "pg_all",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPAtau",
-              "unit": "ms"
+              "unit": "ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau",
+              "unit": "ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "Erev",
-              "unit": "mV"
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
             },
             {
-              "name": "shell_depth",
-              "unit": "???"
-            },
-            {
-              "name": "RM",
-              "unit": "???"
-            },
-            {
-              "name": "EL",
-              "unit": "???"
-            },
-            {
-              "name": "ENA",
-              "unit": "???"
-            },
-            {
-              "name": "EK",
-              "unit": "???"
-            },
-            {
-              "name": "ECA",
-              "unit": "???"
-            },
-            {
-              "name": "gNa_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gNa_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "Sh_Na",
-              "unit": "???"
-            },
-            {
-              "name": "gKdr_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gKdr_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gA_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gA_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "Sha_A",
-              "unit": "???"
-            },
-            {
-              "name": "Shi_A",
-              "unit": "???"
-            },
-            {
-              "name": "k_tauH",
-              "unit": "???"
-            },
-            {
-              "name": "sh_tauH",
-              "unit": "???"
-            },
-            {
-              "name": "gH_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gM_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gM_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gKCa_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gKCa_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gCapn_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gCapn_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "gCaT_Soma",
-              "unit": "???"
-            },
-            {
-              "name": "gCaT_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "Sha_T",
-              "unit": "???"
-            },
-            {
-              "name": "Shi_T",
-              "unit": "???"
-            },
-            {
-              "name": "K_tauH",
-              "unit": "???"
-            },
-            {
-              "name": "gcan_Dend",
-              "unit": "???"
-            },
-            {
-              "name": "spine",
-              "unit": "???"
-            },
-            {
-              "name": "pgdendgemm",
-              "unit": "???"
-            },
-            {
-              "name": "spiketimes",
-              "unit": "???"
-            },
-            {
-              "name": "dendspike",
-              "unit": "???"
-            },
-            {
-              "name": "spike_threshold",
-              "unit": "???"
-            },
-            {
-              "name": "Ra",
-              "unit": "???"
-            },
-            {
-              "name": "cm",
-              "unit": "???"
-            },
-            {
-              "name": "g_pas",
-              "unit": "???"
-            },
-            {
-              "name": "e_pas",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_nax",
-              "unit": "???"
-            },
-            {
-              "name": "sh_nax",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_kdrmt",
-              "unit": "???"
-            },
-            {
-              "name": "q10_kdrmt",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "sha_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "shi_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "k_tauH_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "sh_tauH_kamt",
-              "unit": "???"
-            },
-            {
-              "name": "gkbar_kM",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_Icapn",
-              "unit": "???"
-            },
-            {
-              "name": "gkbar_Ikca",
-              "unit": "???"
-            },
-            {
-              "name": "gbar_Icat",
-              "unit": "???"
-            },
-            {
-              "name": "sha_Icat",
-              "unit": "???"
-            },
-            {
-              "name": "shi_Icat",
-              "unit": "???"
+              "name": "e",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "GradNMDA.mod"
             },
             {
               "name": "depth_cad2",
-              "unit": "???"
+              "unit": "um",
+              "resolution_method": "exact",
+              "resolution_file": "cadecay2.mod"
+            },
+            {
+              "name": "shell_depth",
+              "unit": "um",
+              "resolution_method": "exact",
+              "resolution_file": "cadecay2.mod"
+            },
+            {
+              "name": "RM",
+              "unit": "ohm*cm",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "g_pas",
+              "unit": "ohm*cm",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "EL",
+              "unit": "mV",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "e_pas",
+              "unit": "mV",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ENA",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
             },
             {
               "name": "ena",
-              "unit": "???"
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "NaP.mod"
+            },
+            {
+              "name": "EK",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
             },
             {
               "name": "ek",
-              "unit": "???"
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "ECA",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "eca",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
-              "name": "spikecount",
-              "unit": "???"
+              "name": "gNa_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
             },
             {
-              "name": "eh_hpg",
-              "unit": "???"
+              "name": "gNa_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "gbar_nax",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "Sh_Na",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "sh_nax",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "Naxn.mod"
+            },
+            {
+              "name": "gKdr_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KDRmt.mod"
+            },
+            {
+              "name": "gKdr_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KDRmt.mod"
+            },
+            {
+              "name": "gbar_kdrmt",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KDRmt.mod"
+            },
+            {
+              "name": "gA_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gA_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gbar_kamt",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "Sha_A",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "sha_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "Shi_A",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "shi_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "k_tauH",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "k_tauH_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "sh_tauH",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "sh_tauH_kamt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "kAmt.mod"
+            },
+            {
+              "name": "gH_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "hpg.mod"
             },
             {
               "name": "ghbar_hpg",
-              "unit": "???"
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "hpg.mod"
             },
             {
-              "name": "gbar_Ican",
-              "unit": "???"
+              "name": "gM_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kM.mod"
+            },
+            {
+              "name": "gM_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kM.mod"
+            },
+            {
+              "name": "gkbar_kM",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "kM.mod"
+            },
+            {
+              "name": "gKCa_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "gKCa_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "gkbar_Ikca",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "KCa.mod"
+            },
+            {
+              "name": "gCapn_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaPN.mod"
+            },
+            {
+              "name": "gCapn_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaPN.mod"
+            },
+            {
+              "name": "gbar_Icapn",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaPN.mod"
+            },
+            {
+              "name": "gCaT_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaT.mod"
+            },
+            {
+              "name": "gCaT_Soma",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaT.mod"
+            },
+            {
+              "name": "gbar_Icat",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "CaT.mod"
+            },
+            {
+              "name": "Sha_T",
+              "unit": "mA/cm2",
+              "resolution_method": "levenshtein",
+              "resolution_file": "CaT.mod"
+            },
+            {
+              "name": "sha_Icat",
+              "unit": "mA/cm2",
+              "resolution_method": "levenshtein",
+              "resolution_file": "CaT.mod"
+            },
+            {
+              "name": "Shi_T",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "CaT.mod"
+            },
+            {
+              "name": "shi_Icat",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "CaT.mod"
+            },
+            {
+              "name": "K_tauH",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "CaT.mod"
             },
             {
               "name": "k_tauH_Icat",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "CaT.mod"
             },
             {
-              "name": "enic_Inic",
-              "unit": "???"
+              "name": "gbar_Ican",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Can.mod"
             },
             {
-              "name": "gbar_Inic",
-              "unit": "S/cm2"
+              "name": "gcan_Dend",
+              "unit": "mho/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Can.mod"
             },
             {
               "name": "dendcount",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dendspike",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "pgdendgemm",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "spikecount",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "spiketimes",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "spine",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "nseg",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "spike_threshold",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "thresh",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Ra",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "cm",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "q10_kdrmt",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "KDRmt.mod"
+            },
+            {
+              "name": "eh_hpg",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "hpg.mod"
+            },
+            {
+              "name": "enic_Inic",
+              "unit": "mV",
+              "resolution_method": "exact",
+              "resolution_file": "Nicotin.mod"
+            },
+            {
+              "name": "gbar_Inic",
+              "unit": "siemens/cm2",
+              "resolution_method": "exact",
+              "resolution_file": "Nicotin.mod"
             }
           ],
-          "variables_flat": "soma (N/A) | AMPAr (N/A) | subsets (N/A) | pg_all (N/A) | AMPAtau (ms) | Erev (mV) | shell_depth (???) | RM (???) | EL (???) | ENA (???) | EK (???) | ECA (???) | gNa_Soma (???) | gNa_Dend (???) | Sh_Na (???) | gKdr_Soma (???) | gKdr_Dend (???) | gA_Soma (???) | gA_Dend (???) | Sha_A (???) | Shi_A (???) | k_tauH (???) | sh_tauH (???) | gH_Dend (???) | gM_Soma (???) | gM_Dend (???) | gKCa_Soma (???) | gKCa_Dend (???) | gCapn_Soma (???) | gCapn_Dend (???) | gCaT_Soma (???) | gCaT_Dend (???) | Sha_T (???) | Shi_T (???) | K_tauH (???) | gcan_Dend (???) | spine (???) | pgdendgemm (???) | spiketimes (???) | dendspike (???) | spike_threshold (???) | Ra (???) | cm (???) | g_pas (???) | e_pas (???) | gbar_nax (???) | sh_nax (???) | gbar_kdrmt (???) | q10_kdrmt (???) | gbar_kamt (???) | sha_kamt (???) | shi_kamt (???) | k_tauH_kamt (???) | sh_tauH_kamt (???) | gkbar_kM (???) | gbar_Icapn (???) | gkbar_Ikca (???) | gbar_Icat (???) | sha_Icat (???) | shi_Icat (???) | depth_cad2 (???) | ena (???) | ek (???) | eca (???) | spikecount (???) | eh_hpg (???) | ghbar_hpg (???) | gbar_Ican (???) | k_tauH_Icat (???) | enic_Inic (???) | gbar_Inic (S/cm2) | dendcount (???)"
+          "variables_flat": "soma (N/A) | AMPAr (N/A) | subsets (N/A) | pg_all (N/A) | AMPAtau (ms) | tau (ms) | Erev (mV) | e (mV) | depth_cad2 (um) | shell_depth (um) | RM (ohm*cm) | g_pas (ohm*cm) | EL (mV) | e_pas (mV) | ENA (mV) | ena (mV) | EK (mV) | ek (mV) | ECA (???) | eca (???) | gNa_Dend (mho/cm2) | gNa_Soma (mho/cm2) | gbar_nax (mho/cm2) | Sh_Na (mV) | sh_nax (mV) | gKdr_Dend (mho/cm2) | gKdr_Soma (mho/cm2) | gbar_kdrmt (mho/cm2) | gA_Dend (mho/cm2) | gA_Soma (mho/cm2) | gbar_kamt (mho/cm2) | Sha_A (???) | sha_kamt (???) | Shi_A (???) | shi_kamt (???) | k_tauH (???) | k_tauH_kamt (???) | sh_tauH (???) | sh_tauH_kamt (???) | gH_Dend (mho/cm2) | ghbar_hpg (mho/cm2) | gM_Dend (mho/cm2) | gM_Soma (mho/cm2) | gkbar_kM (mho/cm2) | gKCa_Dend (mho/cm2) | gKCa_Soma (mho/cm2) | gkbar_Ikca (mho/cm2) | gCapn_Dend (mho/cm2) | gCapn_Soma (mho/cm2) | gbar_Icapn (mho/cm2) | gCaT_Dend (mho/cm2) | gCaT_Soma (mho/cm2) | gbar_Icat (mho/cm2) | Sha_T (mA/cm2) | sha_Icat (mA/cm2) | Shi_T (???) | shi_Icat (???) | K_tauH (???) | k_tauH_Icat (???) | gbar_Ican (mho/cm2) | gcan_Dend (mho/cm2) | dendcount (???) | dendspike (???) | new (???) | pgdendgemm (???) | spikecount (???) | spiketimes (???) | spine (???) | nseg (???) | spike_threshold (???) | thresh (???) | Ra (???) | cm (???) | q10_kdrmt (???) | eh_hpg (mV) | enic_Inic (mV) | gbar_Inic (siemens/cm2)"
         }
       },
       {
@@ -1672,26 +3020,48 @@
           "variables": [
             {
               "name": "f1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "filepath",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "time",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Nd",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "Vol",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "celldata",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | Nd (???) | Vol (???)"
+          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | Nd (???) | Vol (???) | new (???) | celldata (???)"
         }
       },
       {
@@ -1703,270 +3073,402 @@
           "variables": [
             {
               "name": "seedU",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "seedN",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "NSSEED",
-              "unit": "???"
-            },
-            {
-              "name": "nmitx",
-              "unit": "???"
-            },
-            {
-              "name": "nmity",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "nMit",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
-              "name": "npgx",
-              "unit": "???"
+              "name": "nmitx",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
-              "name": "npgy",
-              "unit": "???"
+              "name": "nmity",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "nPG",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
-              "name": "ngranx",
-              "unit": "???"
+              "name": "npgx",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
-              "name": "ngrany",
-              "unit": "???"
-            },
-            {
-              "name": "nGran",
-              "unit": "???"
+              "name": "npgy",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "Hgc",
-              "unit": "???"
+              "unit": "degC",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "RATIO",
-              "unit": "???"
-            },
-            {
-              "name": "Todor",
-              "unit": "???"
-            },
-            {
-              "name": "RiseRate",
-              "unit": "???"
-            },
-            {
-              "name": "Pre_Odor_L",
-              "unit": "???"
-            },
-            {
-              "name": "Pre_Odor_U",
-              "unit": "???"
-            },
-            {
-              "name": "Odor_L",
-              "unit": "???"
-            },
-            {
-              "name": "Odor_U",
-              "unit": "???"
-            },
-            {
-              "name": "Pc",
-              "unit": "???"
-            },
-            {
-              "name": "LEN",
-              "unit": "???"
-            },
-            {
-              "name": "R",
-              "unit": "???"
-            },
-            {
-              "name": "dm",
-              "unit": "???"
-            },
-            {
-              "name": "dg",
-              "unit": "???"
-            },
-            {
-              "name": "Km2p",
-              "unit": "???"
-            },
-            {
-              "name": "Wm2p",
-              "unit": "???"
-            },
-            {
-              "name": "Wm2g",
-              "unit": "???"
-            },
-            {
-              "name": "Wp2m",
-              "unit": "???"
+              "unit": "degC",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "Wg2m",
-              "unit": "???"
+              "unit": "degC",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "nGran",
+              "unit": "degC",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ngranx",
+              "unit": "degC",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "ngrany",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Todor",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "RiseRate",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Pre_Odor_L",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Pre_Odor_U",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Odor_L",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Odor_U",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Pc",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "LEN",
+              "unit": "nM",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dg",
+              "unit": "nM",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "dm",
+              "unit": "nM",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "R",
+              "unit": "???",
+              "resolution_method": "resolved_undefined",
+              "resolution_file": "OdorInput.mod"
+            },
+            {
+              "name": "Km2p",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Wm2p",
+              "unit": "mho",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Wm2g",
+              "unit": "mho",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Wp2m",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPAgmaxPG",
-              "unit": "???"
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "NMDAgmaxPG",
-              "unit": "???"
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAAgmaxPG",
-              "unit": "???"
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPAgmaxGC",
-              "unit": "???"
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "NMDAgmaxGC",
-              "unit": "???"
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAAgmaxGC",
-              "unit": "???"
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "Gampa",
-              "unit": "???"
+              "unit": "nA",
+              "resolution_method": "levenshtein",
+              "resolution_file": "OdorInput.mod"
             },
             {
               "name": "Gnmda",
-              "unit": "???"
+              "unit": "1/ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "Ggaba",
-              "unit": "???"
-            },
-            {
-              "name": "tau1_AMPA",
-              "unit": "???"
-            },
-            {
-              "name": "tau2_AMPA",
-              "unit": "???"
-            },
-            {
-              "name": "tau1_NMDA",
-              "unit": "???"
-            },
-            {
-              "name": "tau2_NMDA",
-              "unit": "???"
-            },
-            {
-              "name": "tau1_GABA_PG",
-              "unit": "???"
-            },
-            {
-              "name": "tau2_GABA_PG",
-              "unit": "???"
-            },
-            {
-              "name": "tau1_GABA_GC",
-              "unit": "???"
-            },
-            {
-              "name": "tau2_GABA_GC",
-              "unit": "???"
+              "unit": "nS",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPAalpha",
-              "unit": "???"
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau1_AMPA",
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPAbeta",
-              "unit": "???"
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau2_AMPA",
+              "unit": "pA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "NMDAalpha",
-              "unit": "???"
+              "unit": "nA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau1_NMDA",
+              "unit": "nA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "NMDAbeta",
-              "unit": "???"
+              "unit": "nA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau2_NMDA",
+              "unit": "nA",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAAalpha_PG",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau1_GABA_PG",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAAbeta_PG",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau2_GABA_PG",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAAalpha_GC",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau1_GABA_GC",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAAbeta_GC",
-              "unit": "???"
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "tau2_GABA_GC",
+              "unit": "s",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPArev",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "NMDArev",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAArev",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPAact",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "NMDAact",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAAact",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "AMPAsigma",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "NMDAsigma",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "GABAAsigma",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "NICOTIN",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "MUSCARIN",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "seedU (???) | seedN (???) | NSSEED (???) | nmitx (???) | nmity (???) | nMit (???) | npgx (???) | npgy (???) | nPG (???) | ngranx (???) | ngrany (???) | nGran (???) | Hgc (???) | RATIO (???) | Todor (???) | RiseRate (???) | Pre_Odor_L (???) | Pre_Odor_U (???) | Odor_L (???) | Odor_U (???) | Pc (???) | LEN (???) | R (???) | dm (???) | dg (???) | Km2p (???) | Wm2p (???) | Wm2g (???) | Wp2m (???) | Wg2m (???) | AMPAgmaxPG (???) | NMDAgmaxPG (???) | GABAAgmaxPG (???) | AMPAgmaxGC (???) | NMDAgmaxGC (???) | GABAAgmaxGC (???) | Gampa (???) | Gnmda (???) | Ggaba (???) | tau1_AMPA (???) | tau2_AMPA (???) | tau1_NMDA (???) | tau2_NMDA (???) | tau1_GABA_PG (???) | tau2_GABA_PG (???) | tau1_GABA_GC (???) | tau2_GABA_GC (???) | AMPAalpha (???) | AMPAbeta (???) | NMDAalpha (???) | NMDAbeta (???) | GABAAalpha_PG (???) | GABAAbeta_PG (???) | GABAAalpha_GC (???) | GABAAbeta_GC (???) | AMPArev (???) | NMDArev (???) | GABAArev (???) | AMPAact (???) | NMDAact (???) | GABAAact (???) | AMPAsigma (???) | NMDAsigma (???) | GABAAsigma (???) | NICOTIN (???) | MUSCARIN (???)"
+          "variables_flat": "seedU (s) | seedN (s) | NSSEED (s) | nMit (???) | nmitx (???) | nmity (???) | nPG (???) | npgx (???) | npgy (???) | Hgc (degC) | RATIO (degC) | Wg2m (degC) | nGran (degC) | ngranx (degC) | ngrany (???) | Todor (???) | RiseRate (s) | Pre_Odor_L (???) | Pre_Odor_U (???) | Odor_L (???) | Odor_U (???) | Pc (s) | LEN (nM) | dg (nM) | dm (nM) | R (???) | Km2p (s) | Wm2p (mho) | Wm2g (mho) | Wp2m (???) | AMPAgmaxPG (pA) | NMDAgmaxPG (pA) | GABAAgmaxPG (pA) | AMPAgmaxGC (pA) | NMDAgmaxGC (pA) | GABAAgmaxGC (pA) | Gampa (nA) | Gnmda (1/ms) | Ggaba (nS) | AMPAalpha (pA) | tau1_AMPA (pA) | AMPAbeta (pA) | tau2_AMPA (pA) | NMDAalpha (nA) | tau1_NMDA (nA) | NMDAbeta (nA) | tau2_NMDA (nA) | GABAAalpha_PG (s) | tau1_GABA_PG (s) | GABAAbeta_PG (s) | tau2_GABA_PG (s) | GABAAalpha_GC (s) | tau1_GABA_GC (s) | GABAAbeta_GC (s) | tau2_GABA_GC (s) | AMPArev (???) | NMDArev (???) | GABAArev (???) | AMPAact (???) | NMDAact (???) | GABAAact (???) | AMPAsigma (???) | NMDAsigma (???) | GABAAsigma (???) | NICOTIN (???) | MUSCARIN (???)"
         }
       },
       {
@@ -1978,94 +3480,180 @@
           "variables": [
             {
               "name": "f1",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "filepath",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "time",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Gpm",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Ggm",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Vms",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Vgs",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Vps",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Tt",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "Vmc22",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "DT",
-              "unit": "???"
+              "unit": "ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "DTT",
-              "unit": "???"
+              "unit": "ms",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
             },
             {
               "name": "sum",
-              "unit": "???"
-            },
-            {
-              "name": "filepath1",
-              "unit": "???"
-            },
-            {
-              "name": "input",
-              "unit": "???"
-            },
-            {
-              "name": "WD",
-              "unit": "???"
-            },
-            {
-              "name": "FL",
-              "unit": "???"
-            },
-            {
-              "name": "size1",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "Vmean",
-              "unit": "???"
-            },
-            {
-              "name": "size2",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "Vmean2",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "add",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "div",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "input",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "RSP2",
+              "unit": "uS",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "filepath1",
+              "unit": "uS",
+              "resolution_method": "heuristic",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "WD",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "getcwd",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "FL",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "chdir",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "size1",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "Vgb",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "size2",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "size",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | Gpm (N/A) | Ggm (N/A) | Vms (N/A) | Vgs (N/A) | Vps (N/A) | Tt (N/A) | Vmc22 (N/A) | DT (???) | DTT (???) | sum (???) | filepath1 (???) | input (???) | WD (???) | FL (???) | size1 (???) | Vmean (???) | size2 (???) | Vmean2 (???) | size (???)"
+          "variables_flat": "f1 (N/A) | filepath (N/A) | time (N/A) | Gpm (N/A) | Ggm (N/A) | Vms (N/A) | Vgs (N/A) | Vps (N/A) | Tt (N/A) | Vmc22 (N/A) | DT (ms) | DTT (ms) | sum (???) | Vmean (???) | Vmean2 (???) | add (???) | div (???) | input (???) | new (???) | RSP2 (uS) | filepath1 (uS) | WD (???) | getcwd (???) | FL (???) | chdir (???) | size1 (???) | Vgb (???) | size2 (???) | size (???)"
         }
       },
       {
@@ -2077,22 +3665,42 @@
           "variables": [
             {
               "name": "mymaths_work",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "x",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "getrow",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "max",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "min",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "mymaths_work (N/A) | x (???) | max (???) | min (???)"
+          "variables_flat": "mymaths_work (N/A) | x (???) | getrow (???) | new (???) | max (???) | min (???)"
         }
       },
       {
@@ -2114,18 +3722,30 @@
           "variables": [
             {
               "name": "datafile",
-              "unit": "N/A"
+              "unit": "N/A",
+              "resolution_method": "explicit_declaration",
+              "resolution_file": "NA"
             },
             {
               "name": "npoints",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
+            },
+            {
+              "name": "new",
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             },
             {
               "name": "vvec",
-              "unit": "???"
+              "unit": "???",
+              "resolution_method": "unresolved",
+              "resolution_file": "NA"
             }
           ],
-          "variables_flat": "datafile (N/A) | npoints (???) | vvec (???)"
+          "variables_flat": "datafile (N/A) | npoints (???) | new (???) | vvec (???)"
         }
       },
       {
