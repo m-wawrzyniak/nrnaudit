@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+import copy
 import json
 import os
 from pathlib import Path
 
-from dash import html
+from dash import dash_table, html
 
 HIDDEN_STYLE = {"display": "none"}
 GRAPH_VISIBLE_STYLE = {"display": "block", "flexGrow": "1"}
@@ -24,6 +25,13 @@ LAYOUT_OPTIONS = [
     {"label": "Force-Directed (Cose)", "value": "cose"},
     {"label": "Circular", "value": "circle"},
 ]
+
+VARIABLES_TABLE_COLUMNS = [
+    {"name": "Variable", "id": "name", "editable": False},
+    {"name": "Value/Unit", "id": "unit", "editable": True},
+    {"name": "Method", "id": "resolution_method", "editable": False},
+]
+EXPORT_FILENAME = "annotated_neuron_dependencies.cyjs"
 
 
 def load_graph_data(data_path: Path) -> dict:
@@ -100,6 +108,16 @@ def build_stylesheet() -> list[dict]:
 
 def build_cytoscape_layout(layout_name: str) -> dict:
     """Return a Cytoscape layout dict with animated transitions."""
+    if layout_name == "cose":
+        return {
+            "name": "cose",
+            "animate": True,
+            "nodeRepulsion": 12000,
+            "idealEdgeLength": 150,
+            "gravity": 0.08,
+            "padding": 80,
+            "nodeOverlap": 20,
+        }
     return {"name": layout_name, "animate": True}
 
 
@@ -110,27 +128,100 @@ def compute_view_styles(view_value: str) -> tuple[dict, dict]:
     return GRAPH_VISIBLE_STYLE, HIDDEN_STYLE
 
 
-def build_variables_table(variables: list[dict]) -> html.Base:
-    """Build an inspector table for extracted variables."""
-    if not variables:
-        return html.P("No variables detected.")
-
-    header = html.Tr(
-        [html.Th("Name"), html.Th("Unit/Value"), html.Th("Method")]
-    )
-    rows = [
-        html.Tr(
-            [
-                html.Td(v.get("name", "")),
-                html.Td(v.get("unit", "")),
-                html.Td(v.get("resolution_method", "")),
-            ]
-        )
+def variables_to_table_data(variables: list[dict]) -> list[dict]:
+    """Convert node variables to DataTable row dicts."""
+    return [
+        {
+            "name": v.get("name", ""),
+            "unit": v.get("unit", ""),
+            "resolution_method": v.get("resolution_method", ""),
+        }
         for v in variables
     ]
-    return html.Table(
-        [header, *rows],
-        style={"width": "100%", "borderCollapse": "collapse", "fontSize": "13px"},
+
+
+def build_variables_datatable() -> dash_table.DataTable:
+    """Build the editable inspector DataTable."""
+    return dash_table.DataTable(
+        id="variables-datatable",
+        columns=VARIABLES_TABLE_COLUMNS,
+        data=[],
+        row_deletable=False,
+        sort_action="none",
+        style_table={"overflowX": "auto"},
+        style_cell={"fontSize": "13px", "textAlign": "left", "padding": "6px"},
+    )
+
+
+def apply_manual_overrides(
+    current: list[dict], previous: list[dict]
+) -> list[dict]:
+    """Tag edited unit rows with resolution_method='manual'."""
+    updated = [dict(row) for row in current]
+    previous_by_name = {row["name"]: row for row in previous}
+    for row in updated:
+        old_row = previous_by_name.get(row["name"], {})
+        if row.get("unit") != old_row.get("unit"):
+            row["resolution_method"] = "manual"
+    return updated
+
+
+def sync_variables_to_elements(
+    elements: list[dict], node_id: str, table_data: list[dict]
+) -> list[dict]:
+    """Write edited table rows back into the matching Cytoscape node."""
+    updated_elements: list[dict] = []
+    for element in elements:
+        data = element.get("data", {})
+        if data.get("id") != node_id or "source" in data:
+            updated_elements.append(element)
+            continue
+
+        updated_element = copy.deepcopy(element)
+        original_by_name = {
+            variable["name"]: variable
+            for variable in updated_element["data"].get("variables", [])
+        }
+        synced_variables = []
+        for row in table_data:
+            variable = dict(original_by_name.get(row["name"], {}))
+            variable.update(
+                {
+                    "name": row["name"],
+                    "unit": row["unit"],
+                    "resolution_method": row.get("resolution_method", ""),
+                }
+            )
+            synced_variables.append(variable)
+
+        updated_element["data"]["variables"] = synced_variables
+        if "variables_flat" in updated_element["data"]:
+            updated_element["data"]["variables_flat"] = " | ".join(
+                f"{variable['name']} ({variable['unit']})"
+                for variable in synced_variables
+            )
+        updated_elements.append(updated_element)
+    return updated_elements
+
+
+def build_export_payload(
+    elements: list[dict], extra_fields: dict | None = None
+) -> dict:
+    """Reconstruct the .cyjs export schema from live Cytoscape elements."""
+    nodes = [element for element in elements if "source" not in element["data"]]
+    edges = [element for element in elements if "source" in element["data"]]
+    payload = {"elements": {"nodes": nodes, "edges": edges}}
+    if extra_fields:
+        payload.update(extra_fields)
+    return payload
+
+
+def serialize_export(
+    elements: list[dict], extra_fields: dict | None = None
+) -> str:
+    """Serialize the export payload to indented JSON."""
+    return json.dumps(
+        build_export_payload(elements, extra_fields), indent=2, sort_keys=False
     )
 
 
