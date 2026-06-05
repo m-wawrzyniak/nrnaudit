@@ -83,3 +83,36 @@ def extract_brace_body(text: str, open_pos: int) -> str | None:
     if depth != 0:
         return None
     return text[open_pos:i]
+
+
+_ARRAY_INDEX_RE = re.compile(r"\[[^\]]*\]")
+
+
+def strip_array_index(name: str) -> str:
+    """Remove HOC array index brackets from a name, returning the trimmed base name."""
+    return _ARRAY_INDEX_RE.sub("", name).strip()
+
+
+def split_location_and_name(lhs: str) -> tuple[str, str]:
+    """Split a HOC LHS into (location, name); name is the final whitespace token."""
+    tokens = lhs.split()
+    if not tokens:
+        return "", ""
+    return " ".join(tokens[:-1]), tokens[-1]
+
+
+_PARAM_DEFAULT_RE = re.compile(r"^([A-Za-z_][A-Za-z0-9_]*)\s*(?:=\s*([^\s(]+))?")
+
+
+def parse_parameter_block_defaults(block_body: str) -> dict[str, str]:
+    """Map NMODL PARAMETER names to default literals (missing default -> '0')."""
+    defaults: dict[str, str] = {}
+    for raw_line in strip_mod_comments(block_body).splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        m = _PARAM_DEFAULT_RE.match(line)
+        if m is None:
+            continue
+        defaults[m.group(1)] = m.group(2) if m.group(2) is not None else "0"
+    return defaults

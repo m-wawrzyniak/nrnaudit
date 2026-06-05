@@ -11,6 +11,7 @@ from src import (
     graph_builder,
     hoc_parser,
     mod_parser,
+    simulation_flow,
     traversal,
     utils,
     variables_extractor,
@@ -71,6 +72,10 @@ def main() -> None:
         hoc_relpaths, parsed_hoc, mechanism_map, hoc_variables, mod_variables
     )
     cytoscape_graph = cytoscape_export.to_cytoscape(graph)
+    flow = simulation_flow.build_simulation_flow(
+        repo_root, hoc_relpaths, mod_relpaths
+    )
+    cytoscape_graph["simulation_flow"] = flow
     target = utils.write_json(cytoscape_graph, args.output)
     print(f"Wrote {target}")
 
