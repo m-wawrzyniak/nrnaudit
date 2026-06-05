@@ -387,6 +387,31 @@ def collect_comment_hint(code: str, comment: str) -> tuple[str, str] | None:
     return None
 
 
+def update_routine_scope(
+    code: str, in_routine: bool, bracket_depth: int
+) -> tuple[bool, int]:
+    """Track func/proc entry and brace depth for Pass 2 scope blinding."""
+    bracket_depth += code.count("{")
+    bracket_depth -= code.count("}")
+    stripped = code.lstrip()
+    if stripped.startswith(("func ", "proc ")):
+        in_routine = True
+    if in_routine and bracket_depth == 0:
+        in_routine = False
+    return in_routine, bracket_depth
+
+
+def should_skip_pass2_line(raw_line: str, code: str) -> bool:
+    """Return True when Pass 2 must ignore this line (Pass 3 handles it separately)."""
+    if "= new " in raw_line:
+        return True
+    stripped = code.lstrip()
+    for prefix in ("for ", "while ", "if ", "else ", "return "):
+        if stripped.startswith(prefix):
+            return True
+    return False
+
+
 def collect_hoc_pools(text: str) -> tuple[dict[str, str], dict[str, str], dict[str, str]]:
     """Return (parent, heuristic_hints, explicit_vars) from block-comment-stripped HOC text."""
     parent: dict[str, str] = {}
@@ -394,8 +419,15 @@ def collect_hoc_pools(text: str) -> tuple[dict[str, str], dict[str, str], dict[s
     explicit_vars: dict[str, str] = {
         var["name"]: "N/A" for var in extract_hoc_explicit_variables(text)
     }
+    in_routine = False
+    bracket_depth = 0
     for raw_line in text.splitlines():
         code, comment = split_inline_comment(raw_line)
+        in_routine, bracket_depth = update_routine_scope(
+            code, in_routine, bracket_depth
+        )
+        if in_routine or should_skip_pass2_line(raw_line, code):
+            continue
         hint = collect_comment_hint(code, comment)
         if hint is not None:
             heuristic_hints[hint[0]] = hint[1]
