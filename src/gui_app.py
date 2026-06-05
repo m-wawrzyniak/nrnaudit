@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import os
+import webbrowser
 from pathlib import Path
 
 import dash_cytoscape as cyto
@@ -33,7 +35,65 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         help="Path to the parsed .cyjs/.json file.",
     )
+    parser.add_argument(
+        "--host",
+        default="127.0.0.1",
+        help="Host address for the local web server (default: 127.0.0.1).",
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=8050,
+        help="Port for the local web server (default: 8050).",
+    )
+    parser.add_argument(
+        "--debug",
+        action="store_true",
+        help="Enable development mode (auto-reload and in-browser debugger).",
+    )
+    parser.add_argument(
+        "--open-browser",
+        action="store_true",
+        help="Open the GUI in the default web browser on startup.",
+    )
     return parser.parse_args()
+
+
+def validate_input_dir(input_dir: Path) -> None:
+    """Ensure the NEURON project root exists, is a directory, and is readable."""
+    if not input_dir.exists():
+        raise SystemExit(f"Input directory does not exist: {input_dir}")
+    if not input_dir.is_dir():
+        raise SystemExit(f"Input path is not a directory: {input_dir}")
+    if not os.access(input_dir, os.R_OK):
+        raise SystemExit(f"Input directory is not readable: {input_dir}")
+
+
+def validate_data_file(data_path: Path) -> None:
+    """Ensure the graph file exists, is a file, and is readable."""
+    if not data_path.exists():
+        raise SystemExit(f"Data file does not exist: {data_path}")
+    if not data_path.is_file():
+        raise SystemExit(f"Data path is not a file: {data_path}")
+    if not os.access(data_path, os.R_OK):
+        raise SystemExit(f"Data file is not readable: {data_path}")
+
+
+def validate_graph_data(graph_data: dict, data_path: Path) -> None:
+    """Ensure the loaded JSON contains a Cytoscape elements block."""
+    if "elements" not in graph_data:
+        raise SystemExit(
+            f"Data file is missing 'elements' key: {data_path}"
+        )
+    elements = graph_data["elements"]
+    if not isinstance(elements, dict):
+        raise SystemExit(
+            f"Data file 'elements' must be an object: {data_path}"
+        )
+    if "nodes" not in elements or "edges" not in elements:
+        raise SystemExit(
+            f"Data file 'elements' must contain 'nodes' and 'edges': {data_path}"
+        )
 
 
 def build_left_pane(elements: list[dict], stylesheet: list[dict]) -> html.Div:
@@ -226,9 +286,23 @@ def main() -> None:
     """Load data, create the app, and start the local server."""
     args = parse_args()
     repo_root = args.input.resolve()
-    graph_data = utility_gui.load_graph_data(args.data)
+    data_path = args.data.resolve()
+
+    validate_input_dir(repo_root)
+    validate_data_file(data_path)
+
+    graph_data = utility_gui.load_graph_data(data_path)
+    validate_graph_data(graph_data, data_path)
+
     app = create_app(graph_data, repo_root)
-    app.run(debug=True)
+    url = f"http://{args.host}:{args.port}"
+    print(f"NeuronAudit GUI running at {url}")
+    print("Press Ctrl+C to stop.")
+
+    if args.open_browser:
+        webbrowser.open(url)
+
+    app.run(debug=args.debug, host=args.host, port=args.port)
 
 
 if __name__ == "__main__":

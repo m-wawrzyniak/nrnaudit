@@ -68,3 +68,57 @@ Required arguments:
 * `--output` / `-o` — directory where `neuron_dependencies.cyjs` is created (created if missing)
 
 ---
+
+## 5. Running the visualization GUI
+
+Install GUI dependencies (from the repository root):
+
+```bash
+pip install -r requirements.txt
+```
+
+Generate the graph file first (if you do not already have a `.cyjs`):
+
+```bash
+python -m src.main -i /path/to/NEURON/project -o /path/to/output
+```
+
+Launch the local web GUI from the repository root:
+
+```bash
+python -m src.gui_app \
+  -i /path/to/NEURON/project \
+  -d /path/to/output/neuron_dependencies.cyjs
+```
+
+Or use the launcher script (macOS/Linux):
+
+```bash
+chmod +x run_gui.sh
+./run_gui.sh /path/to/NEURON/project /path/to/output/neuron_dependencies.cyjs
+```
+
+Open the URL printed in the terminal (default: `http://127.0.0.1:8050`).
+
+Required arguments:
+
+* `--input` / `-i` — NEURON project root; must match the directory used when generating the `.cyjs` file (resolves source code paths in the inspector)
+* `--data` / `-d` — path to the parsed `neuron_dependencies.cyjs` (or equivalent JSON)
+
+Optional arguments:
+
+* `--host` — bind address (default: `127.0.0.1`)
+* `--port` — port number (default: `8050`)
+* `--open-browser` — open the GUI in your default browser on startup
+* `--debug` — enable development mode (auto-reload and in-browser debugger)
+
+Example with browser auto-open:
+
+```bash
+python -m src.gui_app \
+  -i ground_truth_cases/232097/OBGAMMA/ \
+  -d out/neuron_dependencies.cyjs \
+  --open-browser
+```
+
+---

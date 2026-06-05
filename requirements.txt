@@ -1,0 +1,2 @@
+dash >=4.2
+dash_cytoscape >=0.2
