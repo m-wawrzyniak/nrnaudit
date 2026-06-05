@@ -18,6 +18,13 @@ CODE_VISIBLE_STYLE = {
     "padding": "15px",
 }
 
+DEFAULT_LAYOUT = "dagre"
+LAYOUT_OPTIONS = [
+    {"label": "Hierarchical (Dagre)", "value": "dagre"},
+    {"label": "Force-Directed (Cose)", "value": "cose"},
+    {"label": "Circular", "value": "circle"},
+]
+
 
 def load_graph_data(data_path: Path) -> dict:
     """Load the parsed Cytoscape JSON file into memory."""
@@ -91,6 +98,11 @@ def build_stylesheet() -> list[dict]:
     ]
 
 
+def build_cytoscape_layout(layout_name: str) -> dict:
+    """Return a Cytoscape layout dict with animated transitions."""
+    return {"name": layout_name, "animate": True}
+
+
 def compute_view_styles(view_value: str) -> tuple[dict, dict]:
     """Return (graph_container_style, code_container_style) for the view toggle."""
     if view_value == "code":
@@ -136,7 +148,7 @@ def read_source_code(repo_root: Path, source_file: str) -> str:
     if not source_file:
         return "No source file associated with this node."
 
-    path = os.path.join(str(repo_root), source_file)
+    path = os.path.join(str(repo_root.resolve()), source_file)
     try:
         with open(path, encoding="utf-8", errors="replace") as fh:
             return fh.read()

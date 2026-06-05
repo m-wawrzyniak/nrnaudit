@@ -23,7 +23,7 @@ def parse_args() -> argparse.Namespace:
         "-i",
         required=True,
         type=Path,
-        help="NEURON repo root (resolves source_file paths).",
+        help="Absolute path to the NEURON project root (resolves source_file paths).",
     )
     parser.add_argument(
         "--data",
@@ -38,22 +38,32 @@ def parse_args() -> argparse.Namespace:
 def build_left_pane(elements: list[dict], stylesheet: list[dict]) -> html.Div:
     """Build the left pane with graph/code toggle and viewers."""
     toggle_bar = html.Div(
-        dcc.RadioItems(
-            id="view-toggle",
-            options=[
-                {"label": " Graph View", "value": "graph"},
-                {"label": " Source Code", "value": "code"},
-            ],
-            value="graph",
-            inline=True,
-        )
+        [
+            dcc.RadioItems(
+                id="view-toggle",
+                options=[
+                    {"label": " Graph View", "value": "graph"},
+                    {"label": " Source Code", "value": "code"},
+                ],
+                value="graph",
+                inline=True,
+            ),
+            dcc.Dropdown(
+                id="layout-selector",
+                options=utility_gui.LAYOUT_OPTIONS,
+                value=utility_gui.DEFAULT_LAYOUT,
+                clearable=False,
+                style={"width": "200px"},
+            ),
+        ],
+        style={"display": "flex", "alignItems": "center", "gap": "16px"},
     )
     graph_wrapper = html.Div(
         id="graph-container",
         style=utility_gui.GRAPH_VISIBLE_STYLE,
         children=cyto.Cytoscape(
             id="cytoscape-graph",
-            layout={"name": "dagre"},
+            layout=utility_gui.build_cytoscape_layout(utility_gui.DEFAULT_LAYOUT),
             style={"width": "100%", "height": "100%"},
             elements=elements,
             stylesheet=stylesheet,
@@ -121,6 +131,13 @@ def register_callbacks(app: Dash, repo_root: Path) -> None:
     )
     def _toggle_view(view_value):
         return utility_gui.compute_view_styles(view_value)
+
+    @app.callback(
+        Output("cytoscape-graph", "layout"),
+        Input("layout-selector", "value"),
+    )
+    def _switch_layout(layout_name):
+        return utility_gui.build_cytoscape_layout(layout_name)
 
     @app.callback(
         Output("panel-title", "children"),
