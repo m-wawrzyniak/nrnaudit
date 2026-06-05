@@ -1,0 +1,41 @@
+cd PycharmProjects/nrnaudit/
+python -m src.main --input ground_truth_cases/ca1/ --output example_cases_results/ca1_res
+python -m src.gui_app \
+  -i ground_truth_cases/ca1/ \
+  -d example_cases_results/ca1_res/neuron_dependencies.cyjs \
+  --open-browser
+
+cd PycharmProjects/nrnaudit/
+python -m src.main --input ground_truth_cases/dentategyrusnet2005/ --output example_cases_results/dentategyrusnet2005_res
+python -m src.gui_app \
+  -i ground_truth_cases/dentategyrusnet2005/ \
+  -d example_cases_results/dentategyrusnet2005_res/neuron_dependencies.cyjs \
+  --open-browser
+
+cd PycharmProjects/nrnaudit/
+python -m src.main --input ground_truth_cases/depblock_mdb/ --output example_cases_results/depblock_mdb_res
+python -m src.gui_app \
+  -i ground_truth_cases/depblock_mdb/ \
+  -d example_cases_results/depblock_mdb_res/neuron_dependencies.cyjs \
+  --open-browser
+
+cd PycharmProjects/nrnaudit/
+python -m src.main --input ground_truth_cases/DLGN_NEW/ --output example_cases_results/DLGN_NEW_res
+python -m src.gui_app \
+  -i ground_truth_cases/DLGN_NEW/ \
+  -d example_cases_results/DLGN_NEW_res/neuron_dependencies.cyjs \
+  --open-browser
+
+cd PycharmProjects/nrnaudit/
+python -m src.main --input ground_truth_cases/nrntraub/ --output example_cases_results/nrntraub_res
+python -m src.gui_app \
+  -i ground_truth_cases/nrntraub/ \
+  -d example_cases_results/nrntraub_res/neuron_dependencies.cyjs \
+  --open-browser
+
+cd PycharmProjects/nrnaudit/
+python -m src.main --input ground_truth_cases/OBGAMMA/ --output example_cases_results/OBGAMMA_res
+python -m src.gui_app \
+  -i ground_truth_cases/OBGAMMA/ \
+  -d example_cases_results/OBGAMMA_res/neuron_dependencies.cyjs \
+  --open-browser

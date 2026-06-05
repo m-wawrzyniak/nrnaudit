@@ -1,0 +1,40 @@
+celuj w 10 min,
+5 na demo, na OBGAMMA
+
+Pokazac complexity takich repo w NEURONIE:
+    - raw screen z file manager
+    - graf zaleznosci plikow, da sie to rozwiazac
+
+- kontekst neurobiologiczny, 2-3 zdania
+- Musisz zdazyc wytlumaczyc na czym polega problem jesli chodzi o projekty informatyczne - syf, niejednoznacznosc
+- na przykladzie, kupa czasu na nawigacje
+- technikalia rozwiazania, blokowy schemat algorytmu parsera
+- demo na OBGAMMA
+
+
+Poprawki wynikajace z example_cases:
+
+ca1:
+- moze pokazywac README jesli znajduje sie w projekcie? jako jakis node
+- jest plik formatu *.nrn , nie parsujmy nic z niego, ale uzwglednijmy go w grafie. Moze jakis typ node'a ktory reprezentuje kazdy inny format niz *mod i *hoc
+
+dentategyrusnet2005:
+- naturalnie nie radzi sobie z importami zawartymi w elementach GUI NEURON'a
+- testnet.hoc ewidentnie importuje wiekszosc *mod (linia 370 w przod), a potem tworzy obiekt ktory wykorzystuje te *mody
+- są *jpg, moze je tez uwzglednic w tym grafie, tak aby byly zawarte tam wszystkie pliki, nawet jak nasz GUI nie daje do nich wgladu
+
+depblock_mdb:
+- to jest gdzie nasz soft nie poradzi sobie. Ten projekt jest napisany we wrapperze NEURONa jako biblioteka Python'a.
+- nie ma opcji ze tutaj damy rade to zmienic, te projekty sa czesciej napisane w Pythonie 2.x, a czesc w Pythonie 3.x
+
+DLGN_NEW:
+- kolejne rozszerzenie, ktore wskazuje na zwykly *hoc. Ten smieszny jezyk, ma wiele standardow rozszerzen: *hoc, *tem i *oc to wszystko pliki w formacie HOC, to powinno byc dosyc proste do zmiany
+
+nrntraub:
+- to bedzie nasz main case jesli chodzi o zlozonosc jaka moga te projekty przyjmowac
+- pokazuje tez ze algorytm wchodzi w zagniezdzone foldery
+- dziala zadziwiajaco dobrze z tym wielkim projektem
+
+OBGAMMA:
+- tu wiadomo, jest pieknie
+- jedyne co to wiadomo, wartosci tych zmiennych w data flowach
