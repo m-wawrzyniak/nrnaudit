@@ -9,6 +9,8 @@ from pathlib import Path
 
 from dash import dash_table, html
 
+from src.cytoscape_export import make_edge_id
+
 HIDDEN_STYLE = {"display": "none"}
 GRAPH_VISIBLE_STYLE = {"display": "block", "flexGrow": "1"}
 CODE_VISIBLE_STYLE = {
@@ -32,6 +34,7 @@ VARIABLES_TABLE_COLUMNS = [
     {"name": "Method", "id": "resolution_method", "editable": False},
 ]
 EXPORT_FILENAME = "annotated_neuron_dependencies.cyjs"
+USER_EDGE_RELATION = "annotated"
 CORE_NODE_TYPES: frozenset[str] = frozenset({"hoc", "mechanism", "mod_file"})
 
 
@@ -127,6 +130,14 @@ def build_stylesheet() -> list[dict]:
                 "line-style": "dashed",
             },
         },
+        {
+            "selector": '[relation = "annotated"]',
+            "style": {
+                "line-color": "#2ECC40",
+                "source-arrow-color": "#2ECC40",
+                "line-style": "dotted",
+            },
+        },
     ]
 
 
@@ -185,6 +196,67 @@ def filter_visible_elements(
         and edge["data"]["target"] in visible_ids
     ]
     return filtered_nodes + filtered_edges
+
+
+def extract_node_ids(elements: list[dict]) -> set[str]:
+    """Return node ids from a flat Cytoscape elements list."""
+    return {
+        element["data"]["id"]
+        for element in elements
+        if "source" not in element["data"]
+    }
+
+
+def edge_exists(elements: list[dict], edge_id: str) -> bool:
+    """Return True when an edge with the given id is already present."""
+    return any(
+        element["data"].get("id") == edge_id
+        for element in elements
+        if "source" in element["data"]
+    )
+
+
+def append_user_edge(
+    elements: list[dict], source: str, target: str
+) -> tuple[list[dict], str | None]:
+    """Append a user-drawn edge, or return an error message."""
+    if source == target:
+        return elements, "Cannot connect a node to itself."
+
+    node_ids = extract_node_ids(elements)
+    if source not in node_ids or target not in node_ids:
+        return elements, "Invalid node."
+
+    edge_id = make_edge_id(source, USER_EDGE_RELATION, target)
+    if edge_exists(elements, edge_id):
+        return elements, "Edge already exists."
+
+    new_edge = {
+        "data": {
+            "source": source,
+            "target": target,
+            "relation": USER_EDGE_RELATION,
+            "id": edge_id,
+        }
+    }
+    return elements + [new_edge], None
+
+
+def apply_connect_tap(
+    pending_source: str | None, node_id: str, elements: list[dict]
+) -> tuple[str | None, list[dict], str]:
+    """Advance the two-click connect flow for one node tap."""
+    if pending_source is None:
+        return node_id, elements, f"Source: {node_id}. Click target."
+
+    if pending_source == node_id:
+        return pending_source, elements, "Pick a different target node."
+
+    updated_elements, error = append_user_edge(elements, pending_source, node_id)
+    if error is not None:
+        return pending_source, elements, error
+
+    return None, updated_elements, f"Edge added: {pending_source} → {node_id}"
 
 
 def compute_view_styles(view_value: str) -> tuple[dict, dict]:

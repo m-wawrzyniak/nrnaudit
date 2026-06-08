@@ -101,6 +101,11 @@ def is_hide_orphans_enabled(toggle_value: list[str] | None) -> bool:
     return toggle_value is not None and "hide" in toggle_value
 
 
+def is_connect_mode_enabled(toggle_value: list[str] | None) -> bool:
+    """Return True when draw-edge connect mode is active."""
+    return toggle_value is not None and "connect" in toggle_value
+
+
 def build_left_pane(
     full_elements: list[dict],
     visible_elements: list[dict],
@@ -137,6 +142,16 @@ def build_left_pane(
                 inline=True,
             ),
             html.Button("Export .cyjs", id="btn-export-cyjs"),
+            dcc.Checklist(
+                id="connect-mode-toggle",
+                options=[{"label": " Draw edge", "value": "connect"}],
+                value=[],
+                inline=True,
+            ),
+            html.Span(
+                id="connect-status",
+                style={"fontSize": "13px", "color": "#555"},
+            ),
         ],
         style={"display": "flex", "alignItems": "center", "gap": "16px"},
     )
@@ -201,6 +216,7 @@ def build_layout(
     return html.Div(
         [
             dcc.Store(id="graph-elements-full", data=full_elements),
+            dcc.Store(id="edge-connect-source", data=None),
             build_left_pane(full_elements, visible_elements, stylesheet),
             build_right_pane(),
             dcc.Download(id="download-cyjs"),
@@ -299,6 +315,44 @@ def register_callbacks(
         return utility_gui.filter_visible_elements(
             full_elements, is_hide_orphans_enabled(hide_toggle)
         )
+
+    @app.callback(
+        Output("edge-connect-source", "data", allow_duplicate=True),
+        Output("connect-status", "children", allow_duplicate=True),
+        Input("connect-mode-toggle", "value"),
+        prevent_initial_call=True,
+    )
+    def _on_connect_mode_toggle(mode):
+        if is_connect_mode_enabled(mode):
+            return None, "Click source node."
+        return None, ""
+
+    @app.callback(
+        Output("edge-connect-source", "data"),
+        Output("graph-elements-full", "data"),
+        Output("cytoscape-graph", "elements", allow_duplicate=True),
+        Output("connect-status", "children"),
+        Input("cytoscape-graph", "tapNodeData"),
+        State("connect-mode-toggle", "value"),
+        State("edge-connect-source", "data"),
+        State("graph-elements-full", "data"),
+        State("hide-orphans-toggle", "value"),
+        prevent_initial_call=True,
+    )
+    def _handle_connect_tap(
+        node_data, mode, pending_source, full_elements, hide_toggle
+    ):
+        if not is_connect_mode_enabled(mode) or node_data is None:
+            raise PreventUpdate
+
+        node_id = node_data["id"]
+        new_pending, updated_elements, status = utility_gui.apply_connect_tap(
+            pending_source, node_id, full_elements
+        )
+        visible_elements = utility_gui.filter_visible_elements(
+            updated_elements, is_hide_orphans_enabled(hide_toggle)
+        )
+        return new_pending, updated_elements, visible_elements, status
 
     @app.callback(
         Output("download-cyjs", "data"),
