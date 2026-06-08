@@ -96,7 +96,16 @@ def validate_graph_data(graph_data: dict, data_path: Path) -> None:
         )
 
 
-def build_left_pane(elements: list[dict], stylesheet: list[dict]) -> html.Div:
+def is_hide_orphans_enabled(toggle_value: list[str] | None) -> bool:
+    """Return True when unconnected orphan nodes should be hidden."""
+    return toggle_value is not None and "hide" in toggle_value
+
+
+def build_left_pane(
+    full_elements: list[dict],
+    visible_elements: list[dict],
+    stylesheet: list[dict],
+) -> html.Div:
     """Build the left pane with graph/code toggle and viewers."""
     toggle_bar = html.Div(
         [
@@ -116,6 +125,17 @@ def build_left_pane(elements: list[dict], stylesheet: list[dict]) -> html.Div:
                 clearable=False,
                 style={"width": "200px"},
             ),
+            dcc.Checklist(
+                id="hide-orphans-toggle",
+                options=[
+                    {
+                        "label": " Hide unconnected orphan files",
+                        "value": "hide",
+                    }
+                ],
+                value=["hide"],
+                inline=True,
+            ),
             html.Button("Export .cyjs", id="btn-export-cyjs"),
         ],
         style={"display": "flex", "alignItems": "center", "gap": "16px"},
@@ -127,7 +147,7 @@ def build_left_pane(elements: list[dict], stylesheet: list[dict]) -> html.Div:
             id="cytoscape-graph",
             layout=utility_gui.build_cytoscape_layout(utility_gui.DEFAULT_LAYOUT),
             style={"width": "100%", "height": "100%"},
-            elements=elements,
+            elements=visible_elements,
             stylesheet=stylesheet,
         ),
     )
@@ -172,11 +192,16 @@ def build_right_pane() -> html.Div:
     )
 
 
-def build_layout(elements: list[dict], stylesheet: list[dict]) -> html.Div:
+def build_layout(
+    full_elements: list[dict],
+    visible_elements: list[dict],
+    stylesheet: list[dict],
+) -> html.Div:
     """Build the full split-screen application layout."""
     return html.Div(
         [
-            build_left_pane(elements, stylesheet),
+            dcc.Store(id="graph-elements-full", data=full_elements),
+            build_left_pane(full_elements, visible_elements, stylesheet),
             build_right_pane(),
             dcc.Download(id="download-cyjs"),
         ],
@@ -231,17 +256,24 @@ def register_callbacks(
         return (title, metadata, variables, source)
 
     @app.callback(
-        Output("cytoscape-graph", "elements"),
+        Output("graph-elements-full", "data"),
+        Output("cytoscape-graph", "elements", allow_duplicate=True),
         Output("variables-datatable", "data", allow_duplicate=True),
         Input("variables-datatable", "data_timestamp"),
         State("variables-datatable", "data"),
         State("variables-datatable", "data_previous"),
         State("cytoscape-graph", "tapNodeData"),
-        State("cytoscape-graph", "elements"),
+        State("graph-elements-full", "data"),
+        State("hide-orphans-toggle", "value"),
         prevent_initial_call=True,
     )
     def _sync_manual_edits(
-        _timestamp, table_data, table_data_previous, node_data, elements
+        _timestamp,
+        table_data,
+        table_data_previous,
+        node_data,
+        full_elements,
+        hide_toggle,
     ):
         if table_data_previous is None or node_data is None:
             raise PreventUpdate
@@ -250,29 +282,46 @@ def register_callbacks(
             table_data, table_data_previous
         )
         updated_elements = utility_gui.sync_variables_to_elements(
-            elements, node_data["id"], updated_table
+            full_elements, node_data["id"], updated_table
         )
-        return updated_elements, updated_table
+        visible_elements = utility_gui.filter_visible_elements(
+            updated_elements, is_hide_orphans_enabled(hide_toggle)
+        )
+        return updated_elements, visible_elements, updated_table
+
+    @app.callback(
+        Output("cytoscape-graph", "elements", allow_duplicate=True),
+        Input("hide-orphans-toggle", "value"),
+        State("graph-elements-full", "data"),
+        prevent_initial_call=True,
+    )
+    def _apply_visibility_filter(hide_toggle, full_elements):
+        return utility_gui.filter_visible_elements(
+            full_elements, is_hide_orphans_enabled(hide_toggle)
+        )
 
     @app.callback(
         Output("download-cyjs", "data"),
         Input("btn-export-cyjs", "n_clicks"),
-        State("cytoscape-graph", "elements"),
+        State("graph-elements-full", "data"),
         prevent_initial_call=True,
     )
-    def _export_cyjs(n_clicks, elements):
+    def _export_cyjs(n_clicks, full_elements):
         if n_clicks is None:
             raise PreventUpdate
-        export_json = utility_gui.serialize_export(elements, extra_export_fields)
+        export_json = utility_gui.serialize_export(
+            full_elements, extra_export_fields
+        )
         return dcc.send_string(export_json, filename=utility_gui.EXPORT_FILENAME)
 
 
 def create_app(graph_data: dict, repo_root: Path) -> Dash:
     """Create and configure the Dash application."""
     elements = utility_gui.extract_elements(graph_data)
+    visible_elements = utility_gui.filter_visible_elements(elements, True)
     stylesheet = utility_gui.build_stylesheet()
     app = Dash(__name__)
-    app.layout = build_layout(elements, stylesheet)
+    app.layout = build_layout(elements, visible_elements, stylesheet)
     extra_export_fields = {
         key: value
         for key, value in graph_data.items()

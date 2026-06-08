@@ -37,6 +37,14 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         help=f"Directory where {utils.OUTPUT_FILENAME} will be written.",
     )
+    parser.add_argument(
+        "--orphan-extensions",
+        nargs="+",
+        default=None,
+        metavar="EXT",
+        help="Additional orphan file extensions to include (e.g. csv h). "
+        "Merged with defaults: .txt .md .dat .py .html",
+    )
     return parser.parse_args()
 
 
@@ -56,7 +64,11 @@ def main() -> None:
     validate_input_dir(args.input)
     repo_root = args.input.resolve()
 
+    orphan_exts = utils.merge_orphan_extensions(args.orphan_extensions)
     hoc_relpaths, mod_relpaths = traversal.discover_files(repo_root)
+    orphan_relpaths = traversal.discover_orphan_files(
+        repo_root, hoc_relpaths, mod_relpaths, orphan_exts
+    )
     mechanism_map = mod_parser.build_mechanism_map(repo_root, mod_relpaths)
     parsed_hoc = hoc_parser.parse_all_hoc(repo_root, hoc_relpaths)
     global_mod_registry, global_mod_registry_files = (
@@ -69,7 +81,12 @@ def main() -> None:
         repo_root, mod_relpaths
     )
     graph = graph_builder.build_graph(
-        hoc_relpaths, parsed_hoc, mechanism_map, hoc_variables, mod_variables
+        hoc_relpaths,
+        parsed_hoc,
+        mechanism_map,
+        hoc_variables,
+        mod_variables,
+        orphan_relpaths,
     )
     cytoscape_graph = cytoscape_export.to_cytoscape(graph)
     flow = simulation_flow.build_simulation_flow(

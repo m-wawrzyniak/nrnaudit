@@ -9,9 +9,31 @@ from collections.abc import Iterator
 from pathlib import Path
 
 IGNORED_DIR_NAMES = {"x86_64", "arm64", ".git"}
-HOC_EXT = ".hoc"
+HOC_EXTENSIONS: frozenset[str] = frozenset({".hoc", ".tem", ".oc"})
 MOD_EXT = ".mod"
 OUTPUT_FILENAME = "neuron_dependencies.cyjs"
+DEFAULT_ORPHAN_EXTENSIONS: frozenset[str] = frozenset(
+    {".txt", ".md", ".dat", ".py", ".html"}
+)
+
+
+def is_hoc_file(path: Path) -> bool:
+    """Return True when path has a recognized HOC-family extension."""
+    return path.suffix.lower() in HOC_EXTENSIONS
+
+
+def normalize_extension(token: str) -> str:
+    """Normalize an extension token to lowercase dotted form (e.g. 'csv' -> '.csv')."""
+    token = token.strip().lower()
+    return token if token.startswith(".") else f".{token}"
+
+
+def merge_orphan_extensions(extra: list[str] | None) -> frozenset[str]:
+    """Return default orphan extensions merged with any CLI extras."""
+    merged = set(DEFAULT_ORPHAN_EXTENSIONS)
+    for token in extra or []:
+        merged.add(normalize_extension(token))
+    return frozenset(merged)
 
 
 def read_text_file(path: Path) -> str:

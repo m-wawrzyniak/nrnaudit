@@ -118,12 +118,27 @@ def build_nodes(
     return nodes
 
 
+def build_orphan_nodes(orphan_relpaths: list[str]) -> list[dict]:
+    """Build flat node dicts for orphan files (no variable parsing)."""
+    return [
+        {
+            "id": relpath,
+            "type": "orphan",
+            "label": Path(relpath).name,
+            "source_file": relpath,
+            "variables": [],
+        }
+        for relpath in orphan_relpaths
+    ]
+
+
 def build_graph(
     hoc_relpaths: list[str],
     parsed_hoc: dict[str, dict[str, list[str]]],
     mechanism_map: dict[str, str],
     hoc_variables: dict[str, list[dict]],
     mod_variables: dict[str, list[dict]],
+    orphan_relpaths: list[str] | None = None,
 ) -> dict:
     """Assemble the internal flat graph with 'nodes' and 'edges' keys."""
     load_edges = build_load_edges(parsed_hoc, hoc_relpaths)
@@ -133,4 +148,5 @@ def build_graph(
     nodes = build_nodes(
         hoc_relpaths, mechanism_map, used_mechanisms, hoc_variables, mod_variables
     )
+    nodes.extend(build_orphan_nodes(orphan_relpaths or []))
     return {"nodes": nodes, "edges": load_edges + insert_edges}

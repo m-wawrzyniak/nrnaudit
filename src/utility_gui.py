@@ -32,6 +32,7 @@ VARIABLES_TABLE_COLUMNS = [
     {"name": "Method", "id": "resolution_method", "editable": False},
 ]
 EXPORT_FILENAME = "annotated_neuron_dependencies.cyjs"
+CORE_NODE_TYPES: frozenset[str] = frozenset({"hoc", "mechanism"})
 
 
 def load_graph_data(data_path: Path) -> dict:
@@ -77,6 +78,17 @@ def build_stylesheet() -> list[dict]:
             },
         },
         {
+            "selector": '[type = "orphan"]',
+            "style": {
+                "shape": "round-rectangle",
+                "background-color": "#AAAAAA",
+                "width": "label",
+                "padding": "8px",
+                "color": "#333",
+                "text-outline-width": 0,
+            },
+        },
+        {
             "selector": "edge",
             "style": {
                 "curve-style": "bezier",
@@ -119,6 +131,48 @@ def build_cytoscape_layout(layout_name: str) -> dict:
             "nodeOverlap": 20,
         }
     return {"name": layout_name, "animate": True}
+
+
+def filter_visible_elements(
+    elements: list[dict], hide_unconnected_orphans: bool
+) -> list[dict]:
+    """Return elements visible in the graph; optionally hide unconnected orphans."""
+    if not hide_unconnected_orphans:
+        return elements
+
+    nodes = [element for element in elements if "source" not in element["data"]]
+    edges = [element for element in elements if "source" in element["data"]]
+
+    visible_ids = {
+        node["data"]["id"]
+        for node in nodes
+        if node["data"].get("type") in CORE_NODE_TYPES
+    }
+
+    changed = True
+    while changed:
+        changed = False
+        for edge in edges:
+            source = edge["data"]["source"]
+            target = edge["data"]["target"]
+            if source in visible_ids or target in visible_ids:
+                if source not in visible_ids:
+                    visible_ids.add(source)
+                    changed = True
+                if target not in visible_ids:
+                    visible_ids.add(target)
+                    changed = True
+
+    filtered_nodes = [
+        node for node in nodes if node["data"]["id"] in visible_ids
+    ]
+    filtered_edges = [
+        edge
+        for edge in edges
+        if edge["data"]["source"] in visible_ids
+        and edge["data"]["target"] in visible_ids
+    ]
+    return filtered_nodes + filtered_edges
 
 
 def compute_view_styles(view_value: str) -> tuple[dict, dict]:
