@@ -32,7 +32,7 @@ VARIABLES_TABLE_COLUMNS = [
     {"name": "Method", "id": "resolution_method", "editable": False},
 ]
 EXPORT_FILENAME = "annotated_neuron_dependencies.cyjs"
-CORE_NODE_TYPES: frozenset[str] = frozenset({"hoc", "mechanism"})
+CORE_NODE_TYPES: frozenset[str] = frozenset({"hoc", "mechanism", "mod_file"})
 
 
 def load_graph_data(data_path: Path) -> dict:
@@ -75,6 +75,18 @@ def build_stylesheet() -> list[dict]:
             "style": {
                 "shape": "ellipse",
                 "background-color": "#FF851B",
+            },
+        },
+        {
+            "selector": '[type = "mod_file"]',
+            "style": {
+                "shape": "round-rectangle",
+                "background-color": "#FF851B",
+                "background-opacity": 0.45,
+                "border-width": 2,
+                "border-color": "#FF851B",
+                "width": "label",
+                "padding": "8px",
             },
         },
         {

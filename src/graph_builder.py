@@ -65,11 +65,10 @@ def build_insert_edges(
     parsed_hoc: dict[str, dict[str, list[str]]],
     hoc_relpaths: list[str],
     mechanism_map: dict[str, str],
-) -> tuple[list[dict], set[str]]:
-    """Build hoc-to-mechanism insert edges; return edges and referenced mechanism names."""
+) -> list[dict]:
+    """Build hoc-to-mechanism insert edges for HOC-declared inserts."""
     edges: list[dict] = []
     seen: set[tuple[str, str]] = set()
-    used_mechanisms: set[str] = set()
 
     for source in hoc_relpaths:
         for mech in parsed_hoc[source]["inserts"]:
@@ -78,44 +77,70 @@ def build_insert_edges(
             if (source, mech) in seen:
                 continue
             seen.add((source, mech))
-            used_mechanisms.add(mech)
             edges.append(
                 {"source": source, "target": mech, "relation": "inserts"}
             )
 
-    return edges, used_mechanisms
+    return edges
+
+
+def unparsed_mod_relpaths(
+    mod_relpaths: list[str], mechanism_map: dict[str, str]
+) -> list[str]:
+    """Return .mod paths with no successfully extracted mechanism name."""
+    parsed_paths = set(mechanism_map.values())
+    return [p for p in mod_relpaths if p not in parsed_paths]
 
 
 def build_nodes(
     hoc_relpaths: list[str],
-    mechanism_map: dict[str, str],
-    used_mechanisms: set[str],
     hoc_variables: dict[str, list[dict]],
+) -> list[dict]:
+    """Build flat node dicts for all hoc files."""
+    return [
+        {
+            "id": p,
+            "type": "hoc",
+            "label": Path(p).name,
+            "source_file": p,
+            "variables": hoc_variables.get(p, []),
+        }
+        for p in hoc_relpaths
+    ]
+
+
+def build_mechanism_nodes(
+    mechanism_map: dict[str, str],
     mod_variables: dict[str, list[dict]],
 ) -> list[dict]:
-    """Build flat node dicts for all hoc files and inserted mechanisms."""
-    nodes: list[dict] = []
-    for p in hoc_relpaths:
-        nodes.append(
-            {
-                "id": p,
-                "type": "hoc",
-                "label": Path(p).name,
-                "source_file": p,
-                "variables": hoc_variables.get(p, []),
-            }
-        )
-    for mech in sorted(used_mechanisms):
-        nodes.append(
-            {
-                "id": mech,
-                "type": "mechanism",
-                "label": mech,
-                "source_file": mechanism_map[mech],
-                "variables": mod_variables.get(mechanism_map[mech], []),
-            }
-        )
-    return nodes
+    """Build flat node dicts for all successfully parsed mechanisms."""
+    return [
+        {
+            "id": mech,
+            "type": "mechanism",
+            "label": mech,
+            "source_file": mechanism_map[mech],
+            "variables": mod_variables.get(mechanism_map[mech], []),
+        }
+        for mech in sorted(mechanism_map)
+    ]
+
+
+def build_mod_file_nodes(
+    mod_relpaths: list[str],
+    mod_variables: dict[str, list[dict]],
+) -> list[dict]:
+    """Build flat node dicts for .mod files without an extractable mechanism name."""
+    return [
+        {
+            "id": relpath,
+            "type": "mod_file",
+            "label": Path(relpath).name,
+            "source_file": relpath,
+            "variables": mod_variables.get(relpath, []),
+        }
+        for relpath in mod_relpaths
+    ]
 
 
 def build_orphan_nodes(orphan_relpaths: list[str]) -> list[dict]:
@@ -134,6 +159,7 @@ def build_orphan_nodes(orphan_relpaths: list[str]) -> list[dict]:
 
 def build_graph(
     hoc_relpaths: list[str],
+    mod_relpaths: list[str],
     parsed_hoc: dict[str, dict[str, list[str]]],
     mechanism_map: dict[str, str],
     hoc_variables: dict[str, list[dict]],
@@ -142,11 +168,13 @@ def build_graph(
 ) -> dict:
     """Assemble the internal flat graph with 'nodes' and 'edges' keys."""
     load_edges = build_load_edges(parsed_hoc, hoc_relpaths)
-    insert_edges, used_mechanisms = build_insert_edges(
-        parsed_hoc, hoc_relpaths, mechanism_map
+    insert_edges = build_insert_edges(parsed_hoc, hoc_relpaths, mechanism_map)
+    nodes = (
+        build_nodes(hoc_relpaths, hoc_variables)
+        + build_mechanism_nodes(mechanism_map, mod_variables)
+        + build_mod_file_nodes(
+            unparsed_mod_relpaths(mod_relpaths, mechanism_map), mod_variables
+        )
+        + build_orphan_nodes(orphan_relpaths or [])
     )
-    nodes = build_nodes(
-        hoc_relpaths, mechanism_map, used_mechanisms, hoc_variables, mod_variables
-    )
-    nodes.extend(build_orphan_nodes(orphan_relpaths or []))
     return {"nodes": nodes, "edges": load_edges + insert_edges}

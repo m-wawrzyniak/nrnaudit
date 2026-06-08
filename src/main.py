@@ -82,6 +82,7 @@ def main() -> None:
     )
     graph = graph_builder.build_graph(
         hoc_relpaths,
+        mod_relpaths,
         parsed_hoc,
         mechanism_map,
         hoc_variables,
