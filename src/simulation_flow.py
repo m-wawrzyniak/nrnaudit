@@ -1,4 +1,14 @@
-"""Pass 3: object-oriented simulation flow extraction from .hoc / .mod files."""
+"""Pass 3: object-oriented simulation flow extraction from HOC and NMODL files.
+
+Builds a blueprint registry of instantiable classes (NEURON builtins, mod
+``POINT_PROCESS``/``ARTIFICIAL_CELL`` declarations, and hoc ``begintemplate``
+names), then scans HOC files for ``objref``/``new`` instantiations and
+dot-parameter bindings.
+
+Exports ``{"blueprints": sorted class names, "instances": [...]}`` embedded in
+the Cytoscape JSON. The ``blueprints`` field is a name list, not full parameter
+dicts. Static analysis only.
+"""
 
 from __future__ import annotations
 
@@ -33,7 +43,7 @@ def extract_mod_class_names(repo_root: Path, mod_relpath: str) -> list[str]:
 
 
 def extract_template_names(repo_root: Path, hoc_relpath: str) -> list[str]:
-    """Return names declared by 'begintemplate' in one .hoc file."""
+    """Return names declared by ``begintemplate`` in one HOC-family file."""
     text = utils.read_text_file(repo_root / hoc_relpath)
     stripped = utils.strip_hoc_comments(text)
     return _TEMPLATE_RE.findall(stripped)
@@ -61,7 +71,20 @@ def extract_mod_blueprints(repo_root: Path, mod_relpath: str) -> dict[str, dict]
 def build_blueprint_registry(
     repo_root: Path, hoc_relpaths: list[str], mod_relpaths: list[str]
 ) -> dict[str, dict]:
-    """Build {class_name: {'parameters': {...}}} from builtins, mod files, and templates."""
+    """Build the instantiable class blueprint registry.
+
+    Seeds NEURON builtin classes (empty parameters), merges ``POINT_PROCESS``/
+    ``ARTIFICIAL_CELL`` declarations from ``.mod`` files with PARAMETER defaults,
+    and adds hoc ``begintemplate`` names (empty parameters when not overridden).
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        hoc_relpaths: Discovered HOC-family relative paths.
+        mod_relpaths: Discovered ``.mod`` relative paths.
+
+    Returns:
+        ``{class_name: {"parameters": {param: default_value}}}``.
+    """
     registry: dict[str, dict] = {
         name: {"parameters": {}} for name in NEURON_BUILTIN_CLASSES
     }
@@ -87,7 +110,18 @@ def parse_objref_pointers(line: str) -> list[str]:
 
 
 def parse_instantiation(line: str) -> tuple[str, str, bool, str] | None:
-    """Parse '<lhs> = new <Class>' into (base_name, class_name, is_array, location)."""
+    """Parse ``<lhs> = new <Class>`` into instantiation components.
+
+    Args:
+        line: Single HOC source line (comments should be stripped).
+
+    Returns:
+        Tuple ``(base_name, class_name, is_array, location)`` where
+        ``base_name`` has array brackets removed, ``is_array`` is True when
+        the LHS token contained ``[...]``, and ``location`` is any leading
+        scope prefix before the final name token. Returns ``None`` when the
+        line does not match the ``new`` assignment pattern.
+    """
     m = _NEW_ASSIGN_RE.match(line)
     if m is None:
         return None
@@ -99,7 +133,17 @@ def parse_instantiation(line: str) -> tuple[str, str, bool, str] | None:
 
 
 def parse_parameter_binding(line: str) -> tuple[str, str, str] | None:
-    """Parse 'pointer[idx].param = value' into (pointer, param, value), or None."""
+    """Parse a dot-parameter assignment into pointer, param, and value.
+
+    Matches ``pointer.param = value`` and ``pointer[idx].param = value`` forms.
+
+    Args:
+        line: Single HOC source line (comments should be stripped).
+
+    Returns:
+        Tuple ``(pointer, param, value)`` with array brackets stripped from
+        ``pointer``, or ``None`` when the line does not match.
+    """
     m = _DOT_ASSIGN_RE.match(line)
     if m is None:
         return None
@@ -113,7 +157,20 @@ def parse_parameter_binding(line: str) -> tuple[str, str, str] | None:
 def extract_file_instances(
     repo_root: Path, hoc_relpath: str, blueprint_registry: dict[str, dict]
 ) -> dict[str, dict]:
-    """Track objref pointers, 'new' instantiations, and dot-parameter bindings in one .hoc file."""
+    """Extract object instances and parameter bindings from one HOC-family file.
+
+    Only records ``new`` instantiations when the class is in ``blueprint_registry``
+    and the base name was declared via ``objref``. Dot-parameter assignments
+    override blueprint defaults on matching instances.
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        hoc_relpath: Repository-relative HOC-family path.
+        blueprint_registry: Output of ``build_blueprint_registry``.
+
+    Returns:
+        ``{instance_name: {class, is_array, location, parameters}}``.
+    """
     text = utils.read_text_file(repo_root / hoc_relpath)
     lines = utils.strip_hoc_comments(text).splitlines()
 
@@ -170,7 +227,20 @@ def flatten_instances(per_file_instances: dict[str, dict[str, dict]]) -> list[di
 def build_simulation_flow(
     repo_root: Path, hoc_relpaths: list[str], mod_relpaths: list[str]
 ) -> dict:
-    """Run Pass 3 and return the simulation_flow subdictionary (blueprints + instances)."""
+    """Run Pass 3 and return the ``simulation_flow`` export subdictionary.
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        hoc_relpaths: Discovered HOC-family relative paths.
+        mod_relpaths: Discovered ``.mod`` relative paths.
+
+    Returns:
+        ``{"blueprints": sorted class names, "instances": [...]}``.
+        ``blueprints`` is a sorted list of registered class name strings, not
+        the full ``{class: {parameters}}`` registry. Each instance record
+        contains ``id``, ``class``, ``source_file``, ``is_array``, ``location``,
+        and ``parameters``.
+    """
     blueprint_registry = build_blueprint_registry(repo_root, hoc_relpaths, mod_relpaths)
     per_file_instances: dict[str, dict[str, dict]] = {
         hoc_relpath: extract_file_instances(repo_root, hoc_relpath, blueprint_registry)

@@ -1,4 +1,12 @@
-"""Phase 4: edge resolution and JSON graph assembly."""
+"""Phase 4: edge resolution and flat graph assembly.
+
+Resolves HOC load strings to repository-relative targets, validates ``insert``
+mechanisms against the Phase 2 map, and assembles flat node and edge lists.
+
+Node types: ``hoc``, ``mechanism``, ``mod_file`` (unparsed ``.mod``), and
+``orphan``. Edge relations: ``loads`` (hoc→hoc) and ``inserts`` (hoc→mechanism).
+Each node carries a ``variables`` list populated by Pass 2.
+"""
 
 from __future__ import annotations
 
@@ -20,7 +28,22 @@ def resolve_load_target(
     hoc_relpaths_set: set[str],
     basename_index: dict[str, list[str]],
 ) -> str | None:
-    """Resolve a captured load string to a repo hoc path, or None if unresolved."""
+    """Resolve a captured load string to a repository HOC path.
+
+    Tries, in order: (1) exact match against a discovered relative path,
+    (2) unique basename match when exactly one file shares the filename,
+    (3) path joined relative to the loading file's directory.
+
+    Args:
+        captured: Raw path string from a ``load_file``/``xopen``/``ropen`` call.
+        source_hoc_relpath: Relative path of the file that issued the load.
+        hoc_relpaths_set: Set of all discovered HOC-family relative paths.
+        basename_index: ``{filename: [relpath, ...]}`` from ``build_basename_index``.
+
+    Returns:
+        Resolved repository-relative POSIX path, or ``None`` when ambiguous or
+        not found (e.g. multiple files share the same basename).
+    """
     if captured in hoc_relpaths_set:
         return captured
 
@@ -40,7 +63,18 @@ def resolve_load_target(
 def build_load_edges(
     parsed_hoc: dict[str, dict[str, list[str]]], hoc_relpaths: list[str]
 ) -> list[dict]:
-    """Build deduplicated hoc-to-hoc load edges with relation 'loads'."""
+    """Build deduplicated hoc-to-hoc load edges.
+
+    Resolves each captured load string via ``resolve_load_target`` and emits
+    one edge per unique ``(source, target)`` pair. Unresolved loads are skipped.
+
+    Args:
+        parsed_hoc: Phase 3 output mapping hoc paths to raw loads/inserts.
+        hoc_relpaths: All discovered HOC-family relative paths.
+
+    Returns:
+        List of edge dicts: ``{"source": str, "target": str, "relation": "loads"}``.
+    """
     hoc_set = set(hoc_relpaths)
     basename_index = build_basename_index(hoc_relpaths)
     edges: list[dict] = []
@@ -66,7 +100,20 @@ def build_insert_edges(
     hoc_relpaths: list[str],
     mechanism_map: dict[str, str],
 ) -> list[dict]:
-    """Build hoc-to-mechanism insert edges for HOC-declared inserts."""
+    """Build hoc-to-mechanism insert edges for HOC-declared inserts.
+
+    Only mechanisms present in ``mechanism_map`` produce edges; unknown names
+    are skipped. Target node IDs are mechanism names, not ``.mod`` paths.
+
+    Args:
+        parsed_hoc: Phase 3 output mapping hoc paths to raw loads/inserts.
+        hoc_relpaths: All discovered HOC-family relative paths.
+        mechanism_map: ``{mechanism_name: mod_relpath}`` from Phase 2.
+
+    Returns:
+        List of edge dicts:
+        ``{"source": str, "target": str, "relation": "inserts"}``.
+    """
     edges: list[dict] = []
     seen: set[tuple[str, str]] = set()
 
@@ -166,7 +213,26 @@ def build_graph(
     mod_variables: dict[str, list[dict]],
     orphan_relpaths: list[str] | None = None,
 ) -> dict:
-    """Assemble the internal flat graph with 'nodes' and 'edges' keys."""
+    """Assemble the internal flat dependency graph.
+
+    Combines load and insert edges with four node kinds: ``hoc`` (all HOC-family
+    files), ``mechanism`` (parsed ``.mod`` mechanisms), ``mod_file`` (``.mod``
+    files without an extractable mechanism name), and ``orphan`` (optional
+    contextual files). Each node includes a ``variables`` list from Pass 2.
+
+    Args:
+        hoc_relpaths: Discovered HOC-family relative paths.
+        mod_relpaths: Discovered ``.mod`` relative paths.
+        parsed_hoc: Phase 3 parsed loads and inserts per hoc file.
+        mechanism_map: Phase 2 mechanism name to mod path mapping.
+        hoc_variables: Pass 2 variables keyed by hoc relpath.
+        mod_variables: Pass 2 variables keyed by mod relpath.
+        orphan_relpaths: Optional orphan file paths for ``orphan`` nodes.
+
+    Returns:
+        ``{"nodes": [dict], "edges": [dict]}`` in the internal flat schema
+        consumed by ``cytoscape_export.to_cytoscape``.
+    """
     load_edges = build_load_edges(parsed_hoc, hoc_relpaths)
     insert_edges = build_insert_edges(parsed_hoc, hoc_relpaths, mechanism_map)
     nodes = (

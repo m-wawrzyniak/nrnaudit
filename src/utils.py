@@ -1,4 +1,12 @@
-"""Shared helpers for the NEURON static dependency analyzer."""
+"""Shared I/O, path normalization, and parsing helpers for the analyzer.
+
+Used across all pipeline phases: repository walking, comment stripping,
+brace-block extraction, and JSON output. Defines canonical constants such as
+``HOC_EXTENSIONS``, ``OUTPUT_FILENAME``, and default orphan file extensions.
+
+This module performs no semantic analysis; it only provides low-level utilities
+consumed by traversal, parsers, graph assembly, and the GUI.
+"""
 
 from __future__ import annotations
 

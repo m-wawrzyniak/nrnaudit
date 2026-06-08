@@ -1,4 +1,9 @@
-"""CLI entry point for the NEURON static dependency analyzer."""
+"""CLI entry point for the NEURON static dependency analyzer.
+
+Orchestrates Phases 1–4, Pass 2 (variables), Pass 3 (simulation flow), and
+Cytoscape export into a single ``neuron_dependencies.cyjs`` JSON file under
+the user-specified output directory.
+"""
 
 from __future__ import annotations
 
@@ -59,7 +64,20 @@ def validate_input_dir(input_dir: Path) -> None:
 
 
 def main() -> None:
-    """Run discovery, parsing, graph build, Cytoscape export, and JSON write."""
+    """Run the full static analysis pipeline and write Cytoscape JSON.
+
+    Pipeline order:
+        1. Phase 1 — discover HOC-family, ``.mod``, and orphan files.
+        2. Phase 2 — build mechanism map from ``.mod`` files.
+        3. Phase 3 — parse HOC loads and inserts.
+        4. Pass 2 — extract variables/units from ``.mod`` and HOC files.
+        5. Phase 4 — assemble flat graph with variables on nodes.
+        6. Cytoscape export — wrap graph in ``elements`` schema.
+        7. Pass 3 — attach ``simulation_flow`` to the export payload.
+        8. Write ``neuron_dependencies.cyjs`` under ``--output``.
+
+    Reads CLI args via ``parse_args`` and validates the input directory.
+    """
     args = parse_args()
     validate_input_dir(args.input)
     repo_root = args.input.resolve()

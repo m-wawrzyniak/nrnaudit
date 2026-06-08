@@ -1,4 +1,17 @@
-"""Pass 2: variable and unit extraction from .mod and .hoc files."""
+"""Pass 2: variable and unit extraction from ``.mod`` and HOC-family files.
+
+From ``.mod`` files: reads PARAMETER/ASSIGNED/STATE/CONSTANT blocks and builds
+a global registry with namespace rules (``SUFFIX`` vs ``POINT_PROCESS``) and
+USEION ion-unit heuristics.
+
+From HOC files: unions assignment-linked names via disjoint-set pooling,
+resolves units through a registry waterfall (exact → canonical → substring →
+Levenshtein → undefined match → ``//`` comment heuristic), and tags each
+variable with ``resolution_method`` and ``resolution_file``.
+
+HOC variables include metadata fields; MOD variables are ``{name, unit}`` only.
+Static parsing only; no NEURON interpreter is run.
+"""
 
 from __future__ import annotations
 
@@ -133,7 +146,18 @@ def extract_mod_variables(repo_root: Path, mod_relpath: str) -> list[dict]:
 
 
 def classify_ion_unit(var_name: str) -> str:
-    """Map a USEION variable name to a standard unit by NEURON naming convention."""
+    """Map a USEION variable name to a standard unit by NEURON naming convention.
+
+    Applies prefix/suffix heuristics: names starting with ``e`` → ``mV``,
+    starting with ``i`` → ``mA/cm2``, ending with ``i`` or ``o`` → ``mM``.
+    Returns ``"???"`` when no rule matches.
+
+    Args:
+        var_name: Identifier from a USEION READ/WRITE clause.
+
+    Returns:
+        Inferred unit string or ``"???"``.
+    """
     if var_name.startswith("e"):
         return ION_VOLTAGE_UNIT
     if var_name.startswith("i"):
@@ -144,7 +168,17 @@ def classify_ion_unit(var_name: str) -> str:
 
 
 def extract_useion_variables(neuron_body: str) -> list[str]:
-    """Return identifiers listed after READ/WRITE across all USEION lines."""
+    """Return identifiers listed after READ/WRITE across all USEION lines.
+
+    Scans each line containing ``USEION`` and tokenizes identifiers from
+    ``READ`` and ``WRITE`` clause bodies (stopping before ``VALENCE``).
+
+    Args:
+        neuron_body: Inner text of a ``NEURON { ... }`` block.
+
+    Returns:
+        List of variable names declared for ion read/write access.
+    """
     names: list[str] = []
     for line in neuron_body.splitlines():
         if "USEION" not in line:
@@ -167,7 +201,20 @@ def extract_point_process_name(neuron_body: str) -> str | None:
 
 
 def build_mod_registry_entries(repo_root: Path, mod_relpath: str) -> dict[str, str]:
-    """Map exposed variable names to units for one .mod file per namespace rules."""
+    """Map exposed variable names to units for one ``.mod`` file.
+
+    Namespace rules:
+        - USEION READ/WRITE vars → bare name with ion-unit heuristic.
+        - ``SUFFIX`` mechanisms → ``{var_name}_{suffix}``.
+        - ``POINT_PROCESS`` → bare ``var_name`` from declaration blocks.
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        mod_relpath: Repository-relative path to the ``.mod`` file.
+
+    Returns:
+        ``{registry_name: unit}`` for all exposed symbols from this file.
+    """
     text = utils.read_text_file(repo_root / mod_relpath)
     stripped = utils.strip_mod_comments(text)
     entries: dict[str, str] = {}
@@ -191,7 +238,19 @@ def build_mod_registry_entries(repo_root: Path, mod_relpath: str) -> dict[str, s
 def build_global_mod_registry(
     repo_root: Path, mod_relpaths: list[str]
 ) -> tuple[dict[str, str], dict[str, str]]:
-    """Merge per-file registries into global name->unit and name->mod-filename maps."""
+    """Merge per-file registries into global lookup maps for HOC resolution.
+
+    First occurrence of each registry name wins when multiple ``.mod`` files
+    expose the same symbol.
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        mod_relpaths: Discovered ``.mod`` relative paths from Phase 1.
+
+    Returns:
+        Tuple of ``(registry, registry_files)`` where ``registry`` maps
+        ``{name: unit}`` and ``registry_files`` maps ``{name: mod_basename}``.
+    """
     registry: dict[str, str] = {}
     registry_files: dict[str, str] = {}
     for mod_relpath in mod_relpaths:
@@ -243,7 +302,7 @@ def first_token(text: str) -> str:
 
 
 def sanitize_side(side: str) -> str | None:
-    """Extract a single variable name from one side of an assignment (strip prefix/number)."""
+    """Return the last segment of the first dotted identifier on an assignment side."""
     m = _SIDE_IDENT_RE.search(side)
     if m is None:
         return None
@@ -326,7 +385,19 @@ def try_spaced_unit_token(first: str, second: str) -> str | None:
 
 
 def extract_units_from_comment_body(body: str) -> list[str]:
-    """Return all known units found in a // comment body, longest matches first."""
+    """Return all known units found in a ``//`` comment body.
+
+    Tokenizes the comment, resolves single and spaced tokens (e.g. ``ohm cm2``),
+    applies alias normalization and Levenshtein fallback, then scans for
+    longer embedded ``KNOWN_UNITS`` substrings. Deduplicates while preserving
+    discovery order.
+
+    Args:
+        body: Comment text after the ``//`` prefix (no leading slashes).
+
+    Returns:
+        List of resolved unit strings found in the comment.
+    """
     tokens = re.findall(r"\S+", body)
     found: list[str] = []
     seen: set[str] = set()
@@ -353,7 +424,17 @@ def extract_units_from_comment_body(body: str) -> list[str]:
 
 
 def guess_unit_from_comment(line: str) -> str:
-    """Return the best unit string from a // comment, or '???'."""
+    """Return the best unit string from a ``//`` comment, or ``"???"``.
+
+    Delegates to ``extract_units_from_comment_body`` and returns the first
+    resolved unit, or ``"???"`` when the line has no comment or no known unit.
+
+    Args:
+        line: Full HOC source line (may include ``//`` comment).
+
+    Returns:
+        Resolved unit string or ``"???"``.
+    """
     m = _INLINE_COMMENT_BODY_RE.search(line)
     if m is None:
         return "???"
@@ -390,7 +471,19 @@ def collect_comment_hint(code: str, comment: str) -> tuple[str, str] | None:
 def update_routine_scope(
     code: str, in_routine: bool, bracket_depth: int
 ) -> tuple[bool, int]:
-    """Track func/proc entry and brace depth for Pass 2 scope blinding."""
+    """Track ``func``/``proc`` entry and brace depth for Pass 2 scope blinding.
+
+    Assignments inside HOC routines are excluded from equivalence pooling to
+    avoid local temporaries polluting global variable sets.
+
+    Args:
+        code: Code portion of the current line (no ``//`` comment).
+        in_routine: Whether the parser is inside a ``func``/``proc`` body.
+        bracket_depth: Net open-brace count within the current routine.
+
+    Returns:
+        Updated ``(in_routine, bracket_depth)`` after processing ``code``.
+    """
     bracket_depth += code.count("{")
     bracket_depth -= code.count("}")
     stripped = code.lstrip()
@@ -402,7 +495,19 @@ def update_routine_scope(
 
 
 def should_skip_pass2_line(raw_line: str, code: str) -> bool:
-    """Return True when Pass 2 must ignore this line (Pass 3 handles it separately)."""
+    """Return True when Pass 2 must ignore this line.
+
+    Skips object instantiation (``= new ``) and control-flow prefixes handled
+    by Pass 3 or outside variable-pooling scope: ``for``, ``while``, ``if``,
+    ``else``, ``return``.
+
+    Args:
+        raw_line: Original line before comment splitting (checks ``= new ``).
+        code: Code portion after ``//`` removal.
+
+    Returns:
+        ``True`` if the line should not contribute to union-find pooling.
+    """
     if "= new " in raw_line:
         return True
     stripped = code.lstrip()
@@ -413,7 +518,22 @@ def should_skip_pass2_line(raw_line: str, code: str) -> bool:
 
 
 def collect_hoc_pools(text: str) -> tuple[dict[str, str], dict[str, str], dict[str, str]]:
-    """Return (parent, heuristic_hints, explicit_vars) from block-comment-stripped HOC text."""
+    """Build union-find pools and unit hints from block-comment-stripped HOC text.
+
+    Unions assignment-linked identifiers (``lhs = rhs``), collects ``//`` comment
+    unit hints, records explicit ``strdef``/``objref``/``create``/``double``
+    declarations, and skips lines inside ``func``/``proc`` bodies and Pass 3
+    constructs (``= new ``).
+
+    Args:
+        text: HOC source with ``/* */`` blocks removed but ``//`` comments kept.
+
+    Returns:
+        Tuple of ``(parent, heuristic_hints, explicit_vars)``:
+            - ``parent``: union-find parent map for equivalence pooling.
+            - ``heuristic_hints``: ``{var_name: unit}`` from ``//`` comments.
+            - ``explicit_vars``: ``{var_name: "N/A"}`` for typed declarations.
+    """
     parent: dict[str, str] = {}
     heuristic_hints: dict[str, str] = {}
     explicit_vars: dict[str, str] = {
@@ -460,7 +580,24 @@ def match_pool_against_registry(
     canonical_registry: dict[str, str],
     canonical_registry_files: dict[str, str],
 ) -> tuple[str, str, str] | None:
-    """Run registry tiers 0-3; return (unit, method, mod filename) on first parsed match."""
+    """Match a pool against the mod registry using four strategies in order.
+
+    Strategies (first parsed unit wins):
+        1. ``exact`` — member name in registry with unit != ``"???"``.
+        2. ``canonical`` — alphanumeric-lowercase form in canonical registry.
+        3. ``substring`` — member (len > 3) contained in a registry key.
+        4. ``levenshtein`` — edit distance <= 2 to a registry key (len > 4).
+
+    Args:
+        members: Sorted identifiers in one equivalence pool.
+        registry: Global ``{name: unit}`` from ``build_global_mod_registry``.
+        registry_files: ``{name: mod_basename}`` parallel to ``registry``.
+        canonical_registry: Canonical-name variant of ``registry``.
+        canonical_registry_files: Canonical-name variant of ``registry_files``.
+
+    Returns:
+        ``(unit, resolution_method, mod_basename)`` on first match, else ``None``.
+    """
     for var in members:
         if var in registry and is_parsed_unit(registry[var]):
             return registry[var], "exact", registry_files[var]
@@ -488,7 +625,22 @@ def match_pool_registry_undefined(
     canonical_registry: dict[str, str],
     canonical_registry_files: dict[str, str],
 ) -> str | None:
-    """Return the mod filename when a pool member matches the registry with unit '???'."""
+    """Return the mod basename when a pool member matches a registry entry with unit ``"???"``.
+
+    Uses the same four match strategies as ``match_pool_against_registry`` but
+    selects entries whose unit is unresolved (``"???"``), indicating a known
+    mod symbol without a parsed unit.
+
+    Args:
+        members: Sorted identifiers in one equivalence pool.
+        registry: Global ``{name: unit}`` map.
+        registry_files: ``{name: mod_basename}`` parallel to ``registry``.
+        canonical_registry: Canonical-name variant of ``registry``.
+        canonical_registry_files: Canonical-name variant of ``registry_files``.
+
+    Returns:
+        Mod file basename of the first undefined match, or ``None``.
+    """
     for var in members:
         if var in registry and not is_parsed_unit(registry[var]):
             return registry_files[var]
@@ -517,7 +669,24 @@ def match_pool_waterfall(
     canonical_registry_files: dict[str, str],
     heuristic_hints: dict[str, str],
 ) -> tuple[str, str, str] | None:
-    """Run the full resolution waterfall including HOC // comment unit hints."""
+    """Run the full unit-resolution waterfall for one equivalence pool.
+
+    Order:
+        1. Registry match with parsed unit (``match_pool_against_registry``).
+        2. Registry match with unit ``"???"`` → ``("???", "resolved_undefined", mod_basename)``.
+        3. HOC ``//`` comment hint → ``(unit, "heuristic", "NA")``.
+
+    Args:
+        members: Sorted identifiers in one equivalence pool.
+        registry: Global ``{name: unit}`` map.
+        registry_files: ``{name: mod_basename}`` parallel to ``registry``.
+        canonical_registry: Canonical-name variant of ``registry``.
+        canonical_registry_files: Canonical-name variant of ``registry_files``.
+        heuristic_hints: ``{var_name: unit}`` from ``collect_hoc_pools``.
+
+    Returns:
+        ``(unit, resolution_method, resolution_file)`` or ``None`` if unresolved.
+    """
     match = match_pool_against_registry(
         members,
         registry,
@@ -550,7 +719,24 @@ def resolve_pool(
     canonical_registry_files: dict[str, str],
     heuristic_hints: dict[str, str],
 ) -> list[dict]:
-    """Resolve one equivalence pool into variable dicts with resolution metadata."""
+    """Resolve one equivalence pool into HOC variable dicts with metadata.
+
+    Applies ``match_pool_waterfall``; when no strategy matches, emits
+    ``unit="???"``, ``resolution_method="unresolved"``, ``resolution_file="NA"``
+    for every member.
+
+    Args:
+        pool: Set of aliased identifier names from union-find grouping.
+        registry: Global mod registry ``{name: unit}``.
+        registry_files: ``{name: mod_basename}`` parallel to ``registry``.
+        canonical_registry: Canonical-name variant of ``registry``.
+        canonical_registry_files: Canonical-name variant of ``registry_files``.
+        heuristic_hints: ``{var_name: unit}`` from ``collect_hoc_pools``.
+
+    Returns:
+        List of dicts, one per pool member:
+        ``{name, unit, resolution_method, resolution_file}``.
+    """
     members = sorted(pool)
     match = match_pool_waterfall(
         members,
@@ -595,7 +781,22 @@ def extract_hoc_variables(
     registry: dict[str, str],
     registry_files: dict[str, str],
 ) -> list[dict]:
-    """Resolve a .hoc file's variables via equivalence pooling + the registry waterfall."""
+    """Resolve all variables for one HOC-family file via pooling and waterfall.
+
+    Strips block comments, builds union-find pools from assignments, resolves
+    each non-explicit pool through ``resolve_pool``, and prepends explicit
+    declarations with ``resolution_method="explicit_declaration"``.
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        hoc_relpath: Repository-relative HOC-family path.
+        registry: Global mod registry from ``build_global_mod_registry``.
+        registry_files: ``{name: mod_basename}`` parallel to ``registry``.
+
+    Returns:
+        List of variable dicts:
+        ``{name, unit, resolution_method, resolution_file}``.
+    """
     raw_text = utils.read_text_file(repo_root / hoc_relpath)
     block_stripped = utils.strip_hoc_block_comments(raw_text)
     parent, heuristic_hints, explicit_vars = collect_hoc_pools(block_stripped)
@@ -633,7 +834,17 @@ def build_hoc_variables_map(
     registry: dict[str, str],
     registry_files: dict[str, str],
 ) -> dict[str, list[dict]]:
-    """Map each hoc relpath to its resolved variables list."""
+    """Map each HOC-family relpath to its Pass 2 resolved variables list.
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        hoc_relpaths: Discovered HOC-family relative paths.
+        registry: Global mod registry from ``build_global_mod_registry``.
+        registry_files: ``{name: mod_basename}`` parallel to ``registry``.
+
+    Returns:
+        ``{hoc_relpath: [{name, unit, resolution_method, resolution_file}, ...]}``.
+    """
     return {
         p: extract_hoc_variables(repo_root, p, registry, registry_files)
         for p in hoc_relpaths
@@ -643,5 +854,15 @@ def build_hoc_variables_map(
 def build_mod_variables_map(
     repo_root: Path, mod_relpaths: list[str]
 ) -> dict[str, list[dict]]:
-    """Map each mod relpath to its extracted variables list."""
+    """Map each ``.mod`` relpath to its Pass 2 extracted variables list.
+
+    MOD variables contain only ``name`` and ``unit`` (no resolution metadata).
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        mod_relpaths: Discovered ``.mod`` relative paths.
+
+    Returns:
+        ``{mod_relpath: [{name, unit}, ...]}``.
+    """
     return {p: extract_mod_variables(repo_root, p) for p in mod_relpaths}

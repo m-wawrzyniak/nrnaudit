@@ -1,4 +1,11 @@
-"""Cytoscape.js Graph JSON serialization adapter."""
+"""Cytoscape.js graph JSON serialization adapter.
+
+Converts the internal flat graph from Phase 4 into the Cytoscape.js
+``elements`` schema: nodes and edges wrapped in ``{"data": ...}`` envelopes,
+stable edge IDs, and a derived ``variables_flat`` display string per node.
+
+Consumed by ``main`` for export and by ``utility_gui`` when loading saved graphs.
+"""
 
 from __future__ import annotations
 
@@ -42,7 +49,20 @@ def wrap_edges(edges: list[dict]) -> list[dict]:
 
 
 def to_cytoscape(graph: dict) -> dict:
-    """Convert a flat build_graph dict to Cytoscape.js elements schema."""
+    """Convert a flat ``build_graph`` dict to Cytoscape.js elements schema.
+
+    Wraps each node and edge in a ``{"data": ...}`` envelope, assigns stable
+    edge IDs via ``make_edge_id``, and adds ``variables_flat`` (a pipe-separated
+    ``name (unit)`` summary) to nodes that carry a ``variables`` list.
+
+    Args:
+        graph: Internal flat graph with ``nodes`` and ``edges`` keys.
+
+    Returns:
+        ``{"elements": {"nodes": [...], "edges": [...]}}`` ready for Cytoscape.js
+        or the Dash GUI. Additional top-level fields may be added by ``main``
+        (e.g. ``simulation_flow``) after this call.
+    """
     return {
         "elements": {
             "nodes": wrap_nodes(graph["nodes"]),

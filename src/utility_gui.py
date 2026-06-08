@@ -1,4 +1,12 @@
-"""Pure helper utilities for the Dash Cytoscape GUI."""
+"""Pure helper utilities for the Dash Cytoscape GUI.
+
+Stateless functions for loading graph JSON, building Cytoscape stylesheets and
+layouts, filtering orphan visibility, manual edge drawing, inspector variable
+sync, and annotated export. Contains no Dash callbacks; ``gui_app`` wires these
+helpers into interactive UI components.
+
+Export preserves top-level fields beyond ``elements`` (e.g. ``simulation_flow``).
+"""
 
 from __future__ import annotations
 
@@ -51,7 +59,7 @@ def extract_elements(graph_data: dict) -> list[dict]:
 
 
 def build_stylesheet() -> list[dict]:
-    """Return the Cytoscape stylesheet rules from the GUI spec."""
+    """Return the Dash Cytoscape stylesheet rules defined in this module."""
     return [
         {
             "selector": "node",
@@ -159,7 +167,20 @@ def build_cytoscape_layout(layout_name: str) -> dict:
 def filter_visible_elements(
     elements: list[dict], hide_unconnected_orphans: bool
 ) -> list[dict]:
-    """Return elements visible in the graph; optionally hide unconnected orphans."""
+    """Return elements visible in the graph; optionally hide unconnected orphans.
+
+    When hiding is enabled, seeds visibility from core node types (``hoc``,
+    ``mechanism``, ``mod_file``) and flood-fills through edges until no new
+    nodes are reachable. Orphan nodes not connected to the core subgraph are
+    omitted along with their incident edges.
+
+    Args:
+        elements: Flat Cytoscape elements list (nodes + edges).
+        hide_unconnected_orphans: When True, apply orphan filtering.
+
+    Returns:
+        Filtered elements list preserving node/edge connectivity rules.
+    """
     if not hide_unconnected_orphans:
         return elements
 
@@ -219,7 +240,20 @@ def edge_exists(elements: list[dict], edge_id: str) -> bool:
 def append_user_edge(
     elements: list[dict], source: str, target: str
 ) -> tuple[list[dict], str | None]:
-    """Append a user-drawn edge, or return an error message."""
+    """Append a user-drawn annotated edge, or return an error message.
+
+    Creates an edge with ``relation: "annotated"`` and a stable ID from
+    ``make_edge_id``. Rejects self-loops, missing nodes, and duplicates.
+
+    Args:
+        elements: Current flat Cytoscape elements list.
+        source: Source node ID.
+        target: Target node ID.
+
+    Returns:
+        Tuple of ``(updated_elements, error_message)``. ``error_message`` is
+        ``None`` on success.
+    """
     if source == target:
         return elements, "Cannot connect a node to itself."
 
@@ -245,7 +279,19 @@ def append_user_edge(
 def apply_connect_tap(
     pending_source: str | None, node_id: str, elements: list[dict]
 ) -> tuple[str | None, list[dict], str]:
-    """Advance the two-click connect flow for one node tap."""
+    """Advance the two-click manual edge-drawing flow for one node tap.
+
+    First tap sets the pending source; second tap calls ``append_user_edge``
+    and clears the pending state.
+
+    Args:
+        pending_source: Currently selected source node ID, or ``None``.
+        node_id: ID of the node just tapped.
+        elements: Current flat Cytoscape elements list.
+
+    Returns:
+        Tuple of ``(new_pending_source, updated_elements, status_message)``.
+    """
     if pending_source is None:
         return node_id, elements, f"Source: {node_id}. Click target."
 
@@ -294,7 +340,15 @@ def build_variables_datatable() -> dash_table.DataTable:
 def apply_manual_overrides(
     current: list[dict], previous: list[dict]
 ) -> list[dict]:
-    """Tag edited unit rows with resolution_method='manual'."""
+    """Tag inspector rows whose unit column changed with ``resolution_method='manual'``.
+
+    Args:
+        current: Latest DataTable row dicts from the inspector.
+        previous: Prior DataTable snapshot before the edit.
+
+    Returns:
+        Copy of ``current`` with ``resolution_method`` updated on changed units.
+    """
     updated = [dict(row) for row in current]
     previous_by_name = {row["name"]: row for row in previous}
     for row in updated:
@@ -307,7 +361,20 @@ def apply_manual_overrides(
 def sync_variables_to_elements(
     elements: list[dict], node_id: str, table_data: list[dict]
 ) -> list[dict]:
-    """Write edited table rows back into the matching Cytoscape node."""
+    """Write edited inspector table rows back into the matching Cytoscape node.
+
+    Updates the node's ``variables`` list and recomputes ``variables_flat`` when
+    present. Non-matching elements are returned unchanged.
+
+    Args:
+        elements: Full flat Cytoscape elements list (authoritative store).
+        node_id: ID of the node being edited.
+        table_data: Inspector DataTable rows with ``name``, ``unit``, and
+            optional ``resolution_method``.
+
+    Returns:
+        New elements list with the target node's variables synchronized.
+    """
     updated_elements: list[dict] = []
     for element in elements:
         data = element.get("data", {})
@@ -345,7 +412,18 @@ def sync_variables_to_elements(
 def build_export_payload(
     elements: list[dict], extra_fields: dict | None = None
 ) -> dict:
-    """Reconstruct the .cyjs export schema from live Cytoscape elements."""
+    """Reconstruct the ``.cyjs`` export schema from live Cytoscape elements.
+
+    Splits nodes and edges back into ``{"elements": {"nodes", "edges"}}`` and
+    merges any extra top-level fields (e.g. ``simulation_flow``) unchanged.
+
+    Args:
+        elements: Full flat Cytoscape elements list including user edges.
+        extra_fields: Optional top-level fields to preserve beyond ``elements``.
+
+    Returns:
+        Export-ready dict suitable for ``serialize_export``.
+    """
     nodes = [element for element in elements if "source" not in element["data"]]
     edges = [element for element in elements if "source" in element["data"]]
     payload = {"elements": {"nodes": nodes, "edges": edges}}
@@ -357,7 +435,15 @@ def build_export_payload(
 def serialize_export(
     elements: list[dict], extra_fields: dict | None = None
 ) -> str:
-    """Serialize the export payload to indented JSON."""
+    """Serialize the export payload to indented JSON.
+
+    Args:
+        elements: Full flat Cytoscape elements list.
+        extra_fields: Optional top-level fields passed to ``build_export_payload``.
+
+    Returns:
+        Indented JSON string for download as ``annotated_neuron_dependencies.cyjs``.
+    """
     return json.dumps(
         build_export_payload(elements, extra_fields), indent=2, sort_keys=False
     )

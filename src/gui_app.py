@@ -1,4 +1,11 @@
-"""Dash Cytoscape web UI entry point for the NEURON dependency graph."""
+"""Dash Cytoscape web UI entry point for the NEURON dependency graph.
+
+Loads a ``neuron_dependencies.cyjs`` file produced by ``main``, presents an
+interactive split-pane layout (graph/code inspector), and registers Dash
+callbacks for layout switching, orphan filtering, manual edge annotation, and
+export. Business logic lives in ``utility_gui``; this module handles CLI args,
+validation, layout composition, and callback registration.
+"""
 
 from __future__ import annotations
 
@@ -234,7 +241,17 @@ def build_layout(
 def register_callbacks(
     app: Dash, repo_root: Path, extra_export_fields: dict | None = None
 ) -> None:
-    """Register view-toggle, inspector, edit-sync, and export callbacks."""
+    """Register all Dash callbacks for the graph inspector UI.
+
+    Callback groups:
+        - View toggle — switch graph/code pane visibility.
+        - Layout — apply Dagre, Cose, or circle layout.
+        - Inspector — populate metadata, variables table, and source on node tap.
+        - Edit sync — propagate manual unit edits to the graph store.
+        - Orphan filter — hide/show unconnected orphan nodes.
+        - Connect mode — two-click manual edge drawing.
+        - Export — download annotated ``.cyjs`` JSON.
+    """
 
     @app.callback(
         Output("graph-container", "style"),
@@ -242,6 +259,7 @@ def register_callbacks(
         Input("view-toggle", "value"),
     )
     def _toggle_view(view_value):
+        """Toggle graph vs. code pane visibility styles."""
         return utility_gui.compute_view_styles(view_value)
 
     @app.callback(
@@ -249,6 +267,7 @@ def register_callbacks(
         Input("layout-selector", "value"),
     )
     def _switch_layout(layout_name):
+        """Apply the selected Cytoscape layout algorithm."""
         return utility_gui.build_cytoscape_layout(layout_name)
 
     @app.callback(
@@ -259,6 +278,7 @@ def register_callbacks(
         Input("cytoscape-graph", "tapNodeData"),
     )
     def _inspect_node(node_data):
+        """Populate the inspector panel when a node is tapped."""
         if node_data is None:
             return ("Inspector", "", [], "")
         title = node_data.get("id", "Inspector")
@@ -291,6 +311,7 @@ def register_callbacks(
         full_elements,
         hide_toggle,
     ):
+        """Sync manual variable edits from the inspector back to graph elements."""
         if table_data_previous is None or node_data is None:
             raise PreventUpdate
 
@@ -312,6 +333,7 @@ def register_callbacks(
         prevent_initial_call=True,
     )
     def _apply_visibility_filter(hide_toggle, full_elements):
+        """Re-filter visible elements when the hide-orphans toggle changes."""
         return utility_gui.filter_visible_elements(
             full_elements, is_hide_orphans_enabled(hide_toggle)
         )
@@ -323,6 +345,7 @@ def register_callbacks(
         prevent_initial_call=True,
     )
     def _on_connect_mode_toggle(mode):
+        """Reset connect state when draw-edge mode is toggled."""
         if is_connect_mode_enabled(mode):
             return None, "Click source node."
         return None, ""
@@ -342,6 +365,7 @@ def register_callbacks(
     def _handle_connect_tap(
         node_data, mode, pending_source, full_elements, hide_toggle
     ):
+        """Handle a node tap during two-click manual edge drawing."""
         if not is_connect_mode_enabled(mode) or node_data is None:
             raise PreventUpdate
 
@@ -361,6 +385,7 @@ def register_callbacks(
         prevent_initial_call=True,
     )
     def _export_cyjs(n_clicks, full_elements):
+        """Serialize the full graph store for browser download."""
         if n_clicks is None:
             raise PreventUpdate
         export_json = utility_gui.serialize_export(
@@ -370,7 +395,19 @@ def register_callbacks(
 
 
 def create_app(graph_data: dict, repo_root: Path) -> Dash:
-    """Create and configure the Dash application."""
+    """Create and configure the Dash application.
+
+    Loads elements from ``graph_data``, applies default orphan hiding, builds
+    layout and stylesheet, and registers callbacks. Preserves non-``elements``
+    top-level fields (e.g. ``simulation_flow``) for export.
+
+    Args:
+        graph_data: Parsed ``neuron_dependencies.cyjs`` dict.
+        repo_root: NEURON project root for source-file resolution in inspector.
+
+    Returns:
+        Configured ``Dash`` app ready to run.
+    """
     elements = utility_gui.extract_elements(graph_data)
     visible_elements = utility_gui.filter_visible_elements(elements, True)
     stylesheet = utility_gui.build_stylesheet()
@@ -386,7 +423,11 @@ def create_app(graph_data: dict, repo_root: Path) -> Dash:
 
 
 def main() -> None:
-    """Load data, create the app, and start the local server."""
+    """Load graph data, create the app, and start the local Dash server.
+
+    Validates CLI arguments, input directory, and graph JSON schema, then
+    serves the GUI at ``--host``/``--port``. Optionally opens the browser.
+    """
     args = parse_args()
     repo_root = args.input.resolve()
     data_path = args.data.resolve()

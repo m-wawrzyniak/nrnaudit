@@ -1,4 +1,12 @@
-"""Phase 2: NMODL (.mod) mechanism name extraction."""
+"""Phase 2: NMODL (``.mod``) mechanism name extraction.
+
+Strips NMODL comments, locates the ``NEURON { ... }`` block, and reads the
+declared mechanism name from ``SUFFIX``, ``POINT_PROCESS``, or ``ARTIFICIAL_CELL``.
+
+Produces ``{mechanism_name: mod_relpath}`` where the first declaration wins on
+name collision. Files without a parseable NEURON block are omitted from the map
+and later appear as ``mod_file`` nodes in Phase 4.
+"""
 
 from __future__ import annotations
 
@@ -31,7 +39,19 @@ def extract_mechanism_name(neuron_block_body: str) -> str | None:
 
 
 def parse_mod_file(repo_root: Path, mod_relpath: str) -> str | None:
-    """Return the mechanism name declared in a single .mod file, or None."""
+    """Return the mechanism name declared in a single ``.mod`` file.
+
+    Strips NMODL comments, extracts the ``NEURON { ... }`` block body, and
+    reads the first ``SUFFIX``, ``POINT_PROCESS``, or ``ARTIFICIAL_CELL`` name.
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        mod_relpath: Repository-relative path to the ``.mod`` file.
+
+    Returns:
+        Declared mechanism name, or ``None`` when no NEURON block or keyword
+        declaration is found.
+    """
     text = utils.read_text_file(repo_root / mod_relpath)
     stripped = utils.strip_mod_comments(text)
     body = extract_neuron_block_body(stripped)
@@ -41,7 +61,19 @@ def parse_mod_file(repo_root: Path, mod_relpath: str) -> str | None:
 
 
 def build_mechanism_map(repo_root: Path, mod_relpaths: list[str]) -> dict[str, str]:
-    """Map mechanism names to relative .mod paths (first declaration wins on collision)."""
+    """Map mechanism names to relative ``.mod`` paths.
+
+    Parses each discovered ``.mod`` file and records the mechanism name from
+    ``SUFFIX``, ``POINT_PROCESS``, or ``ARTIFICIAL_CELL``. When two files
+    declare the same name, the first path in ``mod_relpaths`` order wins.
+
+    Args:
+        repo_root: Absolute path to the NEURON project root.
+        mod_relpaths: Sorted repository-relative ``.mod`` paths from Phase 1.
+
+    Returns:
+        ``{mechanism_name: mod_relpath}`` for all successfully parsed files.
+    """
     mechanism_map: dict[str, str] = {}
     for mod_relpath in mod_relpaths:
         name = parse_mod_file(repo_root, mod_relpath)
