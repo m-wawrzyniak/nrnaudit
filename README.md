@@ -67,6 +67,16 @@ Required arguments:
 * `--input` / `-i` — root directory of the NEURON codebase to analyze
 * `--output` / `-o` — directory where `neuron_dependencies.cyjs` is created (created if missing)
 
+HOC discovery includes `.hoc`, `.tem`, and `.oc` files. All successfully parsed mechanisms from `.mod` files appear as graph nodes; HOC `insert` statements add `inserts` edges only to the subset that is actually used. `.mod` files without an extractable mechanism name appear as `mod_file` nodes. Orphan file nodes (gray in the GUI) are created for non-HOC, non-mod files with these extensions by default: `.txt`, `.md`, `.dat`, `.py`, `.html`. Orphan files are not parsed for variables.
+
+Optional argument:
+
+* `--orphan-extensions` — additional extensions to include as orphan nodes (merged with defaults), e.g.:
+
+```bash
+python -m src.main -i ./model -o out --orphan-extensions csv h
+```
+
 ---
 
 ## 5. Running the visualization GUI
@@ -111,6 +121,10 @@ Optional arguments:
 * `--port` — port number (default: `8050`)
 * `--open-browser` — open the GUI in your default browser on startup
 * `--debug` — enable development mode (auto-reload and in-browser debugger)
+
+The toolbar includes **Hide unconnected orphan files** (on by default). When checked, only HOC/mechanism nodes and orphan files connected to them via edges are shown. Uncheck to display all orphan file nodes. Export always includes the full graph regardless of the toggle.
+
+Enable **Draw edge** to add user-defined links with two clicks: tap the source node, then the target. New edges use `relation: "annotated"` (green dotted lines) and are included in exported `.cyjs` files.
 
 Example with browser auto-open:
 
